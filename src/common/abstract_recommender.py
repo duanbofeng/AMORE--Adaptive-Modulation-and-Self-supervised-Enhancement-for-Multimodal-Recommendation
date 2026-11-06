@@ -87,7 +87,7 @@ class GeneralRecommender(AbstractRecommender):
         # load encoded features here
         self.v_feat, self.t_feat = None, None
         if not config['end2end'] and config['is_multimodal_model']:
-            dataset_path = os.path.abspath(os.getcwd()+config['data_path'] + config['dataset'])
+            dataset_path = os.path.join(config['data_path'], config['dataset'])
             # if file exist?
             v_feat_file_path = os.path.join(dataset_path, config['vision_feature_file'])
             t_feat_file_path = os.path.join(dataset_path, config['text_feature_file'])

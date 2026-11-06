@@ -4,7 +4,7 @@ use_gpu: True
 seed: [999]
 
 # multi-modal raw features
-data_path: '/data/'
+data_path: 'data/'
 save_path: '/src/saved/'
 
 inter_splitting_label: 'x_label'

@@ -1,6 +1,7 @@
 
 import re
 import os
+from pathlib import Path
 import yaml
 import torch
 from logging import getLogger
@@ -56,18 +57,20 @@ class Config(object):
         self.final_config_dict = self._load_dataset_model_config(config_dict)
         # config in cmd and main.py are latest
         self.final_config_dict.update(config_dict)
+        self.final_config_dict['data_path'] = os.path.abspath(
+            os.path.join(self.project_root, self.final_config_dict['data_path'])
+        )
         self._set_default_parameters()
         self._init_device()
 
     def _load_dataset_model_config(self, config_dict):
         file_config_dict = dict()
         file_list = []
-        # get dataset and model files
-        cur_dir = os.getcwd()
-        cur_dir = os.path.join(cur_dir, 'src/configs')
-        file_list.append(os.path.join(cur_dir, "overall.yaml"))
-        file_list.append(os.path.join(cur_dir, "dataset", "{}.yaml".format(config_dict['dataset'])))
-        file_list.append(os.path.join(cur_dir, "model", "{}.yaml".format(config_dict['model'].upper())))
+        self.project_root = Path(__file__).resolve().parents[2]
+        config_dir = self.project_root / 'src' / 'configs'
+        file_list.append(config_dir / "overall.yaml")
+        file_list.append(config_dir / "dataset" / "{}.yaml".format(config_dict['dataset']))
+        file_list.append(config_dir / "model" / "{}.yaml".format(config_dict['model'].upper()))
 
         for file in file_list:
             if os.path.isfile(file):

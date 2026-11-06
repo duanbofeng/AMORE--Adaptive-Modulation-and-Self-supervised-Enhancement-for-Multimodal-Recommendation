@@ -9,8 +9,8 @@ This is the Pytorch implementation for our GUME paper:
 >GUME: Graphs and User Modalities Enhancement for Long-Tail Multimodal Recommendation
 
 ## Environment Requirement
-- python 3.7.11
-- Pytorch 1.11.0
+- Python 3.10 or later
+- Install dependencies with `pip install -r requirements.txt`
 
 ## Dataset
 
@@ -20,8 +20,7 @@ Download from Google Drive: [Baby/Sports/Clothing/Electronics](https://drive.goo
 
 ## Training
   ```
-  cd ./src
-  python main.py
+  python src/main.py
   ```
 ## Performance Comparison
 <img src="image/result.png" width="900px" height="380px"/>

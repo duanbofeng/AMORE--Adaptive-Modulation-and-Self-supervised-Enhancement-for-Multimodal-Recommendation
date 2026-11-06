@@ -42,7 +42,7 @@ class GUME(GeneralRecommender):
         self.extended_text_user = nn.Embedding(self.n_users, self.embedding_dim)
         nn.init.xavier_uniform_(self.extended_text_user.weight)
 
-        self.dataset_path = os.path.abspath(os.getcwd()+config['data_path'] + config['dataset'])
+        self.dataset_path = os.path.join(config['data_path'], config['dataset'])
         self.data_name = config['dataset']
 
         image_adj_file = os.path.join(self.dataset_path, 'image_adj_{}_{}.pt'.format(self.knn_k, self.sparse))
@@ -51,22 +51,22 @@ class GUME(GeneralRecommender):
         if self.v_feat is not None:
             self.image_embedding = nn.Embedding.from_pretrained(self.v_feat, freeze=False)
             if os.path.exists(image_adj_file):
-                image_adj = torch.load(image_adj_file)
+                image_adj = torch.load(image_adj_file, map_location=self.device)
             else:
                 image_adj = build_sim(self.image_embedding.weight.detach())
                 image_adj = build_knn_normalized_graph(image_adj, topk=self.knn_k, is_sparse=self.sparse,norm_type='sym')
                 torch.save(image_adj, image_adj_file)
-            self.image_original_adj = image_adj.cuda()
+            self.image_original_adj = image_adj.to(self.device)
 
         if self.t_feat is not None:
             self.text_embedding = nn.Embedding.from_pretrained(self.t_feat, freeze=False)
             if os.path.exists(text_adj_file):
-                text_adj = torch.load(text_adj_file)
+                text_adj = torch.load(text_adj_file, map_location=self.device)
             else:
                 text_adj = build_sim(self.text_embedding.weight.detach())
                 text_adj = build_knn_normalized_graph(text_adj, topk=self.knn_k, is_sparse=self.sparse, norm_type='sym')
                 torch.save(text_adj, text_adj_file)
-            self.text_original_adj = text_adj.cuda()
+            self.text_original_adj = text_adj.to(self.device)
 
         #  Enhancing User-Item Graph
         self.inter = self.find_inter(self.image_original_adj, self.text_original_adj)
@@ -160,7 +160,7 @@ class GUME(GeneralRecommender):
         sim_cols = torch.tensor(sim_cols)
         sim_values = [1]*len(sim_rows)
 
-        item_adj = sp.coo_matrix((sim_values, (sim_rows, sim_cols)), shape=(self.n_items,self.n_items), dtype=np.int)
+        item_adj = sp.coo_matrix((sim_values, (sim_rows, sim_cols)), shape=(self.n_items,self.n_items), dtype=np.int64)
         return item_adj
     
     def pre_epoch_processing(self):

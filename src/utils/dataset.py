@@ -4,9 +4,6 @@ from collections import Counter
 import os
 import pandas as pd
 import numpy as np
-import torch
-from utils.data_utils import (ImageResize, ImagePad, image_to_tensor, load_decompress_img_from_lmdb_value)
-import lmdb
 
 class RecDataset(object):
     def __init__(self, config, df=None):
@@ -15,7 +12,7 @@ class RecDataset(object):
 
         # data path & files
         self.dataset_name = config['dataset']
-        self.dataset_path = os.path.abspath(os.getcwd()+config['data_path']+self.dataset_name)
+        self.dataset_path = os.path.join(config['data_path'], self.dataset_name)
 
         # dataframe
         self.uid_field = self.config['USER_ID_FIELD']

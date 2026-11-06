@@ -261,8 +261,8 @@ class ImageNorm(object):
     """Apply Normalization to Image Pixels on GPU
     """
     def __init__(self, mean, std):
-        self.mean = torch.tensor(mean).cuda().view(1, 1, 3, 1, 1)
-        self.std = torch.tensor(std).cuda().view(1, 1, 3, 1, 1)
+        self.mean = torch.tensor(mean).view(1, 1, 3, 1, 1)
+        self.std = torch.tensor(std).view(1, 1, 3, 1, 1)
         # assert max(std) <= 1 and min(std) >= 0\
         #     or max(mean) <= 1 and min(mean) >= 0,\
         #         "Please provide mean or std within range [0, 1]"
@@ -275,9 +275,11 @@ class ImageNorm(object):
         Returns:
             img: normalized float image tensors
         """
-        if torch.max(img) > 1 and self.mean.max() <= 1:
+        mean = self.mean.to(img.device)
+        std = self.std.to(img.device)
+        if torch.max(img) > 1 and mean.max() <= 1:
             img.div_(255.)
-        return img.sub_(self.mean).div_(self.std)
+        return img.sub_(mean).div_(std)
 
 
 def chunk_list(examples, chunk_size=2, pad_to_divisible=True):
@@ -377,4 +379,3 @@ def load_decompress_img_from_lmdb_value(lmdb_value):
     io_stream = io.BytesIO(lmdb_value)
     img = Image.open(io_stream, mode="r")
     return img
-
