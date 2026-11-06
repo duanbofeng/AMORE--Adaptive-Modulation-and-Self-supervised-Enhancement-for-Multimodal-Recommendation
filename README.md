@@ -22,6 +22,30 @@ Download from Google Drive: [Baby/Sports/Clothing/Electronics](https://drive.goo
   ```
   python src/main.py
   ```
+
+### TensorBoard
+
+Each training run writes TensorBoard events under `runs/<model>-<dataset>/`.
+For example, to train GUME on the Clothing dataset:
+
+```bash
+python src/main.py -m gume -d clothing
+```
+
+Start TensorBoard on the training server:
+
+```bash
+tensorboard --logdir runs --host 127.0.0.1 --port 6006
+```
+
+On your local computer, forward the port over SSH (replace `<username>` with your server login):
+
+```bash
+ssh -N -L 6006:127.0.0.1:6006 -p <ssh-port> <username>@<server-address>
+```
+
+Then open `http://localhost:6006`. Select multiple runs in the Scalars dashboard to compare their curves.
+
 ## Performance Comparison
 <img src="image/result.png" width="900px" height="380px"/>
 

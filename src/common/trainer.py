@@ -7,6 +7,7 @@ import os
 import itertools
 import torch
 import torch.optim as optim
+from torch.utils.tensorboard import SummaryWriter
 from torch.nn.utils.clip_grad import clip_grad_norm_
 import numpy as np
 import matplotlib.pyplot as plt
@@ -101,6 +102,8 @@ class Trainer(AbstractTrainer):
 
         self.item_tensor = None
         self.tot_item_num = None
+        self.tensorboard_writer = SummaryWriter(log_dir=config['tensorboard_log_dir'])
+        self.tensorboard_writer.add_text('run/config', str(config))
 
     def _build_optimizer(self):
         r"""Init the Optimizer
@@ -192,6 +195,13 @@ class Trainer(AbstractTrainer):
         return train_loss_output + ']'
 
     def fit(self, train_data, valid_data=None, test_data=None, saved=False, verbose=True):
+        try:
+            return self._fit(train_data, valid_data, test_data, saved, verbose)
+        finally:
+            self.tensorboard_writer.flush()
+            self.tensorboard_writer.close()
+
+    def _fit(self, train_data, valid_data=None, test_data=None, saved=False, verbose=True):
         r"""Train the model based on the train data and the valid data.
 
         Args:
@@ -219,6 +229,18 @@ class Trainer(AbstractTrainer):
 
             self.train_loss_dict[epoch_idx] = sum(train_loss) if isinstance(train_loss, tuple) else train_loss
             training_end_time = time()
+            step = epoch_idx + 1
+            if isinstance(train_loss, tuple):
+                self.tensorboard_writer.add_scalar('train/loss', sum(train_loss), step)
+                for loss_idx, loss_value in enumerate(train_loss, start=1):
+                    self.tensorboard_writer.add_scalar(
+                        f'train/loss_component_{loss_idx}', loss_value, step
+                    )
+            else:
+                self.tensorboard_writer.add_scalar('train/loss', train_loss, step)
+            self.tensorboard_writer.add_scalar(
+                'train/learning_rate', self.optimizer.param_groups[0]['lr'], step
+            )
             train_loss_output = self._generate_train_loss_output(epoch_idx, training_start_time, training_end_time, train_loss)
             post_info = self.model.post_epoch_processing()
             if verbose:
@@ -230,6 +252,9 @@ class Trainer(AbstractTrainer):
             if (epoch_idx + 1) % self.eval_step == 0:
                 valid_start_time = time()
                 valid_score, valid_result = self._valid_epoch(valid_data)
+                self.tensorboard_writer.add_scalar('validation/score', valid_score, step)
+                for metric, value in valid_result.items():
+                    self.tensorboard_writer.add_scalar(f'validation/{metric}', value, step)
                 self.best_valid_score, self.cur_step, stop_flag, update_flag = early_stopping(
                     valid_score, self.best_valid_score, self.cur_step,
                     max_step=self.stopping_step, bigger=self.valid_metric_bigger)
@@ -239,6 +264,9 @@ class Trainer(AbstractTrainer):
                 valid_result_output = 'valid result: \n' + dict2str(valid_result)
                 # test
                 _, test_result = self._valid_epoch(test_data)
+                for metric, value in test_result.items():
+                    self.tensorboard_writer.add_scalar(f'test/{metric}', value, step)
+                self.tensorboard_writer.flush()
                 if verbose:
                     self.logger.info(valid_score_output)
                     self.logger.info(valid_result_output)
@@ -300,4 +328,3 @@ class Trainer(AbstractTrainer):
             plt.show()
         if save_path:
             plt.savefig(save_path)
-

@@ -62,6 +62,22 @@ def quick_start(model, dataset, config_dict, save_model=True):
         logger.info('========={}/{}: Parameters:{}={}======='.format(
             idx+1, total_loops, config['hyper_parameters'], hyper_tuple))
 
+        run_name = '{}-{}-{}'.format(
+            idx + 1,
+            '-'.join(
+                '{}-{}'.format(name, value)
+                for name, value in zip(config['hyper_parameters'], hyper_tuple)
+            ),
+            local_time,
+        )
+        runs_dir = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), '..', '..', 'runs')
+        )
+        config['tensorboard_log_dir'] = os.path.join(
+            runs_dir, '{}-{}'.format(model, dataset.dataset_name), run_name
+        )
+        logger.info('TensorBoard run directory: {}'.format(config['tensorboard_log_dir']))
+
         # set random state of dataloader
         train_data.pretrain_setup()
         # model loading and initialization
@@ -99,4 +115,3 @@ def quick_start(model, dataset, config_dict, save_model=True):
                                                                    hyper_ret[best_test_idx][0],
                                                                    dict2str(hyper_ret[best_test_idx][1]),
                                                                    dict2str(hyper_ret[best_test_idx][2])))
-
