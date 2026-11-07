@@ -1,6 +1,10 @@
 # 服务器实验运行手册
 
+**首次运行请先按照 [当前执行路线](START_HERE.md) 操作：环境检查 → Baby 两次短跑 → Baby 七个核心对照 → 汇总。** 本文下面是完整实验选项参考，不需要按章节把全部命令执行一遍。完成首轮后，根据结果选择后续实验。
+
 所有命令从仓库根目录执行。使用 Python 3.10+，建议先在独立环境安装依赖。本地验证环境为 Python 3.12、PyTorch 2.12 CPU；GPU 和正式数据集尚未在本地验证。
+
+已有 Python 3.8 / PyTorch 1.12 / CUDA 11.6 环境可先保留并按简明路线短跑；已适配旧版检查点加载。下方 requirements 安装面向新环境，不必为了 `weights_only` 参数错误直接升级现有 CUDA 环境。
 
 ```bash
 python -m pip install -r requirements.txt

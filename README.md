@@ -74,6 +74,7 @@ The clean GUME implementation now has explicit ablations and a separate lightwei
 has been established yet**. Training selects checkpoints and hyperparameters on
 validation; test evaluation occurs only after selection.
 
+- [从这里开始：当前执行顺序](docs/START_HERE.md)
 - [研究依据、公式与来源](docs/AMORE_RESEARCH.md)
 - [服务器运行命令与实验协议](docs/EXPERIMENTS.md)
 - [论文修订工作稿](docs/PAPER_REVISION.md)

@@ -11,6 +11,7 @@ from torch.utils.tensorboard import SummaryWriter
 from logging import getLogger
 
 from utils.topk_evaluator import TopKEvaluator
+from utils.checkpoint import load_checkpoint
 
 
 class Trainer:
@@ -103,7 +104,7 @@ class Trainer:
                     break
             if self.best_epoch is None:
                 raise RuntimeError('No validation checkpoint was produced')
-            checkpoint = torch.load(self.checkpoint, map_location=self.device, weights_only=True)
+            checkpoint = load_checkpoint(self.checkpoint, map_location=self.device)
             self.model.load_state_dict(checkpoint['state_dict'])
             if test_data is not None:
                 self.best_test_upon_valid = self.evaluate(test_data, is_test=True)

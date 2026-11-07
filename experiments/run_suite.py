@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Plan/execute independent experiments. One subprocess and result directory per trial."""
 import argparse
+from collections import deque
 import hashlib
 import itertools
 import json
@@ -68,6 +69,12 @@ def source_fingerprint():
     return digest.hexdigest()
 
 
+def log_tail(path, lines=60):
+    """Read only the last lines for display; retain the complete log on disk."""
+    with path.open(encoding='utf-8', errors='replace') as stream:
+        return ''.join(deque(stream, maxlen=lines)).rstrip()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--suite', choices=SUITES, default='core')
@@ -124,6 +131,7 @@ def main():
     print('{} runs; plan: {}'.format(len(plans), output / 'plan.json'), flush=True)
     if not args.execute:
         return
+    print('Python:', sys.executable, flush=True)
     failures = []
     for index, plan in enumerate(plans, 1):
         directory = Path(plan['directory'])
@@ -146,8 +154,11 @@ def main():
         with (directory / 'console.log').open('w') as stream:
             status = subprocess.run(plan['command'], cwd=ROOT, stdout=stream, stderr=subprocess.STDOUT)
         if status.returncode:
-            failures.append(plan)
-            print('FAILED; inspect', directory / 'console.log', flush=True)
+            logfile = directory / 'console.log'
+            excerpt = log_tail(logfile)
+            failures.append(dict(plan, returncode=status.returncode, log_tail=excerpt))
+            print('FAILED (exit code {}); full log: {}'.format(status.returncode, logfile), flush=True)
+            print('Last 60 log lines:\n{}'.format(excerpt or '(log is empty)'), flush=True)
     (output / 'failures.json').write_text(json.dumps(failures, indent=2))
     if failures:
         raise SystemExit('{} runs failed'.format(len(failures)))

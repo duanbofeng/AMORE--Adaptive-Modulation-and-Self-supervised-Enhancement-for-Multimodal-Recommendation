@@ -17,6 +17,7 @@ from utils.dataset import RecDataset
 from utils.dataloader import TrainDataLoader, EvalDataLoader
 from utils.logger import init_logger
 from utils.configurator import Config
+from utils.checkpoint import load_checkpoint
 from utils.utils import init_seed, get_model, get_trainer
 
 
@@ -129,7 +130,7 @@ def quick_start(model, dataset, config_dict=None, save_model=True):
         init_seed(config['seed'])
         # All trials use the same training pairs; thinning grids were rejected above.
         instance = get_model(model)(config, train_data, local_time).to(config['device'])
-        instance.load_state_dict(torch.load(selected['checkpoint'], map_location=config['device'], weights_only=True)['state_dict'])
+        instance.load_state_dict(load_checkpoint(selected['checkpoint'], map_location=config['device'])['state_dict'])
         trainer = get_trainer()(config, instance)
         try:
             if config['device'].type == 'cuda':

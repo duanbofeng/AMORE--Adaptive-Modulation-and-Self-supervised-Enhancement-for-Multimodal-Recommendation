@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
 sys.path.insert(0, str(ROOT / 'experiments'))
 from utils.configurator import Config
+from utils.checkpoint import load_checkpoint
 from utils.dataset import RecDataset
 from utils.dataloader import TrainDataLoader
 from utils.graph_ops import knn_graph, edge_affinity, shared_graph
@@ -132,7 +133,7 @@ class ResearchTests(unittest.TestCase):
         result = quick_start('amore', 'baby', dict(self.base, affinity_mode='local'), save_model=True)
         self.assertTrue(result['test'])
         trial = result['trials'][0]
-        saved = torch.load(trial['checkpoint'], weights_only=True)
+        saved = load_checkpoint(trial['checkpoint'])
         self.assertEqual(saved['epoch'], trial['best_epoch'])
         self.assertEqual(saved['validation'], result['validation'])
         self.assertTrue((self.root / 'out/trial_000/test_rankings.npz').exists())
@@ -166,6 +167,33 @@ class ResearchTests(unittest.TestCase):
         result = quick_start('gume', 'baby', dict(self.base, evaluate_test=False, train_fraction=0.5), save_model=False)
         self.assertEqual(result['test'], {})
         self.assertFalse(Path(result['trials'][0]['checkpoint']).exists())
+
+    def test_legacy_checkpoint_training_and_final_evaluation(self):
+        original_load = torch.load
+        calls = []
+        # Emulate the 1.12 signature and reject keywords forwarded to pickle.
+        def legacy_load(f, map_location=None, pickle_module=None, **pickle_load_args):
+            self.assertNotIn('weights_only', pickle_load_args)
+            calls.append(f)
+            return original_load(f, map_location=map_location)
+        with patch.object(torch, 'load', legacy_load):
+            for model in ['gume', 'amore']:
+                with self.subTest(model=model):
+                    overrides = dict(self.base, output_dir=str(self.root / ('legacy_' + model)))
+                    result = quick_start(model, 'baby', overrides, save_model=True)
+                    self.assertTrue(result['test'])
+                    self.assertTrue((self.root / ('legacy_' + model) / 'result.json').exists())
+        self.assertEqual(len(calls), 4)  # Best checkpoint plus final test restore, per model.
+
+    def test_modern_checkpoint_load_does_not_fall_back_on_error(self):
+        calls = []
+        def modern_load(f, map_location=None, *, weights_only=False, **kwargs):
+            calls.append((map_location, weights_only))
+            raise ValueError('checkpoint rejected')
+        with patch.object(torch, 'load', modern_load):
+            with self.assertRaisesRegex(ValueError, 'checkpoint rejected'):
+                load_checkpoint('unused.pt', map_location='cpu')
+        self.assertEqual(calls, [('cpu', True)])
 
 
 if __name__ == '__main__':
