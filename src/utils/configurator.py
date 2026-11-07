@@ -76,6 +76,8 @@ class Config(object):
             if os.path.isfile(file):
                 with open(file, 'r', encoding='utf-8') as f:
                     file_config_dict.update(yaml.load(f.read(), Loader=self._build_yaml_loader()))
+        defaults = file_config_dict.pop('dataset_defaults', {})
+        file_config_dict.update(defaults.get(config_dict['dataset'], {}))
         return file_config_dict
 
     def _build_yaml_loader(self):

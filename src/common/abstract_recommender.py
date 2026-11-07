@@ -61,7 +61,7 @@ class AbstractRecommender(nn.Module):
         """
         Model prints with number of trainable parameters
         """
-        model_parameters = self.parameters()
+        model_parameters = (p for p in self.parameters() if p.requires_grad)
         params = sum([np.prod(p.size()) for p in model_parameters])
         return super().__str__() + '\nTrainable parameters: {}'.format(params)
 
@@ -97,3 +97,25 @@ class GeneralRecommender(AbstractRecommender):
                 self.t_feat = torch.from_numpy(np.load(t_feat_file_path, allow_pickle=True)).type(torch.FloatTensor).to(self.device)
 
             assert self.v_feat is not None or self.t_feat is not None, 'Features all NONE'
+
+            corruption = config['feature_corruption']
+            rate = config['feature_corruption_rate'] or 0.
+            if config['corruption_modality'] not in ('image', 'text', 'both'):
+                raise ValueError('corruption_modality must be image, text or both')
+            if corruption not in (None, 'none', 'zero', 'shuffle') or not 0 <= rate <= 1:
+                raise ValueError('Invalid feature corruption type or rate')
+            if corruption not in (None, 'none') and rate:
+                # Local generator makes corruption reproducible and independent of model initialization.
+                generator = torch.Generator(device='cpu').manual_seed(int(config['seed']) + 7919)
+                for name, modality in [('v_feat', 'image'), ('t_feat', 'text')]:
+                    feature = getattr(self, name)
+                    if feature is None or config['corruption_modality'] not in ('both', modality):
+                        continue
+                    feature = feature.clone()
+                    rows = torch.randperm(len(feature), generator=generator)[:round(rate * len(feature))].to(self.device)
+                    if corruption == 'zero':
+                        feature[rows] = 0
+                    else:
+                        permutation = torch.randperm(len(rows), generator=generator).to(self.device)
+                        feature[rows] = feature[rows[permutation]].clone()
+                    setattr(self, name, feature)

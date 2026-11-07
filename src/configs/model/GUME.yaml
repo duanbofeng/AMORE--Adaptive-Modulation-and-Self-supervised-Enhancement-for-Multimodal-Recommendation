@@ -34,3 +34,14 @@ vt_loss: 0.001
 # um_loss: 0.1
 # um_temp: 0.2
 # vt_loss: 0.1
+
+# Dataset-specific values below are resolved by Config before user overrides.
+dataset_defaults:
+  baby: {n_layers: 2, bm_temp: 0.4, um_loss: 0.01, um_temp: 0.1, vt_loss: 0.1}
+  sports: {n_layers: 1, bm_temp: 0.2, um_loss: 0.01, um_temp: 0.1, vt_loss: 0.01}
+  clothing: {n_layers: 1, bm_temp: 0.2, um_loss: 0.1, um_temp: 0.2, vt_loss: 0.001}
+  elec: {n_layers: 1, bm_temp: 0.2, um_loss: 0.1, um_temp: 0.2, vt_loss: 0.1}
+enhance_graph: true
+freeze_features: false
+fusion: gume
+graph_chunk_size: 512

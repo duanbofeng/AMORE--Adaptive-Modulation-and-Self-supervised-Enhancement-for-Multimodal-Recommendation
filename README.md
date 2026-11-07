@@ -66,3 +66,24 @@ The code is released for academic research use only. For commercial use, please 
 
 ## Acknowledgement
 The structure of this code is  based on [MMRec](https://github.com/enoche/MMRec). Thank for their work.
+
+## branch_2 AMORE research experiments
+
+The clean GUME implementation now has explicit ablations and a separate lightweight
+`amore` research model. New mechanisms are optional and **no accuracy improvement
+has been established yet**. Training selects checkpoints and hyperparameters on
+validation; test evaluation occurs only after selection.
+
+- [研究依据、公式与来源](docs/AMORE_RESEARCH.md)
+- [服务器运行命令与实验协议](docs/EXPERIMENTS.md)
+- [论文修订工作稿](docs/PAPER_REVISION.md)
+
+```bash
+python -m unittest discover -s tests -v
+python experiments/run_suite.py --suite core --output results/core
+python experiments/run_suite.py --suite core --output results/core --execute
+```
+
+The first suite command writes a plan only. Development suites do not evaluate the
+test split; add `--test` only for a locked final comparison. Data and original papers
+remain under their existing Git ignore rules.

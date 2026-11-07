@@ -60,3 +60,12 @@ end2end: False
 
 # iteration parameters
 hyper_parameters: ["seed"]
+
+# Research protocol: tune on validation, test only after model selection.
+evaluate_test: true
+export_rankings: true
+save_recommended_topk: false
+train_fraction: 1.0
+feature_corruption: none
+feature_corruption_rate: 0.0
+corruption_modality: image

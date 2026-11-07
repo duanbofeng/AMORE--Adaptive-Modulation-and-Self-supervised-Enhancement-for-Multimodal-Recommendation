@@ -21,6 +21,7 @@ class RecDataset(object):
 
         if df is not None:
             self.df = df
+            self.inter_num = len(df)
             return
         # if all files exists
         check_file_list = [self.config['inter_file_name']]

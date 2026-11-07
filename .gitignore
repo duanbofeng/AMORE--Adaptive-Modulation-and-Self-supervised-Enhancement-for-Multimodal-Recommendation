@@ -1,3 +1,13 @@
 data/*
 old_model/*
 papers/*
+__pycache__/
+*.py[cod]
+.DS_Store
+results/
+saved/
+recommend_topk/
+*.egg-info/
+
+/log/
+/runs/

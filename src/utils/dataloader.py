@@ -47,7 +47,7 @@ class AbstractDataLoader(object):
         self.neg_sampling = neg_sampling
         self.device = config['device']
 
-        self.sparsity = 1 - self.dataset.inter_num / self.dataset.user_num / self.dataset.item_num
+        self.sparsity = 1 - len(self.dataset) / self.dataset.user_num / self.dataset.item_num
         self.pr = 0
         self.inter_pr = 0
 
@@ -125,6 +125,8 @@ class TrainDataLoader(AbstractDataLoader):
             self.sample_func = self._get_non_neg_sample
 
         self._get_history_items_u()
+        if any(len(history) >= self.all_item_len for history in self.history_items_per_u.values()):
+            raise ValueError('A user has interacted with every training item; negative sampling is impossible')
         self.neighborhood_loss_required = config['use_neighborhood_loss']
         if self.neighborhood_loss_required:
             self.history_users_per_i = {}

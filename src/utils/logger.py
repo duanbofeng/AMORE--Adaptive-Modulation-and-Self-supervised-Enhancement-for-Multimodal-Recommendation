@@ -13,7 +13,8 @@ def init_logger(config):
     Args:
         config (Config): An instance object of Config, used to record parameter information.
     """
-    LOGROOT = './log/'
+    LOGROOT = config['output_dir'] or './log/'
+    os.makedirs(LOGROOT, exist_ok=True)
     dir_name = os.path.dirname(LOGROOT)
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
@@ -54,7 +55,8 @@ def init_logger(config):
     logging.basicConfig(
         level=level,
         #handlers=[sh]
-        handlers = [sh, fh]
+        handlers=[sh, fh],
+        force=True,
     )
     
     return local_time
