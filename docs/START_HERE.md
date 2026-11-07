@@ -61,6 +61,26 @@ tensorboard --logdir results/01_core_baby --port 6006
 
 本地访问方式沿用前面的 SSH 6006 端口转发或 VS Code 端口转发。主要勾选同一 seed 下各版本的 `validation/recall@20` 和 `validation/ndcg@20`。短跑结果在另一个目录，不会混入这张对比图。
 
+训练终端停留在 `[1/7] baby gume seed=999` 本身是正常的：每轮输出写入该运行的 `console.log`，完成后才显示 `[2/7]`。在另外的服务器终端查看近期进度：
+
+```bash
+tail -n 20 results/01_core_baby/baby/gume/seed_999_*/console.log
+```
+
+若 TensorBoard 2.14 报 `MessageToJson() got an unexpected keyword argument 'including_default_value_fields'`，是 protobuf 接口不兼容。若还出现 `Failed to communicate with data server`，可关闭快速加载。只在 TensorBoard 窗口按 Ctrl+C，保留训练窗口运行，然后在服务器项目根目录执行：
+
+```bash
+python -m venv ~/venvs/amore-tensorboard
+~/venvs/amore-tensorboard/bin/python -m pip install 'tensorboard==2.14.0' 'protobuf>=4.25,<5' 'numpy<2' six
+~/venvs/amore-tensorboard/bin/tensorboard --logdir results/01_core_baby --port 6006 --load_fast=false
+```
+
+这是专门读取日志的独立环境，不需要安装 PyTorch 或 TensorFlow。之后仍通过原 6006 端口打开页面。首次安装成功后，日常只需执行第三条启动命令。
+
+如果此前安装后启动报 `ModuleNotFoundError: No module named 'six'`，执行 `~/venvs/amore-tensorboard/bin/python -m pip install six`，然后重新执行启动命令。必须使用这个独立环境的 Python，不能只在训练环境中安装。
+
+依据：TensorBoard 官方仓库的 [protobuf 接口兼容问题](https://github.com/tensorflow/tensorboard/issues/6808)及[数据服务连接失败处理](https://github.com/tensorflow/tensorboard/issues/5384)。这些 TensorBoard 页面错误本身不代表独立训练进程失败；训练状态以训练日志为准。
+
 ## 第四步 汇总并讨论下一轮
 
 第三步全部完成后执行：
