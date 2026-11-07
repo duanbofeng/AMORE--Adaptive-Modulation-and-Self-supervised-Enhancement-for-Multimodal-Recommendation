@@ -8,11 +8,11 @@ bm_loss: 0.01
 reg_weight_2: 0.1
 
 # # baby
-n_layers: 2
-bm_temp: 0.4
-um_loss: 0.01
-um_temp: 0.1
-vt_loss: 0.1
+# n_layers: 2
+# bm_temp: 0.4
+# um_loss: 0.01
+# um_temp: 0.1
+# vt_loss: 0.1
 
 # # sports
 # n_layers: 1
