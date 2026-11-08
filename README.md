@@ -1,6 +1,6 @@
 # GUME: Graphs and User Modalities Enhancement for Long-Tail Multimodal Recommendation
 
-当前 branch_2 工作：**先复跑最初完整 AMORE，再修正损失与精简**。请按 [唯一当前执行流程](docs/ORIGINAL_AMORE.md) 操作；AMOREX 和之前的融合探索已停止。
+当前 branch_2 工作：原 AMORE 已完成初筛，接下来**从完整修正版逐项删减**。请按 [当前结果分析与执行流程](docs/AFTER_ORIGINAL_RESULTS.md) 操作；AMOREX 和之前的融合探索已停止。
 
 <!-- PROJECT LOGO -->
 
@@ -76,7 +76,8 @@ conservative repaired/compact version (`amoreclean`). Previous AMOREX and fusion
 directions are stopped. **No improvement is claimed.** Training selects checkpoints
 and hyperparameters on validation; test evaluation occurs only after selection.
 
-- [当前从这里开始：先完整复跑原 AMORE，再修正损失和精简](docs/ORIGINAL_AMORE.md)
+- [当前从这里开始：原 AMORE 结果分析，逐项检查亲和力与噪声损失](docs/AFTER_ORIGINAL_RESULTS.md)
+- [原 AMORE 的版本对应、损失公式和复跑记录](docs/ORIGINAL_AMORE.md)
 - [已停止方向：AMOREX 实验记录](docs/AMOREX_EXPERIMENTS.md)
 - [上一轮 GUME＋EgoGCN＋SG-URInit 实验记录](docs/GUME_FUSION_EXPERIMENTS.md)
 - [第一轮结果分析及早期备选方案](docs/NEXT_AFTER_CORE.md)

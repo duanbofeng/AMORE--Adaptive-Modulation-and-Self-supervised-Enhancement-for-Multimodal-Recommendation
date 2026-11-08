@@ -83,6 +83,14 @@ VARIANTS = {
     'amorex_multi': ('amorex', {'objective': 'bpr'}),
     'amorex': ('amorex', {}),
 }
+# Focused pruning of the full repaired original AMORE. Keep the same backbone
+# and coefficients; each comparison below has an explicit reference condition.
+for name, changes in {
+    'amore_fixed_no_coarse': {'coarse_affinity': False},
+    'amore_fixed_no_affinity': {'coarse_affinity': False, 'use_affinity_modulation': False},
+    'amore_fixed_no_noise': {'noise_loss': 0.},
+}.items():
+    VARIANTS[name] = ('amoreclean', dict(VARIANTS['amore_fixed'][1], **changes))
 for affinity, graph, initialization in itertools.product([False, True], repeat=3):
     VARIANTS['factor_{}{}{}'.format(int(affinity), int(graph), int(initialization))] = ('amore', {
         'affinity_mode': 'local' if affinity else 'none',
@@ -93,6 +101,8 @@ for affinity, graph, initialization in itertools.product([False, True], repeat=3
 SUITES = {
     'original': ['amore_original'],
     'original_refine': ['amore_original', 'amore_fixed', 'amore_compact', 'amore_compact_no_affinity'],
+    'original_focus': ['gume', 'amore_fixed', 'amore_fixed_no_coarse',
+                       'amore_fixed_no_affinity', 'amore_fixed_no_noise'],
     'rebuild': ['gume', 'amorex_id_bpr', 'amorex_id_set', 'amorex_single', 'amorex_multi', 'amorex'],
     # A full-backbone screen, followed by attribution controls only if warranted.
     'gume_fusion': ['gume', 'gume_ego_soft', 'gume_ego_hard', 'gume_sg',
