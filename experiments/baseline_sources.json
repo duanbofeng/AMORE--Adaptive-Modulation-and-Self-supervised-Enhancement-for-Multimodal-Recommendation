@@ -1,0 +1,68 @@
+{
+  "repository": "https://github.com/enoche/MMRec",
+  "commit": "c68ee7c9b0de1ca7c5150258322edb4994be29d9",
+  "files": {
+    "bm3.py": {
+      "sha256": "7b4725775a51907e7f8e8d79fbcd628c294f9576fb8e132e073558d0aeff407c",
+      "path": "src/models/bm3.py"
+    },
+    "LICENSE": {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "path": "LICENSE"
+    },
+    "mgcn.py": {
+      "sha256": "59fd984010c176d3f8e89254115bddad909bf8d160a7a9ad8536b8d3b17965ee",
+      "path": "src/models/mgcn.py"
+    },
+    "lgmrec.py": {
+      "sha256": "b3a3bd97314165731b6af422491052abc5c6e62e97c32be96dd092e78747e173",
+      "path": "src/models/lgmrec.py"
+    },
+    "LGMRec.yaml": {
+      "sha256": "35df59fefa0817166923b0dabcf14070eb2842dd19287afb44c7da22fcc579f9",
+      "path": "src/configs/model/LGMRec.yaml"
+    },
+    "freedom.py": {
+      "sha256": "3dd1feaedf91d404e59f5bb410e664ce20a3a97dee9c66cd1fedf3708833db36",
+      "path": "src/models/freedom.py"
+    },
+    "LightGCN.yaml": {
+      "sha256": "b98650f382d9257339e3ce33dfb5a670a823fe61d1e725de445543c01f5ef6fd",
+      "path": "src/configs/model/LightGCN.yaml"
+    },
+    "BPR.yaml": {
+      "sha256": "0285822e71db1adcfdf9d9e68fe02ea1b1a0df8f57a7ca1b8a9553eaaab3ba9b",
+      "path": "src/configs/model/BPR.yaml"
+    },
+    "bpr.py": {
+      "sha256": "5d0ceb2bd1c316bb7c4e81159cc312851289fecd64fa595adcaf78e1215b8a61",
+      "path": "src/models/bpr.py"
+    },
+    "BM3.yaml": {
+      "sha256": "5c98c8082baf6daa178ec69d8224ccce59ac9aa060af3822f2d2c02cf1d49cc7",
+      "path": "src/configs/model/BM3.yaml"
+    },
+    "FREEDOM.yaml": {
+      "sha256": "a806129952a023207bf185aff67f8eb7e101111696c882eb396c12c06a099418",
+      "path": "src/configs/model/FREEDOM.yaml"
+    },
+    "lightgcn.py": {
+      "sha256": "2dd97b726ddc6fabb86a79787e9706e886638fad6dd1856da04a1fd9bb3a85c5",
+      "path": "src/models/lightgcn.py"
+    },
+    "MGCN.yaml": {
+      "sha256": "bc220b5075f354e40f8197f9a6b035ed40243825309b248ac406d50a443729d6",
+      "path": "src/configs/model/MGCN.yaml"
+    },
+    "mentor.py": {
+      "sha256": "c8499d1b4d21b87fedac6473542dbe6104711a18cc88be23a8ac4f6465731dd9",
+      "path": "src/models/mentor.py",
+      "url": "https://raw.githubusercontent.com/Jinfeng-Xu/MENTOR/1581d2743b46a3a25d313f3e5a727e4393490ea6/src/models/mentor.py"
+    },
+    "MENTOR.yaml": {
+      "sha256": "22e5fae26c8d6cc3ce4830bafeb5535068da344a72911b85dc31c490e6c10781",
+      "path": "src/configs/model/MENTOR.yaml",
+      "url": "https://raw.githubusercontent.com/Jinfeng-Xu/MENTOR/1581d2743b46a3a25d313f3e5a727e4393490ea6/src/configs/model/MENTOR.yaml"
+    }
+  }
+}

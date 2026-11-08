@@ -1,0 +1,7 @@
+# Initial screening values, not tuned baseline results. Upstream grids in external_baselines/MMRec.
+embedding_size: 64
+is_multimodal_model: false
+reg_weight: 2.0
+hyper_parameters:
+- seed
+graph_chunk_size: 512

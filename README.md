@@ -1,6 +1,6 @@
 # GUME: Graphs and User Modalities Enhancement for Long-Tail Multimodal Recommendation
 
-当前 branch_2 工作：原 AMORE 已完成初筛，接下来**从完整修正版逐项删减**。请按 [当前结果分析与执行流程](docs/AFTER_ORIGINAL_RESULTS.md) 操作；AMOREX 和之前的融合探索已停止。
+当前 `branch_3` 工作：针对最初 `old_model` AMORE 和 IP&M 审稿意见进行修订。请从 [修稿实验完整流程](revision/README.md) 开始；包含原模型核对、亲和力独立对照、统一基线、冻结测试、统计绘图、英文论文和逐条回复。正式实验待服务器运行，未宣称效果提升。旧阶段分析保留在 [历史结果分析](docs/AFTER_ORIGINAL_RESULTS.md)；AMOREX 和此前融合探索不作为原论文模型。
 
 <!-- PROJECT LOGO -->
 

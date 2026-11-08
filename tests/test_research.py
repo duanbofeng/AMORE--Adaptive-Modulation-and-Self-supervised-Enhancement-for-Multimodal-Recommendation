@@ -59,7 +59,12 @@ class ResearchTests(unittest.TestCase):
     def test_all_variants_backward_and_ranking(self):
         for variant, (model, overrides) in VARIANTS.items():
             with self.subTest(variant=variant):
+                if model == 'mm_mentor':
+                    overrides = dict(overrides, embedding_size=64, feat_embed_dim=64)
+                elif model.startswith('mm_'):
+                    overrides = dict(overrides, feat_embed_dim=self.base['embedding_size'])
                 instance, loader = self.make_model(model, overrides)
+                instance.pre_epoch_processing()
                 batch = next(iter(loader))
                 loss = instance.calculate_loss(batch)
                 total = sum(loss) if isinstance(loss, tuple) else loss

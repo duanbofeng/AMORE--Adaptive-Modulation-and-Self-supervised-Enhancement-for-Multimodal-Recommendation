@@ -1,0 +1,580 @@
+{
+  "files": {
+    "papers/AMORE.docx": "2ac4fe42b5816d11900061681a72163c8f3f1e1ef7d39b0a88015f95cf9fef94",
+    "IPM-D-26-07304-reviews.pdf": "d4daa2df013db28c52331bbfd06a80d1a8d430ed066e0bd323cb6134e1bc2560",
+    "old_model/src/models/gume.py": "8209d878dbe065155767367fc14a7baee05b28b87b197ea7e268c7a58e89edb6",
+    "old_model/src/models/amore.py": "cf1b2b8d740dae6d10efcc9c2ffcb918b0dd0263d442c8fba8226f1eb22cb85f",
+    "old_model/src/configs/model/AMORE.yaml": "56c9a6cecbafa2502d47d0dd14d75bd424b450cd84ee5006af792e6e5b25eb72",
+    "old_model/src/configs/model/GUME.yaml": "2f7f0502bd676f8a86c7108ba75f73b0139c535177bc949a6ad990f4bc102bde",
+    "src/models/archive/amore_original.py": "8209d878dbe065155767367fc14a7baee05b28b87b197ea7e268c7a58e89edb6"
+  },
+  "original_network": "old_model/src/models/gume.py",
+  "original_entry": "old_model/src/models/amore.py",
+  "archived_network_exact_match": true,
+  "runs": [
+    {
+      "variant": "amore_base",
+      "recall@20": 0.089952,
+      "ndcg@20": 0.039522,
+      "mean_epoch_seconds": 0.678,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "amore_global",
+      "recall@20": 0.090201,
+      "ndcg@20": 0.039207,
+      "mean_epoch_seconds": 0.687,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "amore_item",
+      "recall@20": 0.089807,
+      "ndcg@20": 0.039228,
+      "mean_epoch_seconds": 0.695,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "amore_local",
+      "recall@20": 0.089194,
+      "ndcg@20": 0.039167,
+      "mean_epoch_seconds": 0.696,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "amore_shuffle",
+      "recall@20": 0.089524,
+      "ndcg@20": 0.039143,
+      "mean_epoch_seconds": 0.703,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume",
+      "recall@20": 0.101545,
+      "ndcg@20": 0.044377,
+      "mean_epoch_seconds": 1.717,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume_lean",
+      "recall@20": 0.087995,
+      "ndcg@20": 0.038392,
+      "mean_epoch_seconds": 0.812,
+      "source": "experiment_reports/01_core_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume",
+      "setting": "9721b4fe68",
+      "recall@20": 0.101644,
+      "ndcg@20": 0.044344,
+      "mean_epoch_seconds": 1.697,
+      "source": "experiment_reports/11_fusion_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume_ego_hard",
+      "setting": "4f25139e8c",
+      "recall@20": 0.101632,
+      "ndcg@20": 0.04434,
+      "mean_epoch_seconds": 3.305,
+      "source": "experiment_reports/11_fusion_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume_ego_hard_sg",
+      "setting": "27efc77488",
+      "recall@20": 0.10113,
+      "ndcg@20": 0.044438,
+      "mean_epoch_seconds": 3.363,
+      "source": "experiment_reports/11_fusion_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume_ego_soft",
+      "setting": "bc468f3a17",
+      "recall@20": 0.101114,
+      "ndcg@20": 0.044207,
+      "mean_epoch_seconds": 2.814,
+      "source": "experiment_reports/11_fusion_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume_ego_soft_sg",
+      "setting": "6e98e38626",
+      "recall@20": 0.101503,
+      "ndcg@20": 0.044467,
+      "mean_epoch_seconds": 2.794,
+      "source": "experiment_reports/11_fusion_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "variant": "gume_sg",
+      "setting": "125e2a61ee",
+      "recall@20": 0.101452,
+      "ndcg@20": 0.044389,
+      "mean_epoch_seconds": 1.682,
+      "source": "experiment_reports/11_fusion_baby_reported.json",
+      "evidence_level": "reported_table_only",
+      "split": "validation",
+      "dataset": "baby",
+      "seed": null
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_compact",
+      "model": "amoreclean",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.03936518140298033,
+        "recall@10": 0.0617708677711249,
+        "recall@20": 0.0971512446583159,
+        "recall@50": 0.16302681333409022,
+        "ndcg@5": 0.02634877817509457,
+        "ndcg@10": 0.03357300169945129,
+        "ndcg@20": 0.04257438096680167,
+        "ndcg@50": 0.05570730064390319,
+        "precision@5": 0.008248907174080711,
+        "precision@10": 0.006495242993057192,
+        "precision@20": 0.005129853432758884,
+        "precision@50": 0.003448701465672601,
+        "map@5": 0.021735564698151393,
+        "map@10": 0.02463100568360822,
+        "map@20": 0.027050945294652233,
+        "map@50": 0.029110168079039104
+      },
+      "test": {},
+      "best_epoch": 43,
+      "epochs_run": 63,
+      "parameters": 33587392,
+      "mean_epoch_seconds": 1.3022804221730597,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_compact_no_affinity",
+      "model": "amoreclean",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.04002730534229634,
+        "recall@10": 0.0635608982600497,
+        "recall@20": 0.09823702996240925,
+        "recall@50": 0.1640159891535566,
+        "ndcg@5": 0.026599475282633563,
+        "ndcg@10": 0.034231849254679314,
+        "ndcg@20": 0.043029233983935815,
+        "ndcg@50": 0.056135232740598756,
+        "precision@5": 0.008423759321162214,
+        "precision@10": 0.0067009514013883715,
+        "precision@20": 0.005176137824633399,
+        "precision@50": 0.0034703008485473725,
+        "map@5": 0.021835790405988313,
+        "map@10": 0.02492364953323972,
+        "map@20": 0.02729154898471932,
+        "map@50": 0.02933684243293439
+      },
+      "test": {},
+      "best_epoch": 49,
+      "epochs_run": 69,
+      "parameters": 33587392,
+      "mean_epoch_seconds": 1.1988241810299307,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_fixed",
+      "model": "amoreclean",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.039400690592513686,
+        "recall@10": 0.0646824988673793,
+        "recall@20": 0.10184335549596542,
+        "recall@50": 0.17094485055529016,
+        "ndcg@5": 0.02642117562899151,
+        "ndcg@10": 0.034564011945840516,
+        "ndcg@20": 0.043973191211162554,
+        "ndcg@50": 0.05782023259054841,
+        "precision@5": 0.008300334276163506,
+        "precision@10": 0.006808948315762241,
+        "precision@20": 0.005363846747235599,
+        "precision@50": 0.0036194394445874557,
+        "map@5": 0.021810433987600283,
+        "map@10": 0.025080698034477905,
+        "map@20": 0.027598424180528804,
+        "map@50": 0.029792589134685448
+      },
+      "test": {},
+      "best_epoch": 58,
+      "epochs_run": 78,
+      "parameters": 33591681,
+      "mean_epoch_seconds": 2.218655919131169,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_fixed_no_affinity",
+      "model": "amoreclean",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.03945854608235683,
+        "recall@10": 0.06476821070418398,
+        "recall@20": 0.1018759259939512,
+        "recall@50": 0.17039882719491867,
+        "ndcg@5": 0.026400208107040198,
+        "ndcg@10": 0.03459740311955136,
+        "ndcg@20": 0.0439920802149996,
+        "ndcg@50": 0.057721275277048865,
+        "precision@5": 0.008300334276163506,
+        "precision@10": 0.006824376446387079,
+        "precision@20": 0.005363846747235598,
+        "precision@50": 0.003609154024170898,
+        "map@5": 0.021771435101854163,
+        "map@10": 0.025080654158180497,
+        "map@20": 0.02759684546670926,
+        "map@50": 0.029770555256213145
+      },
+      "test": {},
+      "best_epoch": 54,
+      "epochs_run": 74,
+      "parameters": 33587392,
+      "mean_epoch_seconds": 1.879460565284102,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_fixed_no_coarse",
+      "model": "amoreclean",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.039349263490430886,
+        "recall@10": 0.0646824988673793,
+        "recall@20": 0.10184335549596542,
+        "recall@50": 0.17094485055529016,
+        "ndcg@5": 0.026415713718959757,
+        "ndcg@10": 0.03457560672113742,
+        "ndcg@20": 0.04398411373368495,
+        "ndcg@50": 0.05783106229389083,
+        "precision@5": 0.008290048855746947,
+        "precision@10": 0.006808948315762241,
+        "precision@20": 0.005363846747235599,
+        "precision@50": 0.0036194394445874557,
+        "map@5": 0.021819433730464775,
+        "map@10": 0.0250970513087381,
+        "map@20": 0.02761416354740702,
+        "map@50": 0.029808381992132416
+      },
+      "test": {},
+      "best_epoch": 58,
+      "epochs_run": 78,
+      "parameters": 33587392,
+      "mean_epoch_seconds": 2.0722972609263914,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_fixed_no_noise",
+      "model": "amoreclean",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.041440632308464655,
+        "recall@10": 0.06524770720836547,
+        "recall@20": 0.10135694082209895,
+        "recall@50": 0.16627384486602786,
+        "ndcg@5": 0.02779204798092815,
+        "ndcg@10": 0.03551513276406033,
+        "ndcg@20": 0.04470351308612643,
+        "ndcg@50": 0.05762834614106238,
+        "precision@5": 0.008680894831576188,
+        "precision@10": 0.006855232707636756,
+        "precision@20": 0.005350989971714901,
+        "precision@50": 0.0035268706608384388,
+        "map@5": 0.02298468615182414,
+        "map@10": 0.02610529519370387,
+        "map@20": 0.028575587552211634,
+        "map@50": 0.030584133949960166
+      },
+      "test": {},
+      "best_epoch": 79,
+      "epochs_run": 99,
+      "parameters": 33591681,
+      "mean_epoch_seconds": 2.1114857178884017,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "amore_original",
+      "model": "amorelegacy",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.04010781324615215,
+        "recall@10": 0.06473821156130234,
+        "recall@20": 0.10209191982269894,
+        "recall@50": 0.17032982916629089,
+        "ndcg@5": 0.026813473708105086,
+        "ndcg@10": 0.03474612897588081,
+        "ndcg@20": 0.044234201937457904,
+        "ndcg@50": 0.05789220383899493,
+        "precision@5": 0.008434044741578772,
+        "precision@10": 0.006793520185137402,
+        "precision@20": 0.005379274877860438,
+        "precision@50": 0.003609154024170897,
+        "map@5": 0.022086640381703316,
+        "map@10": 0.02528153753430171,
+        "map@20": 0.02782461359580995,
+        "map@50": 0.029981780386474626
+      },
+      "test": {},
+      "best_epoch": 67,
+      "epochs_run": 87,
+      "parameters": 36080641,
+      "mean_epoch_seconds": 2.2697571651159048,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    },
+    {
+      "source": "experiment_reports/31_original_baby.json",
+      "variant": "gume",
+      "model": "gume",
+      "dataset": "baby",
+      "seed": 999,
+      "validation": {
+        "recall@5": 0.041146150926300064,
+        "recall@10": 0.06615931381552363,
+        "recall@20": 0.10162221895700939,
+        "recall@50": 0.16719914310426007,
+        "ndcg@5": 0.027310206286104453,
+        "ndcg@10": 0.03537511781341271,
+        "ndcg@20": 0.04440341952966617,
+        "ndcg@50": 0.05751298114215963,
+        "precision@5": 0.008619182309076831,
+        "precision@10": 0.006942658781177506,
+        "precision@20": 0.00535613268192318,
+        "precision@50": 0.0035309848290050617,
+        "map@5": 0.02246262963915308,
+        "map@10": 0.025704439542738,
+        "map@20": 0.028128968246521776,
+        "map@50": 0.030201798774757087
+      },
+      "test": {},
+      "best_epoch": 41,
+      "epochs_run": 61,
+      "parameters": 36076352,
+      "mean_epoch_seconds": 1.7053698407534748,
+      "source_sha256": "ec236b4d8440680043ecdaaf3fe10f16af1e5ee4797a3dbca7497d76d6aee6bd",
+      "data_sha256": {
+        "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+        "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70",
+        "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4"
+      },
+      "evidence_level": "raw_result_and_history"
+    }
+  ],
+  "logs": [
+    {
+      "path": "old_model/src/log/gume-baby-Oct-22-2025-21-41-10.log",
+      "sha256": "b6f4999b779b021f677a865b0482448e103086f706189358134951aa35f018a1",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Wed 22 Oct 2025 21:49:04 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0407    recall@10: 0.0650    recall@20: 0.1017    recall@50: 0.1676    ndcg@5: 0.0271    ndcg@10: 0.0350    ndcg@20: 0.0443    ndcg@50: 0.0575    precision@5: 0.0085    precision@10: 0.0068    precision@20: 0.0054    precision@50: 0.0035    map@5: 0.0223    map@10: 0.0255    map@20: 0.0280    map@50: 0.0301    ,",
+        "Test: recall@5: 0.0436    recall@10: 0.0678    recall@20: 0.1031    recall@50: 0.1711    ndcg@5: 0.0286    ndcg@10: 0.0365    ndcg@20: 0.0456    ndcg@50: 0.0595    precision@5: 0.0096    precision@10: 0.0075    precision@20: 0.0057    precision@50: 0.0038    map@5: 0.0230    map@10: 0.0262    map@20: 0.0286    map@50: 0.0308    ",
+        "",
+        ""
+      ]
+    },
+    {
+      "path": "src/log/gume-baby-Nov-06-2026-19-33-13.log",
+      "sha256": "52a7c5e33717f54cab47501806aa98d0164ede152c4740d22f506c475e183baf",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Fri 06 Nov 2026 19:40:40 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0409    recall@10: 0.0658    recall@20: 0.1016    recall@50: 0.1672    ndcg@5: 0.0272    ndcg@10: 0.0353    ndcg@20: 0.0444    ndcg@50: 0.0575    precision@5: 0.0086    precision@10: 0.0069    precision@20: 0.0054    precision@50: 0.0035    map@5: 0.0224    map@10: 0.0257    map@20: 0.0281    map@50: 0.0302    ,",
+        "Test: recall@5: 0.0432    recall@10: 0.0675    recall@20: 0.1032    recall@50: 0.1719    ndcg@5: 0.0285    ndcg@10: 0.0365    ndcg@20: 0.0457    ndcg@50: 0.0596    precision@5: 0.0095    precision@10: 0.0074    precision@20: 0.0057    precision@50: 0.0038    map@5: 0.0230    map@10: 0.0262    map@20: 0.0287    map@50: 0.0309    ",
+        "",
+        ""
+      ]
+    },
+    {
+      "path": "src/log/gume-clothing-Nov-06-2026-20-09-26.log",
+      "sha256": "a6f076a6168edbe95a5c4019c5db5c5b7b7a3f19ee52faca2514abe6845a6728",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Fri 06 Nov 2026 20:32:34 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0412    recall@10: 0.0640    recall@20: 0.0956    recall@50: 0.1510    ndcg@5: 0.0269    ndcg@10: 0.0343    ndcg@20: 0.0422    ndcg@50: 0.0532    precision@5: 0.0083    precision@10: 0.0065    precision@20: 0.0048    precision@50: 0.0031    map@5: 0.0221    map@10: 0.0251    map@20: 0.0273    map@50: 0.0291    ,",
+        "Test: recall@5: 0.0413    recall@10: 0.0641    recall@20: 0.0961    recall@50: 0.1510    ndcg@5: 0.0274    ndcg@10: 0.0347    ndcg@20: 0.0429    ndcg@50: 0.0538    precision@5: 0.0086    precision@10: 0.0067    precision@20: 0.0050    precision@50: 0.0031    map@5: 0.0225    map@10: 0.0255    map@20: 0.0277    map@50: 0.0295    ",
+        "",
+        ""
+      ]
+    },
+    {
+      "path": "log/gume-baby-Nov-07-2026-00-39-42.log",
+      "sha256": "cc71040f7d3a3a62659baffa95400afef345d322d197731bc732335df1d49a03",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Sat 07 Nov 2026 00:50:19 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0409    recall@10: 0.0658    recall@20: 0.1015    recall@50: 0.1670    ndcg@5: 0.0272    ndcg@10: 0.0352    ndcg@20: 0.0443    ndcg@50: 0.0574    precision@5: 0.0086    precision@10: 0.0069    precision@20: 0.0053    precision@50: 0.0035    map@5: 0.0223    map@10: 0.0256    map@20: 0.0280    map@50: 0.0301    ,",
+        "Test: recall@5: 0.0434    recall@10: 0.0674    recall@20: 0.1032    recall@50: 0.1717    ndcg@5: 0.0286    ndcg@10: 0.0365    ndcg@20: 0.0457    ndcg@50: 0.0596    precision@5: 0.0095    precision@10: 0.0074    precision@20: 0.0057    precision@50: 0.0038    map@5: 0.0230    map@10: 0.0262    map@20: 0.0287    map@50: 0.0309    ",
+        "",
+        ""
+      ]
+    },
+    {
+      "path": "log/gume-clothing-Nov-07-2026-00-37-31.log",
+      "sha256": "0b9f12b44436ac49b9e6f53a859c6b82911df9f07998537f684f9af553135dfa",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Sat 07 Nov 2026 01:07:16 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0446    recall@10: 0.0695    recall@20: 0.1024    recall@50: 0.1563    ndcg@5: 0.0293    ndcg@10: 0.0373    ndcg@20: 0.0456    ndcg@50: 0.0563    precision@5: 0.0090    precision@10: 0.0070    precision@20: 0.0052    precision@50: 0.0032    map@5: 0.0242    map@10: 0.0274    map@20: 0.0297    map@50: 0.0314    ,",
+        "Test: recall@5: 0.0444    recall@10: 0.0700    recall@20: 0.1009    recall@50: 0.1538    ndcg@5: 0.0298    ndcg@10: 0.0381    ndcg@20: 0.0459    ndcg@50: 0.0565    precision@5: 0.0092    precision@10: 0.0073    precision@20: 0.0052    precision@50: 0.0032    map@5: 0.0247    map@10: 0.0281    map@20: 0.0302    map@50: 0.0319    ",
+        "",
+        ""
+      ]
+    },
+    {
+      "path": "log/gume-clothing-Nov-07-2026-16-48-44.log",
+      "sha256": "073b3ed05b93237e6ef0fcc0598efe4e4a60893bf9ee1b4de9a935296212d1b0",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Sat 07 Nov 2026 17:11:49 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0440    recall@10: 0.0694    recall@20: 0.1023    recall@50: 0.1561    ndcg@5: 0.0290    ndcg@10: 0.0371    ndcg@20: 0.0454    ndcg@50: 0.0561    precision@5: 0.0089    precision@10: 0.0070    precision@20: 0.0052    precision@50: 0.0032    map@5: 0.0239    map@10: 0.0273    map@20: 0.0295    map@50: 0.0312    ,",
+        "Test: recall@5: 0.0446    recall@10: 0.0692    recall@20: 0.1006    recall@50: 0.1534    ndcg@5: 0.0297    ndcg@10: 0.0376    ndcg@20: 0.0456    ndcg@50: 0.0562    precision@5: 0.0092    precision@10: 0.0072    precision@20: 0.0052    precision@50: 0.0032    map@5: 0.0245    map@10: 0.0277    map@20: 0.0299    map@50: 0.0316    ",
+        "",
+        ""
+      ]
+    },
+    {
+      "path": "log/gume-elec-Nov-07-2026-01-04-59.log",
+      "sha256": "279055d09cf9ef6c67339b25306529532c6f4b565ea1192f5dae7165c8d3096c",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "=================================",
+        "",
+        "",
+        "Sat 07 Nov 2026 01:05:31 INFO =========1/1: Parameters:['seed']=(999,)=======",
+        "Sat 07 Nov 2026 01:05:31 INFO TensorBoard run directory: /home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/runs/gume-elec/1-seed-999-Nov-07-2026-01-04-59"
+      ]
+    },
+    {
+      "path": "log/gume-elec-Nov-07-2026-16-46-09.log",
+      "sha256": "62aaab3233a2ca5ebd42b65a637c617ce20e4741fe335de27df78b34b4a2559f",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "=================================",
+        "",
+        "",
+        "Sat 07 Nov 2026 16:46:40 INFO =========1/1: Parameters:['seed']=(999,)=======",
+        "Sat 07 Nov 2026 16:46:40 INFO TensorBoard run directory: /home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/runs/gume-elec/1-seed-999-Nov-07-2026-16-46-09"
+      ]
+    },
+    {
+      "path": "log/gume-sports-Nov-07-2026-00-41-09.log",
+      "sha256": "c554591109283942c80c39fe6f778e06d4a00bbda30f1bf3f2a9a7760ec9c75d",
+      "has_affinity_setting": false,
+      "classification": "not_evidence_of_original_affinity_model",
+      "last_lines": [
+        "Sat 07 Nov 2026 01:06:59 INFO \tParameters: ['seed']=(999,),",
+        "Valid: recall@5: 0.0504    recall@10: 0.0767    recall@20: 0.1159    recall@50: 0.1802    ndcg@5: 0.0337    ndcg@10: 0.0422    ndcg@20: 0.0522    ndcg@50: 0.0651    precision@5: 0.0106    precision@10: 0.0081    precision@20: 0.0061    precision@50: 0.0038    map@5: 0.0278    map@10: 0.0313    map@20: 0.0340    map@50: 0.0360    ,",
+        "Test: recall@5: 0.0507    recall@10: 0.0780    recall@20: 0.1159    recall@50: 0.1875    ndcg@5: 0.0338    ndcg@10: 0.0428    ndcg@20: 0.0525    ndcg@50: 0.0670    precision@5: 0.0111    precision@10: 0.0086    precision@20: 0.0064    precision@50: 0.0042    map@5: 0.0274    map@10: 0.0310    map@20: 0.0336    map@50: 0.0359    ",
+        "",
+        ""
+      ]
+    }
+  ]
+}

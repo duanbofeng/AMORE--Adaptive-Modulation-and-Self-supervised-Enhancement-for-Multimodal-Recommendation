@@ -1,0 +1,30 @@
+{
+  "scope": "Engineering checks only; no real Amazon or CUDA effectiveness measurement",
+  "environment": "Python 3.12 / PyTorch 2.12 CPU",
+  "unit_tests_passed": 43,
+  "subprocess_smoke_runs": {
+    "smoke_baselines_fixed": 9,
+    "smoke_affinity": 7,
+    "smoke_cold": 3,
+    "smoke_noise": 3
+  },
+  "smoke_epochs": 2,
+  "smoke_coverage": [
+    "training",
+    "validation-only checkpoint selection",
+    "checkpoint restoration",
+    "full-sort test ranking",
+    "cold item removal",
+    "interaction injection",
+    "inference timing"
+  ],
+  "document_QA": {
+    "manuscript_pages": 10,
+    "response_pages": 6,
+    "all_pages_visually_inspected": true
+  },
+  "plot_QA": "Synthetic-only plots generated outside repository; marked as QA; source refuses synthetic research outputs by default",
+  "tuning_QA": "27 dataset/model searches each resolve to 12 distinct configurations",
+  "syntax_QA": "src, experiments and tests parse as Python 3.8; this is not runtime verification on torch1.12",
+  "source_sha256_at_validation_report": "2e8303f646847ee71f10b79316f68537af1d339ebf6e8c5e17bd022ee33cc894"
+}

@@ -13,6 +13,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Each change is relative to its model's declared default, unless explicitly combined.
 VARIANTS = {
+    'mm_bpr': ('mm_bpr', {}),
+    'mm_lightgcn': ('mm_lightgcn', {}),
+    'mm_bm3': ('mm_bm3', {}),
+    'mm_mgcn': ('mm_mgcn', {}),
+    'mm_freedom': ('mm_freedom', {}),
+    'mm_lgmrec': ('mm_lgmrec', {}),
+    'mm_mentor': ('mm_mentor', {}),
     'amore_original': ('amorelegacy', {}),
     # old main.py defaulted to -m gume, which selects different historical settings.
     'amore_original_main': ('amorelegacy', {'affinity_threshold': '>0.5', 'um_loss': 0.01,
@@ -91,6 +98,23 @@ for name, changes in {
     'amore_fixed_no_noise': {'noise_loss': 0.},
 }.items():
     VARIANTS[name] = ('amoreclean', dict(VARIANTS['amore_fixed'][1], **changes))
+for graph, fusion in itertools.product([False, True], repeat=2):
+    VARIANTS['rev_{}{}'.format(int(graph), int(fusion))] = ('amorerevision', {
+        'revision_graph': graph, 'revision_fusion': fusion})
+for mode in ('shuffle', 'constant', 'detach'):
+    VARIANTS['rev_prior_' + mode] = ('amorerevision', {'revision_prior': mode})
+for name, changes in {
+    'rev_no_moments': {'vt_loss': 0.},
+    'rev_no_bm': {'bm_loss': 0.},
+    'rev_no_extended_bm': {'bm_extended_loss': 0.},
+    'rev_no_um': {'um_loss': 0.},
+    'rev_no_noise': {'noise_loss': 0.},
+    'rev_no_repr_l2': {'reg_weight_1': 0.},
+    'rev_no_extended_l2': {'reg_weight_2': 0.},
+    'rev_no_infonce': {'bm_loss': 0., 'bm_extended_loss': 0., 'um_loss': 0., 'noise_loss': 0.},
+    'rev_no_alignment': {'vt_loss': 0., 'bm_loss': 0., 'bm_extended_loss': 0., 'um_loss': 0., 'noise_loss': 0.},
+}.items():
+    VARIANTS[name] = ('amorerevision', changes)
 for affinity, graph, initialization in itertools.product([False, True], repeat=3):
     VARIANTS['factor_{}{}{}'.format(int(affinity), int(graph), int(initialization))] = ('amore', {
         'affinity_mode': 'local' if affinity else 'none',
@@ -99,6 +123,13 @@ for affinity, graph, initialization in itertools.product([False, True], repeat=3
         'user_init': 'history' if initialization else 'random'})
 
 SUITES = {
+    'revision_baselines': ['mm_bpr', 'mm_lightgcn', 'mm_bm3', 'mm_mgcn', 'mm_freedom', 'mm_lgmrec', 'mm_mentor', 'gume', 'rev_11'],
+    'revision_anchor': ['gume', 'amore_original', 'amore_fixed', 'rev_11'],
+    'revision_affinity': ['rev_00', 'rev_10', 'rev_01', 'rev_11', 'rev_prior_shuffle',
+                          'rev_prior_constant', 'rev_prior_detach'],
+    'revision_losses': ['rev_11', 'rev_no_moments', 'rev_no_infonce', 'rev_no_alignment',
+                        'rev_no_bm', 'rev_no_extended_bm', 'rev_no_um', 'rev_no_noise',
+                        'rev_no_repr_l2', 'rev_no_extended_l2'],
     'original': ['amore_original'],
     'original_refine': ['amore_original', 'amore_fixed', 'amore_compact', 'amore_compact_no_affinity'],
     'original_focus': ['gume', 'amore_fixed', 'amore_fixed_no_coarse',
@@ -128,6 +159,7 @@ SUITES = {
 def source_fingerprint():
     digest = hashlib.sha256()
     files = list((ROOT / 'src').rglob('*.py')) + list((ROOT / 'src/configs').rglob('*.yaml'))
+    files += [ROOT / 'experiments/baseline_sources.json']
     for path in sorted(files):
         digest.update(str(path.relative_to(ROOT)).encode())
         digest.update(path.read_bytes())

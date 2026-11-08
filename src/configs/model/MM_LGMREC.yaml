@@ -1,0 +1,15 @@
+# Initial screening values, not tuned baseline results. Upstream grids in external_baselines/MMRec.
+embedding_size: 64
+feat_embed_dim: 64
+cf_model: lightgcn
+n_ui_layers: 2
+n_mm_layers: 2
+n_hyper_layer: 1
+hyper_num: 4
+keep_rate: 0.5
+alpha: 0.3
+cl_weight: 1e-04
+reg_weight: 1e-06
+hyper_parameters:
+- seed
+graph_chunk_size: 512

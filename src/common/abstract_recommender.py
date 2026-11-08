@@ -106,7 +106,10 @@ class GeneralRecommender(AbstractRecommender):
                 raise ValueError('Invalid feature corruption type or rate')
             if corruption not in (None, 'none') and rate:
                 # Local generator makes corruption reproducible and independent of model initialization.
-                generator = torch.Generator(device='cpu').manual_seed(int(config['seed']) + 7919)
+                corruption_seed = config['feature_corruption_seed']
+                if corruption_seed is None:
+                    corruption_seed = int(config['seed']) + 7919
+                generator = torch.Generator(device='cpu').manual_seed(int(corruption_seed))
                 for name, modality in [('v_feat', 'image'), ('t_feat', 'text')]:
                     feature = getattr(self, name)
                     if feature is None or config['corruption_modality'] not in ('both', modality):

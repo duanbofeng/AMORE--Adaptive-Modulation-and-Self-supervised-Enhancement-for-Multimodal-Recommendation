@@ -63,6 +63,11 @@ hyper_parameters: ["seed"]
 
 # Research protocol: tune on validation, test only after model selection.
 evaluate_test: true
+interaction_noise_rate: 0.0
+cold_item_fraction: 0.0
+intervention_seed: 314159
+feature_corruption_seed: null
+benchmark_repeats: 0
 export_rankings: true
 save_recommended_topk: false
 train_fraction: 1.0

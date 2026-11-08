@@ -19,6 +19,7 @@ from utils.logger import init_logger
 from utils.configurator import Config
 from utils.checkpoint import load_checkpoint
 from utils.utils import init_seed, get_model, get_trainer
+from utils.revision_protocol import perturb_training
 
 
 def file_hash(path):
@@ -54,7 +55,7 @@ def quick_start(model, dataset, config_dict=None, save_model=True):
         raise ValueError('User-item pairs overlap across train/validation/test splits')
     source_dir = Path(config['data_path']) / dataset
     source_hash = hashlib.sha256()
-    for path in sorted(list((config.project_root / 'src').rglob('*.py')) + list((config.project_root / 'src/configs').rglob('*.yaml'))):
+    for path in sorted(list((config.project_root / 'src').rglob('*.py')) + list((config.project_root / 'src/configs').rglob('*.yaml')) + [config.project_root / 'experiments/baseline_sources.json']):
         source_hash.update(str(path.relative_to(config.project_root)).encode())
         source_hash.update(path.read_bytes())
     hashes = {name: file_hash(source_dir / config[name]) for name in
@@ -81,6 +82,7 @@ def quick_start(model, dataset, config_dict=None, save_model=True):
             sampled = sampled.combine_first(anchors).sort_index()
             sampled = sampled.astype(train_original.df.dtypes.to_dict())
             train_dataset = train_original.copy(sampled)
+        train_dataset, intervention = perturb_training(train_dataset, valid_dataset, test_dataset, config)
         logger.info('Training dataset: %s', train_dataset)
         logger.info('Validation dataset: %s', valid_dataset)
         logger.info('Test dataset: %s', test_dataset)
@@ -115,6 +117,9 @@ def quick_start(model, dataset, config_dict=None, save_model=True):
             'train_interactions': len(train_dataset),
             'actual_train_fraction': len(train_dataset) / len(train_original),
             'train_pairs_sha256': hashlib.sha256(train_pairs.tobytes()).hexdigest(),
+            'intervention': intervention,
+            'original_train_user_degree': train_original.df.groupby(train_original.uid_field).size().to_dict(),
+            'original_train_item_degree': train_original.df.groupby(train_original.iid_field).size().to_dict(),
         }
         trials.append(trial)
         improved = score > best_score if config['valid_metric_bigger'] else score < best_score
@@ -140,6 +145,11 @@ def quick_start(model, dataset, config_dict=None, save_model=True):
             if config['device'].type == 'cuda':
                 torch.cuda.synchronize(config['device'])
             selected['test_evaluation_seconds'] = perf_counter() - start
+            selected['test_users'] = len(test_data.get_eval_users())
+            if config['benchmark_repeats']:
+                from utils.benchmark import benchmark_ranking
+                selected['inference_benchmark'] = benchmark_ranking(
+                    instance, test_data, config['device'], int(config['benchmark_repeats']))
         finally:
             trainer.writer.close()
         selected['test'] = test_result

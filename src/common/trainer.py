@@ -51,9 +51,9 @@ class Trainer:
         try:
             for epoch in range(self.config['epochs']):
                 self.model.train()
-                self.model.pre_epoch_processing()
                 self._sync()
                 start = perf_counter()
+                self.model.pre_epoch_processing()
                 totals, count = None, 0
                 for batch in train_data:
                     self.optimizer.zero_grad(set_to_none=True)
@@ -71,11 +71,11 @@ class Trainer:
                     count += 1
                 if not count:
                     raise ValueError('Training split is empty')
+                self.model.post_epoch_processing()
                 self._sync()
                 elapsed = perf_counter() - start
                 self.epoch_seconds.append(elapsed)
                 self.scheduler.step()
-                self.model.post_epoch_processing()
                 row = {'epoch': epoch + 1, 'seconds': elapsed, 'loss_components': (totals / count).tolist()}
                 self.writer.add_scalar('train/loss', float(totals.sum() / count), epoch + 1)
                 self.writer.add_scalar('train/epoch_seconds', elapsed, epoch + 1)

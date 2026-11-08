@@ -52,6 +52,8 @@ def main():
     parser.add_argument('--baseline', default='amore_base')
     parser.add_argument('--metric', default='recall@20')
     parser.add_argument('--split', choices=['validation', 'test'], default='validation')
+    parser.add_argument('--legacy-cohorts', action='store_true',
+                        help='Old bottom-20%% tail definition; for revision paper use revision_cohorts.py instead')
     args = parser.parse_args()
     root = Path(args.root)
     records = defaultdict(dict)
@@ -79,7 +81,7 @@ def main():
                               'hashes': result['data_sha256'], 'protocol': result['protocol'],
                               'synthetic_fixture': result.get('synthetic_fixture', False),
                               'source_sha256': result.get('source_sha256', cfg.get('execution_fingerprint'))}
-        if result['test']:
+        if args.legacy_cohorts and result['test']:
             cohorts[str(path)] = cohort_metrics(result, trial, path)
     rows, comparisons = [], []
     for (dataset, variant, setting), seeds in sorted(records.items()):
@@ -103,6 +105,8 @@ def main():
             continue
         # Only compare identical source data and stress/budget conditions.
         match_keys = ['train_fraction', 'feature_corruption', 'feature_corruption_rate', 'corruption_modality',
+                      'interaction_noise_rate', 'cold_item_fraction', 'intervention_seed',
+                      'feature_corruption_seed',
                       'epochs', 'stopping_step', 'execution_fingerprint', 'topk', 'valid_metric']
         if any(seeds[s]['hashes'] != baseline[s]['hashes'] or seeds[s]['protocol'] != baseline[s]['protocol']
                or seeds[s]['source_sha256'] != baseline[s]['source_sha256']
@@ -126,7 +130,7 @@ def main():
               'test_cohorts': cohorts, 'notes': [
                   'Confidence intervals quantify variation across these seeds, not across datasets.',
                   'Multiple settings are not pooled; select settings using validation before final testing.',
-                  'Cohort thresholds use original training degrees; item recall conditions on users with targets in that group.',
+                  'Legacy cohorts are opt-in and use a different tail definition; use revision_cohorts.py for the revision paper.',
                   'All test runs used train-only masking, matching the repository protocol.',
                   'A favorable validation comparison is exploratory evidence, not a confirmed test improvement.']}
     destination = root / ('analysis_' + args.split + '_' + args.metric.replace('@', '_') + '.json')
