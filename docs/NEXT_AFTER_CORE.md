@@ -1,6 +1,6 @@
 # Baby 第一轮结果后的判断与下一步
 
-**后续更新：当前执行入口已移至 [AMOREX_EXPERIMENTS.md](AMOREX_EXPERIMENTS.md)。不必先运行本文的 recover/efficient/content 套件；以下保留第一轮分析与备选路线。**
+**后续更新：用户已停止这些方向，当前请看 [原 AMORE 复跑与精简流程](ORIGINAL_AMORE.md)。以下仅保留第一轮分析，不执行 recover/efficient/content 套件。**
 
 现在暂停亲和力超参数搜索。先确认完整 GUME 的优势来自哪里，再决定保留哪些有效信号、如何用更小的结构实现。第二轮代码提供了独立内容评分路线，不要求最终模型沿用 AMORE 的旧框架。
 

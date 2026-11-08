@@ -1,5 +1,7 @@
 # GUME: Graphs and User Modalities Enhancement for Long-Tail Multimodal Recommendation
 
+当前 branch_2 工作：**先复跑最初完整 AMORE，再修正损失与精简**。请按 [唯一当前执行流程](docs/ORIGINAL_AMORE.md) 操作；AMOREX 和之前的融合探索已停止。
+
 <!-- PROJECT LOGO -->
 
 ## Introduction
@@ -20,7 +22,7 @@ Download from Google Drive: [Baby/Sports/Clothing/Electronics](https://drive.goo
 
 ## Training
   ```
-  python src/main.py
+  python src/main.py --model amorelegacy --dataset baby --no-test
   ```
 
 ### TensorBoard
@@ -69,12 +71,13 @@ The structure of this code is  based on [MMRec](https://github.com/enoche/MMRec)
 
 ## branch_2 AMORE research experiments
 
-The clean GUME implementation now has explicit ablations and a separate lightweight
-`amore` research model. New mechanisms are optional and **no accuracy improvement
-has been established yet**. Training selects checkpoints and hyperparameters on
-validation; test evaluation occurs only after selection.
+Current work returns to the user's original full AMORE (`amorelegacy`) and a
+conservative repaired/compact version (`amoreclean`). Previous AMOREX and fusion
+directions are stopped. **No improvement is claimed.** Training selects checkpoints
+and hyperparameters on validation; test evaluation occurs only after selection.
 
-- [当前从这里开始：AMOREX 独立多兴趣框架，六组短跑及完整实验](docs/AMOREX_EXPERIMENTS.md)
+- [当前从这里开始：先完整复跑原 AMORE，再修正损失和精简](docs/ORIGINAL_AMORE.md)
+- [已停止方向：AMOREX 实验记录](docs/AMOREX_EXPERIMENTS.md)
 - [上一轮 GUME＋EgoGCN＋SG-URInit 实验记录](docs/GUME_FUSION_EXPERIMENTS.md)
 - [第一轮结果分析及早期备选方案](docs/NEXT_AFTER_CORE.md)
 - [第一轮执行记录](docs/START_HERE.md)
@@ -84,8 +87,8 @@ validation; test evaluation occurs only after selection.
 
 ```bash
 python -m unittest discover -s tests -v
-python experiments/run_suite.py --suite rebuild --datasets baby --output results/21_rebuild_baby
-python experiments/run_suite.py --suite rebuild --datasets baby --output results/21_rebuild_baby --execute --resume
+python experiments/run_suite.py --variants amore_original --datasets baby --output results/31_original_baby
+python experiments/run_suite.py --variants amore_original --datasets baby --output results/31_original_baby --execute --resume
 ```
 
 The first suite command writes a plan only. Development suites do not evaluate the

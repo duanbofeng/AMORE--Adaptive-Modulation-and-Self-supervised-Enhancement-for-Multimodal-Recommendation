@@ -1,6 +1,6 @@
 # 上一轮实验：完整 GUME + EgoGCN 消息融合 + SG-URInit 初始化
 
-2026-11-08 更新：Baby 单 seed 六组结果未显示明确收益，当前暂停扩展该套件。结果分析与新的执行顺序见 [AMOREX_EXPERIMENTS.md](AMOREX_EXPERIMENTS.md)。以下保留当时的设计与复现步骤。
+2026-11-08 更新：用户已停止该方向及后续 AMOREX 方向，当前执行顺序见 [原 AMORE 复跑与精简流程](ORIGINAL_AMORE.md)。以下只保留当时的设计与复现步骤。
 
 ## 1. 这轮要回答什么
 

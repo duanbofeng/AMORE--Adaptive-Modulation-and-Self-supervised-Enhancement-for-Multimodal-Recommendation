@@ -303,6 +303,130 @@ class ResearchTests(unittest.TestCase):
         self.assertTrue(snapshot.exists())
         self.assertNotIn('state_dict', snapshot.read_text())
 
+    def test_original_amore_matches_archived_forward_loss_gradients(self):
+        import hashlib
+        from models.archive.amore_original import GUME as Archived
+        from models.amorelegacy import AMORELEGACY
+        archive = ROOT / 'src/models/archive'
+        manifest = json.loads((archive / 'manifest.json').read_text())
+        self.assertEqual(hashlib.sha256((archive / 'amore_original.py').read_bytes()).hexdigest(),
+                         manifest['old_model/src/models/gume.py'])
+        cfg = Config('amorelegacy', 'baby', dict(self.base, knn_k=10, affinity_threshold='>0.3333'))
+        loader = TrainDataLoader(cfg, RecDataset(cfg).split()[0], batch_size=4)
+        init_seed(cfg['seed'])
+        reference = Archived(cfg, loader, None)
+        init_seed(cfg['seed'])
+        migrated = AMORELEGACY(cfg, loader, None)
+        for name, value in reference.state_dict().items():
+            torch.testing.assert_close(value, migrated.state_dict()[name], rtol=0, atol=0)
+        torch.testing.assert_close(reference.image_original_adj.to_dense(), migrated.image_original_adj.to_dense())
+        torch.testing.assert_close(reference.norm_adj.to_dense(), migrated.norm_adj.to_dense())
+        torch.testing.assert_close(reference.forward(reference.norm_adj), migrated.forward(migrated.norm_adj))
+        batch = next(iter(loader))
+        torch.manual_seed(33)
+        original_loss = reference.calculate_loss(batch)
+        torch.manual_seed(33)
+        actual_loss = migrated.calculate_loss(batch)
+        torch.testing.assert_close(original_loss, actual_loss)
+        original_loss.backward()
+        actual_loss.backward()
+        parameters = dict(migrated.named_parameters())
+        for name, parameter in reference.named_parameters():
+            if parameter.grad is None:
+                self.assertIsNone(parameters[name].grad, name)
+            else:
+                torch.testing.assert_close(parameter.grad, parameters[name].grad, rtol=3e-4, atol=2e-6, msg=name)
+        self.assertIsNone(reference.extended_image_user.weight.grad)
+        self.assertIsNone(reference.extended_text_user.weight.grad)
+
+    def test_original_graph_signed_neighbors_and_group_softmax(self):
+        from utils.original_amore_ops import original_knn, grouped_softmax
+        from utils.utils import build_sim, build_knn_normalized_graph
+        feature = torch.tensor([[1., 0.], [.8, .2], [0., 1.], [-.1, 1.]])
+        expected = build_knn_normalized_graph(build_sim(feature), 4, True, 'sym').coalesce()
+        actual = original_knn(feature, 4, 2)
+        torch.testing.assert_close(actual.to_dense(), expected.to_dense())
+        self.assertTrue((actual.values() < 0).any())
+        self.assertEqual(actual._nnz(), 16)  # selected zero cosines remain structural neighbors
+        groups = torch.tensor([0, 0, 2, 2, 2])
+        scores = torch.tensor([1000., 1001., -1000., -999., -998.], requires_grad=True)
+        reference = torch.cat([scores[:2].softmax(0), scores[2:].softmax(0)])
+        actual = grouped_softmax(scores, groups, 4)
+        torch.testing.assert_close(reference, actual)
+        torch.testing.assert_close(torch.autograd.grad(actual.square().sum(), scores, retain_graph=True)[0],
+                                   torch.autograd.grad(reference.square().sum(), scores)[0])
+
+    def test_clean_full_preserves_original_forward_and_removes_dead_tables(self):
+        original, _ = self.make_model('amorelegacy', {})
+        _, overrides = VARIANTS['amore_fixed']
+        fixed, _ = self.make_model('amoreclean', overrides)
+        torch.testing.assert_close(original.forward(original.norm_adj), fixed.forward())
+        self.assertFalse(hasattr(fixed, 'extended_image_user'))
+        self.assertEqual(sum(p.numel() for p in original.parameters()) - sum(p.numel() for p in fixed.parameters()),
+                         2 * original.n_users * original.embedding_dim)
+        changed, _ = self.make_model('amorelegacy', {'residual_alpha': 0.99, 'fine_grained_weight': 100.,
+                                                    'use_pamd': False, 'pamd_loss_weight': 999.})
+        torch.testing.assert_close(original.forward(original.norm_adj), changed.forward(changed.norm_adj))
+
+    def test_corrected_losses_actual_batch_dedup_and_stability(self):
+        from utils.original_amore_ops import unique_infonce
+        model, loader = self.make_model('amoreclean', {})
+        batch = next(iter(loader))[:, :2]
+        losses = model.calculate_loss(batch)
+        users, positive, negative = batch[:3]
+        output = model.forward()
+        u, p, n = output[users], output[model.n_users + positive], output[model.n_users + negative]
+        expected_bpr = torch.nn.functional.softplus(-(u * (p - n)).sum(1)).mean()
+        expected_reg = model.reg_weight_1 * (u.square().sum() + p.square().sum() + n.square().sum()) / 4
+        torch.testing.assert_close(losses[0], expected_bpr)
+        torch.testing.assert_close(losses[1], expected_reg)
+        first, second = torch.randn(4, 5, requires_grad=True), torch.randn(4, 5, requires_grad=True)
+        ids = torch.tensor([0, 1, 0, 2, 1])
+        torch.testing.assert_close(unique_infonce(first, second, ids, .4),
+                                   unique_infonce(first, second, ids.unique(), .4))
+        stable = unique_infonce(first, second, ids, 1e-5)
+        self.assertTrue(torch.isfinite(stable))
+        stable.backward()
+        self.assertTrue(torch.isfinite(first.grad).all())
+        self.assertEqual(float(unique_infonce(first, second, torch.tensor([1, 1]), .4)), 0)
+        self.assertEqual(float(model.moment_alignment(torch.ones(1), torch.ones(1))), 0)
+        # Hand-computable two-identity contrastive problem: positive cosine=1,
+        # negative cosine=0, so loss is log(1+exp(-1/tau)).
+        identity = torch.eye(2)
+        expected = torch.nn.functional.softplus(torch.tensor(-2.))
+        torch.testing.assert_close(unique_infonce(identity, identity, torch.tensor([0, 1, 0]), .5), expected)
+
+    def test_compact_skips_extended_branches_and_all_parameters_have_gradients(self):
+        model, loader = self.make_model('amoreclean', {})
+        self.assertFalse(model.use_extended)
+        self.assertFalse(hasattr(model, 'affinity_guided_coarse'))
+        with patch.object(model, 'conv_ui', wraps=model.conv_ui) as propagation:
+            losses = model.calculate_loss(next(iter(loader)))
+        self.assertEqual(propagation.call_count, 1)
+        self.assertEqual([float(x) for x in losses[4:]], [0., 0., 0., 0.])
+        sum(losses).backward()
+        for name, p in model.named_parameters():
+            self.assertIsNotNone(p.grad, name)
+            self.assertTrue(torch.isfinite(p.grad).all(), name)
+
+    def test_original_and_compact_checkpoint_roundtrip(self):
+        for model_name in ['amorelegacy', 'amoreclean']:
+            with self.subTest(model=model_name):
+                output_dir = self.root / model_name
+                config = dict(self.base, output_dir=str(output_dir))
+                result = quick_start(model_name, 'baby', config, save_model=True)
+                saved = load_checkpoint(result['trials'][0]['checkpoint'])
+                model, _ = self.make_model(model_name, {})
+                model.load_state_dict(saved['state_dict'])
+                self.assertTrue(result['test'])
+                self.assertEqual(saved['validation'], result['validation'])
+                self.assertNotIn('norm_adj', saved['state_dict'])
+                if model_name == 'amoreclean':
+                    from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+                    events = EventAccumulator(str(output_dir / 'trial_000')).Reload()
+                    self.assertIn('train/bpr', events.Tags()['scalars'])
+                    self.assertIn('train/um_noise', events.Tags()['scalars'])
+
     def test_amorex_single_matches_contentcf_and_uniform_slots(self):
         single, _ = self.make_model('amorex', {'num_interests': 1, 'objective': 'bpr'})
         control, loader = self.make_model('contentcf', {'content_weight': 1.})

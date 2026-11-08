@@ -13,6 +13,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Each change is relative to its model's declared default, unless explicitly combined.
 VARIANTS = {
+    'amore_original': ('amorelegacy', {}),
+    # old main.py defaulted to -m gume, which selects different historical settings.
+    'amore_original_main': ('amorelegacy', {'affinity_threshold': '>0.5', 'um_loss': 0.01,
+                                           'um_temp': 0.1, 'residual_alpha': 0.2}),
+    'amore_fixed': ('amoreclean', {'coarse_affinity': True, 'bm_extended_loss': 0.005,
+                                  'um_loss': 0.1, 'noise_loss': 0.1, 'reg_weight_2': 0.1}),
+    'amore_compact': ('amoreclean', {}),
+    'amore_compact_no_affinity': ('amoreclean', {'use_affinity_modulation': False}),
     'gume': ('gume', {}),
     'gume_no_vt': ('gume', {'vt_loss': 0.}),
     'gume_no_bm': ('gume', {'bm_loss': 0.}),
@@ -83,6 +91,8 @@ for affinity, graph, initialization in itertools.product([False, True], repeat=3
         'user_init': 'history' if initialization else 'random'})
 
 SUITES = {
+    'original': ['amore_original'],
+    'original_refine': ['amore_original', 'amore_fixed', 'amore_compact', 'amore_compact_no_affinity'],
     'rebuild': ['gume', 'amorex_id_bpr', 'amorex_id_set', 'amorex_single', 'amorex_multi', 'amorex'],
     # A full-backbone screen, followed by attribution controls only if warranted.
     'gume_fusion': ['gume', 'gume_ego_soft', 'gume_ego_hard', 'gume_sg',
@@ -122,7 +132,7 @@ def log_tail(path, lines=60):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--suite', choices=SUITES, default='core')
+    parser.add_argument('--suite', choices=SUITES, default='original')
     parser.add_argument('--variants', nargs='+', choices=VARIANTS)
     parser.add_argument('--datasets', nargs='+', default=['baby', 'sports', 'clothing'])
     parser.add_argument('--seeds', nargs='+', type=int, default=[999])

@@ -1,5 +1,13 @@
 # 本地实现验证记录
 
+## 2026-11-08：回到原完整 AMORE
+
+- 34 项测试通过，含全部 72 个登记候选的基础回归。本轮仅开发原 AMORE 的复跑和修正/精简版本。
+- 原始代码已按 SHA-256 保存在 `src/models/archive/`；适配器与快照的 k=10 图、参数初始化、前向、含噪声总损失及梯度通过等价测试。
+- fixed 保持有效原始前向；两张无梯度用户表精确删除。compact 只执行一次 UI 传播分支，全部保留参数有有限梯度。
+- 验证实际短 batch 正则分母、InfoNCE 去重/单 ID/极端温度、signed 图及数值稳定的 grouped softmax、checkpoint 与命名 TensorBoard 损失。
+- 四个本轮候选各两轮合成子进程运行成功。服务器 SSH 可达但身份验证失败，未执行正式数据训练；使用原有用户同步运行流程，命令见 [ORIGINAL_AMORE.md](ORIGINAL_AMORE.md)。
+
 ## 2026-11-08：AMOREX 框架更新
 
 - Python 3.12 / PyTorch 2.12 CPU，28 项测试通过；全部 67 个候选的前向、反向和完整排序检查通过。

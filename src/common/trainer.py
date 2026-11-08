@@ -82,6 +82,9 @@ class Trainer:
                 self.writer.add_scalar('train/learning_rate', self.optimizer.param_groups[0]['lr'], epoch + 1)
                 for i, value in enumerate(totals / count):
                     self.writer.add_scalar('train/component_{}'.format(i), value, epoch + 1)
+                    names = getattr(self.model, 'loss_names', ())
+                    if i < len(names):
+                        self.writer.add_scalar('train/' + names[i], value, epoch + 1)
                 if (epoch + 1) % self.config['eval_step'] == 0 or epoch + 1 == self.config['epochs']:
                     result = self.evaluate(valid_data)
                     score = result[self.valid_metric]

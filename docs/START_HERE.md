@@ -1,6 +1,6 @@
 # 第一轮执行记录
 
-**Baby core 和 GUME 融合初筛已完成。当前请看 [AMOREX 独立框架实验流程](AMOREX_EXPERIMENTS.md)，按短跑 → 六组完整训练 → 汇总执行。**
+**当前方向已回到最初的完整 AMORE。请看 [原版复跑与精简流程](ORIGINAL_AMORE.md)，先只跑原版，再比较修正版。**
 
 以下保留第一轮命令供复查。
 

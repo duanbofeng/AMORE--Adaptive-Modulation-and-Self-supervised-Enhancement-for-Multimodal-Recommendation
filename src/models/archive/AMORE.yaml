@@ -1,0 +1,70 @@
+affinity_threshold: '>0.1'  # 亲和度阈值，格式：'>0.5' ，表示高于/低于阈值时融合多模态 
+# affinity_threshold: '>0.5'
+# affinity_threshold: ['>0.1', '>0.3', '>0.5', '>0.7', '>0.9']
+# hyper_parameters: ['seed', 'affinity_threshold']
+residual_alpha: 0.1
+# residual_alpha: 0.2
+# residual_alpha: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
+# hyper_parameters: ['seed', 'residual_alpha']
+# um_loss: 0.01
+um_loss: [0.1]
+# um_temp: 0.1
+um_temp: [0.4]
+hyper_parameters: ['seed', 'um_loss', 'um_temp']
+
+
+
+embedding_size: 64
+learning_rate_scheduler: [0.96, 50]
+learning_rate: 0.001
+reg_weight_1: 1e-05
+knn_k: 10
+n_ui_layers: 3
+# bm_loss: 0.01
+bm_loss: 0.005
+reg_weight_2: 0.1
+
+# # baby
+n_layers: 2
+bm_temp: 0.4
+
+
+vt_loss: 0.1
+
+# # sports
+# n_layers: 1
+# bm_temp: 0.2
+# um_loss: 0.01
+# um_temp: 0.1
+# vt_loss: 0.01
+
+# # clothing
+# n_layers: 1
+# bm_temp: 0.2
+# um_loss: 0.1
+# um_temp: 0.2
+# vt_loss: 0.001
+
+# # elec
+# n_layers: 1
+# bm_temp: 0.2
+# um_loss: 0.1
+# um_temp: 0.2
+# vt_loss: 0.1
+
+# PAMD模块参数（用于消融实验）
+use_pamd: True  # 是否启用PAMD模块
+pamd_loss_weight: 1e-2 # PAMD对比损失的权重（建议范围：0.5-2.0，可根据效果调整）
+pamd_recon_loss_type: 'mse'  # 兼容字段，当前使用对比损失
+pamd_temp: 0.2  # PAMD对比损失的温度超参
+
+# EgoGCN-style Affinity-based Hard Modulation 参数
+use_affinity_modulation: True # 是否启用基于亲和度的硬调制机制
+
+affinity_reattn: True  # 是否在调制后重新计算注意力（类似EgoGCN的reattn机制）
+
+use_adaptive_bpr: False
+adaptive_weight_smooth: 0.5
+
+fine_grained_weight: 0.5
+affinity_decouple_weight: 0.3  # 亲和度对粗粒度权重的轻量调节(0=关闭)

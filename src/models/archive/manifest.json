@@ -1,0 +1,6 @@
+{
+  "old_model/src/models/gume.py": "8209d878dbe065155767367fc14a7baee05b28b87b197ea7e268c7a58e89edb6",
+  "old_model/src/models/amore.py": "cf1b2b8d740dae6d10efcc9c2ffcb918b0dd0263d442c8fba8226f1eb22cb85f",
+  "old_model/src/configs/model/AMORE.yaml": "56c9a6cecbafa2502d47d0dd14d75bd424b450cd84ee5006af792e6e5b25eb72",
+  "old_model/src/configs/model/GUME.yaml": "2f7f0502bd676f8a86c7108ba75f73b0139c535177bc949a6ad990f4bc102bde"
+}
