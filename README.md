@@ -74,7 +74,8 @@ The clean GUME implementation now has explicit ablations and a separate lightwei
 has been established yet**. Training selects checkpoints and hyperparameters on
 validation; test evaluation occurs only after selection.
 
-- [当前从这里开始：完整 GUME＋EgoGCN＋SG-URInit 六组对照与实验流程](docs/GUME_FUSION_EXPERIMENTS.md)
+- [当前从这里开始：AMOREX 独立多兴趣框架，六组短跑及完整实验](docs/AMOREX_EXPERIMENTS.md)
+- [上一轮 GUME＋EgoGCN＋SG-URInit 实验记录](docs/GUME_FUSION_EXPERIMENTS.md)
 - [第一轮结果分析及早期备选方案](docs/NEXT_AFTER_CORE.md)
 - [第一轮执行记录](docs/START_HERE.md)
 - [研究依据、公式与来源](docs/AMORE_RESEARCH.md)
@@ -83,8 +84,8 @@ validation; test evaluation occurs only after selection.
 
 ```bash
 python -m unittest discover -s tests -v
-python experiments/run_suite.py --suite core --output results/core
-python experiments/run_suite.py --suite core --output results/core --execute
+python experiments/run_suite.py --suite rebuild --datasets baby --output results/21_rebuild_baby
+python experiments/run_suite.py --suite rebuild --datasets baby --output results/21_rebuild_baby --execute --resume
 ```
 
 The first suite command writes a plan only. Development suites do not evaluate the

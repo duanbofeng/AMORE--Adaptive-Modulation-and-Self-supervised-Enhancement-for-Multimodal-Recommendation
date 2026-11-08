@@ -303,6 +303,115 @@ class ResearchTests(unittest.TestCase):
         self.assertTrue(snapshot.exists())
         self.assertNotIn('state_dict', snapshot.read_text())
 
+    def test_amorex_single_matches_contentcf_and_uniform_slots(self):
+        single, _ = self.make_model('amorex', {'num_interests': 1, 'objective': 'bpr'})
+        control, loader = self.make_model('contentcf', {'content_weight': 1.})
+        torch.testing.assert_close(single.full_sort_predict([torch.arange(4)]),
+                                   control.full_sort_predict([torch.arange(4)]))
+        batch = next(iter(loader))
+        for actual, expected in zip(single.calculate_loss(batch), control.calculate_loss(batch)):
+            torch.testing.assert_close(actual, expected)
+        multi, _ = self.make_model('amorex', {'num_interests': 4, 'objective': 'bpr'})
+        # Equal routes must not change content scale merely by increasing K.
+        with torch.no_grad():
+            for anchors in multi.prototypes:
+                anchors.fill_(1.)
+        torch.testing.assert_close(multi.full_sort_predict([torch.arange(4)]),
+                                   single.full_sort_predict([torch.arange(4)]))
+
+    def test_amorex_leave_one_out_values_and_target_gradient(self):
+        model, loader = self.make_model('amorex', {})
+        state = model.forward()
+        users, positive, _ = next(iter(loader))[:3]
+        users, positive = users[:1], positive[:1]
+        profiles = model.profiles(users, state, positive)
+        history = loader.inter_matrix(form='csr')
+        np.testing.assert_array_equal(model.history.to_dense().numpy(), history.toarray())
+        remaining = [i for i in history[int(users[0])].indices if i != int(positive[0])]
+        for (z, a, _, _), (memory, prior) in zip(state[1], profiles):
+            masses = a[remaining].sum(0)
+            expected = (a[remaining, :, None] * z[remaining, None, :]).sum(0)
+            expected = expected / (masses[:, None] + model.config['history_shrinkage'] / model.k)
+            torch.testing.assert_close(memory[0], expected)
+            gradient = torch.autograd.grad(memory.sum(), z, retain_graph=True)[0]
+            torch.testing.assert_close(gradient[positive], torch.zeros_like(gradient[positive]), atol=1e-6, rtol=0)
+            self.assertGreater(float(gradient[remaining].abs().sum()), 0)
+            torch.testing.assert_close(prior.sum(1), torch.ones(1))
+        # Explicit degree-zero and degree-one histories, including empty LOO.
+        z, a, _, _ = state[1][0]
+        sums = torch.stack([torch.zeros_like(a[0, :, None] * z[0]), a[0, :, None] * z[0]])
+        mass = torch.stack([torch.zeros_like(a[0]), a[0]])
+        fake = (state[0], [(z, a, sums, mass)])
+        cold = model.profiles(torch.tensor([0]), fake)[0]
+        singleton = model.profiles(torch.tensor([1]), fake, torch.tensor([0]))[0]
+        for memory, prior in [cold, singleton]:
+            torch.testing.assert_close(memory, torch.zeros_like(memory))
+            torch.testing.assert_close(prior, torch.full_like(prior, 1 / model.k))
+
+    def test_amorex_candidate_conditioning_and_chunked_scores(self):
+        model, _ = self.make_model('amorex', {'num_interests': 2, 'score_user_chunk': 1, 'score_item_chunk': 3})
+        users = torch.tensor([0, 2, 1])
+        state = model.forward()
+        profiles = model.profiles(users, state)
+        dense = model.score_candidates(users, torch.arange(12), state, profiles)
+        torch.testing.assert_close(model.full_sort_predict([users]), dense)
+        choices = torch.tensor([[0, 2], [1, 4], [3, 7]])
+        paired = model.score_candidates(users, choices, state, profiles, paired=True)
+        torch.testing.assert_close(paired, dense.gather(1, choices))
+        sum(model.calculate_loss([users, torch.tensor([0, 6, 3]), torch.tensor([8, 1, 10])])).backward()
+        for projection, anchors in zip(model.projections, model.prototypes):
+            self.assertGreater(float(projection.weight.grad.abs().sum()), 0)
+            self.assertGreater(float(anchors.grad.abs().sum()), 0)
+        # Opposing interests cancel under mean pooling, but matching either one
+        # must score above an unrelated candidate with the nonlinear scorer.
+        z = torch.tensor([[1., 0., 0., 0.], [0., 1., 0., 0.]])
+        fake_state = (torch.zeros(model.n_users + model.n_items, 4), [(z, None, None, None)])
+        fake_profiles = [(torch.tensor([[[1., 0., 0., 0.], [-1., 0., 0., 0.]]]), torch.tensor([[.5, .5]]))]
+        score = model.score_candidates(torch.tensor([0]), torch.tensor([0, 1]), fake_state, fake_profiles)
+        self.assertGreater(float(score[0, 0]), float(score[0, 1]))
+
+    def test_amorex_negative_mask_and_one_negative_loss_equivalence(self):
+        model, loader = self.make_model('amorex', {})
+        id_only, _ = self.make_model('amorex', {'content_weight': 0.})
+        self.assertTrue(torch.equal(model._negative_generator.get_state(), id_only._negative_generator.get_state()))
+        users, positive, negative = next(iter(loader))[:3]
+        expected = loader.inter_matrix(form='csr').toarray()[users.numpy()] > 0
+        mask = model.training_positive_mask(users, torch.arange(12)[None, :])
+        np.testing.assert_array_equal(mask.numpy(), expected)
+        state = model.forward()
+        profiles = model.profiles(users, state, positive)
+        logits = model.sampled_logits(users, positive, negative, state, profiles, pool=torch.arange(12))
+        invalid = mask | (torch.arange(12)[None, :] == negative[:, None])
+        self.assertTrue(torch.equal(torch.isneginf(logits[:, 2:]), invalid))
+        self.assertTrue(torch.isfinite(logits[:, :2]).all())
+        # With no additional pool negatives, sampled CE is exactly pairwise BPR.
+        logits = model.sampled_logits(users, positive, negative, state, profiles, pool=torch.empty(0, dtype=torch.long))
+        ce = torch.nn.functional.cross_entropy(logits, torch.zeros(len(users), dtype=torch.long))
+        bpr = torch.nn.functional.softplus(logits[:, 1] - logits[:, 0]).mean()
+        torch.testing.assert_close(ce, bpr)
+
+    def test_amorex_checkpoint_diagnostics_and_validation_protocol(self):
+        result = quick_start('amorex', 'baby', dict(self.base), save_model=True)
+        trial = result['trials'][0]
+        saved = load_checkpoint(trial['checkpoint'])
+        self.assertEqual(saved['validation'], result['validation'])
+        self.assertTrue(result['test'])
+        self.assertIn('image_effective_slots', saved['diagnostics'])
+        self.assertIn('probe_content_abs', saved['diagnostics'])
+        self.assertNotIn('train_keys', saved['state_dict'])
+        model, _ = self.make_model('amorex', {})
+        model.load_state_dict(saved['state_dict'])
+        model.eval()
+        with torch.no_grad():
+            model.prepare_evaluation()
+            cached = model.full_sort_predict([torch.arange(4)])
+            model.clear_evaluation()
+            torch.testing.assert_close(cached, model.full_sort_predict([torch.arange(4)]))
+        from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+        events = EventAccumulator(str(self.root / 'out/trial_000')).Reload()
+        self.assertIn('diagnostics/image_effective_slots', events.Tags()['scalars'])
+        self.assertEqual(len(events.Scalars('train/loss')), 2)
+
     def test_end_to_end_checkpoint_and_test_export(self):
         result = quick_start('amore', 'baby', dict(self.base, affinity_mode='local'), save_model=True)
         self.assertTrue(result['test'])

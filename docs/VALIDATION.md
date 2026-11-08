@@ -1,5 +1,13 @@
 # 本地实现验证记录
 
+## 2026-11-08：AMOREX 框架更新
+
+- Python 3.12 / PyTorch 2.12 CPU，28 项测试通过；全部 67 个候选的前向、反向和完整排序检查通过。
+- 新增单兴趣与 CONTENTCF 等价、均匀多槽不改变内容尺度、排除正例后的数值与目标梯度、度数 0/1 回退、候选依赖评分、分块/逐对/全排序一致性、原型及投影梯度、训练正例负采样屏蔽、单负例 CE/BPR 等价测试。
+- 新模型训练、验证选 checkpoint、恢复、最终 test 排序导出和 TensorBoard 诊断均经过合成数据测试。
+- rebuild 六组各 2 epochs 的独立子进程合成数据短跑全部完成。正式数据、服务器 PyTorch 1.12 / CUDA 尚待验证；本地测试不是效果提升证据。
+- 对照与服务器命令见 [AMOREX_EXPERIMENTS.md](AMOREX_EXPERIMENTS.md)。以下是之前的验证记录。
+
 日期：2026-11-07。分支：branch_2。验证环境：Python 3.12，PyTorch 2.12 CPU，NumPy 1.26.4，SciPy 1.17.1，pandas 2.3.3。使用独立临时虚拟环境，没有修改仓库 requirements 或用户已有 Python 环境。
 
 ## 已完成

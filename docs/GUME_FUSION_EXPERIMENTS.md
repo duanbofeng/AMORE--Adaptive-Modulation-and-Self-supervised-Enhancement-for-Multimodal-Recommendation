@@ -1,4 +1,6 @@
-# 当前实验入口：完整 GUME + EgoGCN 消息融合 + SG-URInit 初始化
+# 上一轮实验：完整 GUME + EgoGCN 消息融合 + SG-URInit 初始化
+
+2026-11-08 更新：Baby 单 seed 六组结果未显示明确收益，当前暂停扩展该套件。结果分析与新的执行顺序见 [AMOREX_EXPERIMENTS.md](AMOREX_EXPERIMENTS.md)。以下保留当时的设计与复现步骤。
 
 ## 1. 这轮要回答什么
 
@@ -88,6 +90,20 @@ python -m unittest discover -s tests -v
 python -c "import torch, sklearn; print(torch.__version__, sklearn.__version__, 'CUDA:', torch.cuda.is_available())"
 python experiments/run_suite.py --suite gume_fusion --datasets baby --seeds 999 --epochs 2 --patience 2 --gpu 0 --output results/10_fusion_check --execute --resume
 ```
+
+如果安装时先出现 `ProxyError` / `Connection refused`，随后出现 `No matching distribution found`，应先解决代理连接；此时 pip 没有成功获取版本列表。可在已激活的训练环境中，仅对这次安装临时清除代理变量并禁用 pip 配置文件：
+
+```bash
+env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY \
+    -u http_proxy -u https_proxy -u all_proxy -u PIP_PROXY \
+    PIP_CONFIG_FILE=/dev/null \
+    python -m pip install 'scikit-learn>=1.1,<1.4' \
+    --index-url https://pypi.org/simple --timeout 30 --retries 1
+```
+
+这条命令只改变本次子进程的设置，不修改 shell、conda 或 pip 的持久配置。成功后重新执行上面的导入检查，再运行短跑。如果直连仍超时或无法解析域名，需要确认服务器是否必须使用代理，并修复实际代理服务或转发；不能据此认定 Python 版本不支持。此处版本范围兼容 Python 3.8。
+
+参考：[pip 配置文件说明](https://pip.pypa.io/en/stable/topics/configuration/)、[scikit-learn 的 Python 版本支持说明](https://scikit-learn.org/stable/install.html)。
 
 短跑用正式模型尺寸，检查 GPU、训练、验证、聚类和保存流程。看到 `failures.json` 为 `[]` 再继续；2 个 epoch 的分数不用于选模型。此处不要附加 `experiments/smoke.json`，那个文件会缩小模型，仅供本地合成数据测试。
 

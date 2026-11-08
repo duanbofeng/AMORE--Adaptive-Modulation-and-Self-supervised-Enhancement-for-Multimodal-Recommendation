@@ -1,0 +1,19 @@
+# Experimental framework, not a validated replacement for GUME.
+embedding_size: 64
+n_ui_layers: 3
+learning_rate: 0.001
+learning_rate_scheduler: [0.96, 50]
+reg_weight: 1.0e-5
+content_weight: 1.0
+modality: both
+num_interests: 4
+route_temperature: 0.2
+match_temperature: 0.2
+history_shrinkage: 1.0
+objective: sampled_ce
+sampled_negatives: 64
+loss_temperature: 1.0
+score_user_chunk: 256
+score_item_chunk: 2048
+eval_batch_size: 512
+hyper_parameters: [seed]

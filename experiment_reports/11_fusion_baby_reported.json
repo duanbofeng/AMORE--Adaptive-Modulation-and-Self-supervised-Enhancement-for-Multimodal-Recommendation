@@ -1,0 +1,53 @@
+{
+  "provenance": "User-pasted server analyze_results.py tables on 2026-11-08; not imported raw result.json. Values rounded to six decimal places.",
+  "dataset": "baby",
+  "split": "validation",
+  "n_seeds": 1,
+  "seed": null,
+  "best_epochs": null,
+  "actual_configs": null,
+  "rows": [
+    {
+      "variant": "gume",
+      "setting": "9721b4fe68",
+      "recall@20": 0.101644,
+      "ndcg@20": 0.044344,
+      "mean_epoch_seconds": 1.697
+    },
+    {
+      "variant": "gume_ego_hard",
+      "setting": "4f25139e8c",
+      "recall@20": 0.101632,
+      "ndcg@20": 0.04434,
+      "mean_epoch_seconds": 3.305
+    },
+    {
+      "variant": "gume_ego_hard_sg",
+      "setting": "27efc77488",
+      "recall@20": 0.10113,
+      "ndcg@20": 0.044438,
+      "mean_epoch_seconds": 3.363
+    },
+    {
+      "variant": "gume_ego_soft",
+      "setting": "bc468f3a17",
+      "recall@20": 0.101114,
+      "ndcg@20": 0.044207,
+      "mean_epoch_seconds": 2.814
+    },
+    {
+      "variant": "gume_ego_soft_sg",
+      "setting": "6e98e38626",
+      "recall@20": 0.101503,
+      "ndcg@20": 0.044467,
+      "mean_epoch_seconds": 2.794
+    },
+    {
+      "variant": "gume_sg",
+      "setting": "125e2a61ee",
+      "recall@20": 0.101452,
+      "ndcg@20": 0.044389,
+      "mean_epoch_seconds": 1.682
+    }
+  ]
+}

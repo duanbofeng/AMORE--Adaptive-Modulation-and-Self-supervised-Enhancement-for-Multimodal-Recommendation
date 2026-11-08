@@ -1,6 +1,6 @@
 # 第一轮执行记录
 
-**第一轮 Baby core 已完成。当前请看 [完整 GUME＋EgoGCN＋SG-URInit 实验流程](GUME_FUSION_EXPERIMENTS.md)，从六组融合对照开始。**
+**Baby core 和 GUME 融合初筛已完成。当前请看 [AMOREX 独立框架实验流程](AMOREX_EXPERIMENTS.md)，按短跑 → 六组完整训练 → 汇总执行。**
 
 以下保留第一轮命令供复查。
 

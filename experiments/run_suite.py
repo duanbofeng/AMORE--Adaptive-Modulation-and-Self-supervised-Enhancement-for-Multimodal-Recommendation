@@ -68,6 +68,12 @@ VARIANTS = {
     'contentcf_text': ('contentcf', {'modality': 'text'}),
     'contentcf_image': ('contentcf', {'modality': 'image'}),
     'contentcf_cross': ('contentcf', {'cross_weight': 1.0}),
+    # Independent architecture screen: content x training objective, plus K=1.
+    'amorex_id_bpr': ('amorex', {'content_weight': 0., 'objective': 'bpr'}),
+    'amorex_id_set': ('amorex', {'content_weight': 0.}),
+    'amorex_single': ('amorex', {'num_interests': 1, 'objective': 'bpr'}),
+    'amorex_multi': ('amorex', {'objective': 'bpr'}),
+    'amorex': ('amorex', {}),
 }
 for affinity, graph, initialization in itertools.product([False, True], repeat=3):
     VARIANTS['factor_{}{}{}'.format(int(affinity), int(graph), int(initialization))] = ('amore', {
@@ -77,6 +83,7 @@ for affinity, graph, initialization in itertools.product([False, True], repeat=3
         'user_init': 'history' if initialization else 'random'})
 
 SUITES = {
+    'rebuild': ['gume', 'amorex_id_bpr', 'amorex_id_set', 'amorex_single', 'amorex_multi', 'amorex'],
     # A full-backbone screen, followed by attribution controls only if warranted.
     'gume_fusion': ['gume', 'gume_ego_soft', 'gume_ego_hard', 'gume_sg',
                     'gume_ego_soft_sg', 'gume_ego_hard_sg'],
