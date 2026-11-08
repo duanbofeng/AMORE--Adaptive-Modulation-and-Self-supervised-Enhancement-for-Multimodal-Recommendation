@@ -25,7 +25,7 @@ Download from Google Drive: [Baby/Sports/Clothing/Electronics](https://drive.goo
 
 ### TensorBoard
 
-Each training run writes TensorBoard events under `runs/<model>-<dataset>/`.
+Each training run writes TensorBoard events under its `results/` output directory.
 For example, to train GUME on the Clothing dataset:
 
 ```bash
@@ -35,7 +35,7 @@ python src/main.py -m gume -d clothing
 Start TensorBoard on the training server:
 
 ```bash
-tensorboard --logdir runs --host 127.0.0.1 --port 6006
+tensorboard --logdir results --host 127.0.0.1 --port 6006
 ```
 
 On your local computer, forward the port over SSH (replace `<username>` with your server login):
@@ -74,7 +74,9 @@ The clean GUME implementation now has explicit ablations and a separate lightwei
 has been established yet**. Training selects checkpoints and hyperparameters on
 validation; test evaluation occurs only after selection.
 
-- [从这里开始：当前执行顺序](docs/START_HERE.md)
+- [当前从这里开始：完整 GUME＋EgoGCN＋SG-URInit 六组对照与实验流程](docs/GUME_FUSION_EXPERIMENTS.md)
+- [第一轮结果分析及早期备选方案](docs/NEXT_AFTER_CORE.md)
+- [第一轮执行记录](docs/START_HERE.md)
 - [研究依据、公式与来源](docs/AMORE_RESEARCH.md)
 - [服务器运行命令与实验协议](docs/EXPERIMENTS.md)
 - [论文修订工作稿](docs/PAPER_REVISION.md)

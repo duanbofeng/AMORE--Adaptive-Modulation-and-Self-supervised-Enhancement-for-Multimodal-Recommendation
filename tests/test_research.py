@@ -22,6 +22,7 @@ from utils.graph_ops import knn_graph, edge_affinity, shared_graph
 from utils.quick_start import quick_start
 from utils.utils import get_model, init_seed
 from run_suite import VARIANTS
+from export_results import export_results
 
 torch.set_num_threads(1)
 
@@ -128,6 +129,179 @@ class ResearchTests(unittest.TestCase):
         graph = instance.adj.to_dense().numpy()
         expected = loader.inter_matrix(form='csr').toarray() > 0
         np.testing.assert_array_equal(graph[:4, 4:] > 0, expected)
+
+    def test_zero_adapter_matches_frozen_gume_and_learns(self):
+        frozen, _ = self.make_model('gume', {'freeze_features': True})
+        adapted, loader = self.make_model('gume', {'freeze_features': True, 'feature_adapter_rank': 2})
+        torch.testing.assert_close(frozen.forward(frozen.norm_adj), adapted.forward(adapted.norm_adj))
+        adapted.calculate_loss(next(iter(loader))).backward()
+        self.assertGreater(adapted.feature_adapters['image'][1].weight.grad.abs().sum(), 0)
+        self.assertIsNone(adapted.image_embedding.weight.grad)
+
+    def test_ego_zero_strength_preserves_gume_loss_gradients_and_rng(self):
+        baseline, loader = self.make_model('gume', {})
+        reference_rng = torch.get_rng_state()
+        # Constructors may consume CPU RNG internally, but must never reseed CUDA.
+        from utils.ego_router import EgoRouter
+        cfg = baseline.config
+        cfg['ego_mode'] = 'soft'
+        with patch.object(torch.cuda, 'manual_seed_all') as cuda_seed:
+            EgoRouter(baseline.R, baseline.embedding_dim, cfg)
+        cuda_seed.assert_not_called()
+        neutral, _ = self.make_model('gume', {'ego_mode': 'soft', 'ego_strength': 0.})
+        self.assertTrue(torch.equal(reference_rng, torch.get_rng_state()))
+        batch = next(iter(loader))
+        torch.manual_seed(119)
+        a = baseline.calculate_loss(batch)
+        a.backward()
+        torch.manual_seed(119)
+        b = neutral.calculate_loss(batch)
+        b.backward()
+        torch.testing.assert_close(a, b, rtol=0, atol=0)
+        other = dict(neutral.named_parameters())
+        for name, parameter in baseline.named_parameters():
+            torch.testing.assert_close(parameter, other[name], rtol=0, atol=0)
+            if parameter.grad is not None:
+                torch.testing.assert_close(parameter.grad, other[name].grad, rtol=0, atol=0)
+
+    def test_ego_chunks_preserve_gradients_and_train_edge_support(self):
+        first, loader = self.make_model('gume', {'ego_mode': 'soft', 'ego_chunk_size': 2})
+        second, _ = self.make_model('gume', {'ego_mode': 'soft', 'ego_checkpoint': False})
+        router = first.ego_router
+        pairs = set(map(tuple, router.edges.T.tolist()))
+        train = loader.inter_matrix(form='coo')
+        self.assertEqual(pairs, set(zip(train.row, train.col)))
+        batch = next(iter(loader))
+        for instance in (first, second):
+            torch.manual_seed(87)
+            instance.calculate_loss(batch).backward()
+        for (name, a), (_, b) in zip(first.named_parameters(), second.named_parameters()):
+            if a.grad is not None:
+                torch.testing.assert_close(a.grad, b.grad, atol=1e-6, rtol=1e-5, msg=name)
+        self.assertGreater(first.ego_router.cross_gates[0].weight.grad.abs().sum(), 0)
+
+    def test_edge_aggregate_backward_matches_dense_and_numerical_gradient(self):
+        from utils.ego_router import EdgeAggregate
+        edges = torch.tensor([[0, 0, 1, 2], [0, 2, 1, 2]])
+        weight = torch.randn(4, dtype=torch.double, requires_grad=True)
+        items = torch.randn(3, 2, dtype=torch.double, requires_grad=True)
+        self.assertTrue(torch.autograd.gradcheck(
+            lambda w, x: EdgeAggregate.apply(edges, w, x, 4, 2), (weight, items)))
+        dense = torch.sparse_coo_tensor(edges, weight, (4, 3)).to_dense() @ items
+        routed = EdgeAggregate.apply(edges, weight, items, 4, 2)
+        torch.testing.assert_close(routed, dense)
+        probe = torch.randn_like(dense)
+        expected = torch.autograd.grad((dense * probe).sum(), (weight, items))
+        actual = torch.autograd.grad((routed * probe).sum(), (weight, items))
+        for a, b in zip(actual, expected):
+            torch.testing.assert_close(a, b)
+
+    def test_ego_softmax_shuffle_and_degree_one_fallback(self):
+        from utils.ego_router import EgoRouter
+        model, _ = self.make_model('gume', {'ego_mode': 'hard'})
+        cfg = model.config
+        matrix = torch.tensor([[1., 0., 0.], [1., 1., 1.], [0., 0., 0.]]).to_sparse()
+        router = EgoRouter(matrix, 4, cfg)
+        logits = torch.tensor([2., 1., 3., -1.], requires_grad=True)
+        alpha = router._softmax(logits)
+        torch.testing.assert_close(alpha[0], torch.tensor(1.))
+        torch.testing.assert_close(alpha[1:].sum(), torch.tensor(1.))
+        shuffled = router._softmax(logits[router.permutation])
+        torch.testing.assert_close(alpha[1:].sort().values, shuffled[1:].sort().values)
+        image, text = torch.randn(3, 4), torch.randn(3, 4)
+        vu, tu = matrix @ image, matrix @ text
+        routed_v, routed_t = router(image, text, vu, tu)
+        torch.testing.assert_close(routed_v[[0, 2]], vu[[0, 2]], atol=0, rtol=0)
+        torch.testing.assert_close(routed_t[[0, 2]], tu[[0, 2]], atol=0, rtol=0)
+        # Absolute threshold 0.4 rejects all uniform 3-neighbor edges; a relative
+        # threshold below 1 selects them. Hard fusion must follow this decision.
+        uniform_items = torch.ones(3, 4)
+        other_items = uniform_items * 3
+        cfg['ego_strength'] = 1.
+        cfg['ego_threshold_type'] = 'absolute'
+        cfg['ego_threshold'] = 0.4
+        absolute = EgoRouter(matrix, 4, cfg)
+        cfg['ego_threshold_type'] = 'relative'
+        cfg['ego_threshold'] = 0.9
+        relative = EgoRouter(matrix, 4, cfg)
+        original = matrix @ uniform_items
+        av = absolute(uniform_items, other_items, original, matrix @ other_items)[0]
+        rv = relative(uniform_items, other_items, original, matrix @ other_items)[0]
+        torch.testing.assert_close(av, original)
+        torch.testing.assert_close(rv[1], original[1] * 2)
+
+    def test_sg_sparse_aggregation_uses_inverse_item_degree(self):
+        from utils.semantic_init import aggregate_semantic_users
+        matrix = sp.csr_matrix([[1., 1., 0.], [1., 0., 1.]], dtype=np.float32)
+        items = np.array([[2., 0.], [0., 4.], [2., 2.]], dtype=np.float32)
+        local = aggregate_semantic_users(matrix, items)
+        np.testing.assert_allclose(local, [[1., 4.], [3., 2.]])
+        labels = np.array([0, 1, 0])
+        mixed = aggregate_semantic_users(matrix, items, labels, 0.5)
+        np.testing.assert_allclose(mixed, [[1., 4.25], [3., 1.75]])
+
+    def test_sg_changes_only_extended_users_and_controls_preserve_scale(self):
+        base, _ = self.make_model('gume', {})
+        state = torch.get_rng_state()
+        sg, _ = self.make_model('gume', {'sg_init': 'cluster', 'sg_clusters': 2})
+        self.assertTrue(torch.equal(state, torch.get_rng_state()))
+        shuffled, _ = self.make_model('gume', {'sg_init': 'shuffle', 'sg_clusters': 2})
+        parameters = dict(sg.named_parameters())
+        for name, parameter in base.named_parameters():
+            if name in ('extended_image_user.weight', 'extended_text_user.weight'):
+                self.assertFalse(torch.equal(parameter, parameters[name]))
+                torch.testing.assert_close(parameter.square().mean(), parameters[name].square().mean())
+            else:
+                torch.testing.assert_close(parameter, parameters[name], rtol=0, atol=0)
+        for name in ('extended_image_user', 'extended_text_user'):
+            a, b = getattr(sg, name).weight, getattr(shuffled, name).weight
+            torch.testing.assert_close(a.sort(dim=0).values, b.sort(dim=0).values)
+        local, _ = self.make_model('gume', {'sg_init': 'local'})
+        zero, _ = self.make_model('gume', {'sg_init': 'cluster', 'sg_cluster_weight': 0.})
+        torch.testing.assert_close(local.extended_image_user.weight, zero.extended_image_user.weight)
+
+    def test_combined_fusion_checkpoint_and_diagnostics(self):
+        result = quick_start('gume', 'baby', dict(self.base, ego_mode='soft', sg_init='cluster',
+                                               sg_clusters=2, ego_chunk_size=2), save_model=True)
+        self.assertTrue(result['test'])
+        saved = load_checkpoint(result['trials'][0]['checkpoint'])
+        self.assertIn('ego_image_update_ratio', saved['diagnostics'])
+        self.assertIn('sg_image_initialized_users', saved['diagnostics'])
+        self.assertTrue(any('ego_router.cross_gates' in key for key in saved['state_dict']))
+
+    def test_history_users_remove_parameters_and_keep_gradients(self):
+        original, _ = self.make_model('gume', {})
+        history, loader = self.make_model('gume', {'extended_user_source': 'history'})
+        difference = sum(p.numel() for p in original.parameters()) - sum(p.numel() for p in history.parameters())
+        self.assertEqual(difference, 2 * history.n_users * history.embedding_dim)
+        history.calculate_loss(next(iter(loader))).backward()
+        self.assertTrue(torch.isfinite(history.image_reduce_dim.weight.grad).all())
+
+    def test_content_scores_match_full_sort_and_exclude_positive(self):
+        for cross in (0., 1.):
+            model, loader = self.make_model('contentcf', {'cross_weight': cross})
+            batch = next(iter(loader))
+            users, positive, negative = batch[:3]
+            views = model.forward()
+            profiles = model._profiles(users, views[1], views[2])
+            paired = model._paired_scores(users, positive, views, profiles)
+            ranking = model.full_sort_predict([users])
+            torch.testing.assert_close(paired, ranking.gather(1, positive[:, None]).squeeze(1))
+            without_positive = model._profiles(users, views[1], views[2], positive)
+            raw_history = loader.inter_matrix(form='csr')
+            for row, (user, pos) in enumerate(zip(users.tolist(), positive.tolist())):
+                remaining = [i for i in raw_history[user].indices if i != pos]
+                expected = views[1][0][remaining].sum(0) / (len(remaining) + model.config['history_shrinkage'])
+                torch.testing.assert_close(without_positive[0][row], expected)
+
+    def test_snapshot_contains_history_and_no_binary_artifacts(self):
+        quick_start('contentcf', 'baby', dict(self.base, evaluate_test=False), save_model=True)
+        snapshot = self.root / 'report.json'
+        records = export_results(self.root / 'out', snapshot)
+        self.assertEqual(len(records), 1)
+        self.assertEqual(len(records[0]['histories']['0']), 2)
+        self.assertTrue(snapshot.exists())
+        self.assertNotIn('state_dict', snapshot.read_text())
 
     def test_end_to_end_checkpoint_and_test_export(self):
         result = quick_start('amore', 'baby', dict(self.base, affinity_mode='local'), save_model=True)

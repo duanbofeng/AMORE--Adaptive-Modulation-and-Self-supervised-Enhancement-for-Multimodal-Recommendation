@@ -156,7 +156,11 @@ class AMORE(GeneralRecommender):
             return (collaborative, collaborative, torch.zeros_like(collaborative)) if return_views else collaborative
         modalities = []
         for m, (feature, projection) in enumerate(zip(self.features, self.projections)):
-            item = self.item_id_embedding.weight * torch.sigmoid(projection(feature.weight))
+            gate = torch.sigmoid(projection(feature.weight))
+            if not self.training:
+                self.diagnostics['gate_{}_between_item_std'.format(m)] = float(gate.detach().std(dim=0, unbiased=False).mean())
+                self.diagnostics['gate_{}_mean'.format(m)] = float(gate.detach().mean())
+            item = self.item_id_embedding.weight * gate
             for _ in range(self.ii_layers):
                 item = torch.sparse.mm(getattr(self, 'graph_{}'.format(m)), item)
             user = torch.sparse.mm(getattr(self, 'aggregation_{}'.format(m)), item)
@@ -170,6 +174,11 @@ class AMORE(GeneralRecommender):
             gate = torch.sigmoid(self.residual_gate(torch.cat([collaborative, semantic], dim=1)))
             semantic = semantic * gate
         output = collaborative + self.scale * semantic
+        if not self.training:
+            for label, section in [('user', slice(0, self.n_users)), ('item', slice(self.n_users, None))]:
+                signal, base = self.scale * semantic[section].detach(), collaborative[section].detach()
+                self.diagnostics['semantic_to_id_norm_' + label] = float((signal.norm(dim=1) / base.norm(dim=1).clamp_min(1e-8)).mean())
+                self.diagnostics['semantic_id_cosine_' + label] = float(F.cosine_similarity(signal, base, dim=1).mean())
         return (output, collaborative, semantic) if return_views else output
 
     def calculate_loss(self, interaction):

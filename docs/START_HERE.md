@@ -1,4 +1,8 @@
-# 当前先执行这一轮
+# 第一轮执行记录
+
+**第一轮 Baby core 已完成。当前请看 [完整 GUME＋EgoGCN＋SG-URInit 实验流程](GUME_FUSION_EXPERIMENTS.md)，从六组融合对照开始。**
+
+以下保留第一轮命令供复查。
 
 现在只需要完成：环境检查 → Baby 短跑 → Baby 核心对照 → 汇总结果。先得到这一轮的证据，再决定下一轮实验。`EXPERIMENTS.md` 提供完整选项，不需要从头到尾逐条执行。
 

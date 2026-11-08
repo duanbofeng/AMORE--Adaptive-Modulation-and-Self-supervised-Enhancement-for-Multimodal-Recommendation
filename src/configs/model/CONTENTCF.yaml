@@ -1,0 +1,11 @@
+# A probe of content scoring without ID gating or item-item graphs.
+embedding_size: 64
+n_ui_layers: 3
+learning_rate: 0.001
+learning_rate_scheduler: [0.96, 50]
+content_weight: 0.1
+cross_weight: 0.0
+history_shrinkage: 1.0
+modality: both
+reg_weight: 1.0e-5
+hyper_parameters: [seed]

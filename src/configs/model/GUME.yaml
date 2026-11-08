@@ -45,3 +45,22 @@ enhance_graph: true
 freeze_features: false
 fusion: gume
 graph_chunk_size: 512
+extended_user_source: learned
+feature_adapter_rank: 0
+
+# Full-GUME research modules: both OFF preserves the reference model.
+ego_mode: 'off'
+ego_strength: 0.2
+ego_temperature: 0.2
+ego_threshold_type: relative
+ego_threshold: 1.5
+ego_reattention: true
+ego_leave_one_out: true
+ego_shuffle: false
+ego_cross_source: other
+ego_chunk_size: 32768
+ego_checkpoint: true
+sg_init: 'off'
+sg_clusters: 100
+sg_cluster_weight: 0.5
+sg_scale: match

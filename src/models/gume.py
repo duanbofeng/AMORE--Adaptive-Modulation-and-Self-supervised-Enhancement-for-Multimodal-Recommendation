@@ -18,6 +18,14 @@ class GUME(GeneralRecommender):
     def __init__(self, config, dataset, local_time):
         super(GUME, self).__init__(config, dataset)
         self.config = config
+        self.extended_user_source = config['extended_user_source'] or 'learned'
+        self.adapter_rank = config['feature_adapter_rank'] or 0
+        if self.extended_user_source not in ('learned', 'history'):
+            raise ValueError('extended_user_source must be learned or history')
+        if self.adapter_rank < 0 or int(self.adapter_rank) != self.adapter_rank:
+            raise ValueError('feature_adapter_rank must be a nonnegative integer')
+        if self.adapter_rank and not config['freeze_features']:
+            raise ValueError('Feature adapters require frozen raw features for an interpretable comparison')
         self.sparse = True
         self.use_extended = bool(config['um_loss'] or config['reg_weight_2'])
         self.bm_loss = config['bm_loss']
@@ -109,7 +117,48 @@ class GUME(GeneralRecommender):
             del self.separate_coarse
         if config['fusion'] in ('mean', 'coarse'):
             del self.image_behavior, self.text_behavior
+        if self.use_extended and self.extended_user_source == 'history':
+            # Preserve initialization RNG of the common modules before discarding tables.
+            del self.extended_image_user, self.extended_text_user
+        if self.adapter_rank:
+            self.feature_adapters = nn.ModuleDict()
+            for modality in ('image', 'text'):
+                self.feature_adapters[modality] = nn.Sequential(
+                    nn.Embedding(self.n_items, self.adapter_rank),
+                    nn.Linear(self.adapter_rank, self.embedding_dim, bias=False))
+                nn.init.normal_(self.feature_adapters[modality][0].weight, std=0.01)
+                nn.init.zeros_(self.feature_adapters[modality][1].weight)
+        self.diagnostics = {}
         self.tau = 0.5
+        self.ego_router = None
+        if config['ego_mode'] not in (None, 'off'):
+            from utils.ego_router import EgoRouter
+            self.ego_router = EgoRouter(self.R, self.embedding_dim, config)
+        if config['sg_init'] not in (None, 'off'):
+            self.initialize_semantic_users()
+
+    @torch.no_grad()
+    def initialize_semantic_users(self):
+        if not self.use_extended or self.extended_user_source != 'learned':
+            raise ValueError('SG initialization requires GUME learned extended modality user tables')
+        from utils.semantic_init import initialize_modality_user
+        for name, raw in [('image', self.v_feat), ('text', self.t_feat)]:
+            # Constructors run before model.to(device); perform setup on CPU.
+            features = getattr(self, name + '_embedding').weight.detach().cpu()
+            # Initialize from the SAME latent coordinate system used in explicit GUME messages.
+            reduction = getattr(self, name + '_reduce_dim')
+            projected = F.linear(features, reduction.weight.cpu(), reduction.bias.cpu())
+            if self.adapter_rank:
+                adapter = self.feature_adapters[name]
+                projected += F.linear(adapter[0].weight.cpu(), adapter[1].weight.cpu())
+            transform = getattr(self, name + '_trans_dim')[0]
+            gates = torch.sigmoid(F.linear(projected, transform.weight.cpu(), transform.bias.cpu()))
+            latent = self.item_id_embedding.weight.cpu() * gates
+            latent = self.conv_ii(getattr(self, name + '_original_adj').cpu(), latent)
+            stats = initialize_modality_user(getattr(self, 'extended_' + name + '_user').weight,
+                                             latent, raw, self.interaction_matrix, self.config,
+                                             os.path.join(self.dataset_path, 'graph_cache'))
+            self.diagnostics.update({'sg_' + name + '_' + key: value for key, value in stats.items()})
     
     def find_inter(self, image_adj, text_adj):
         # Derive the intersection from actual row indices; no hard-coded k or stale JSON cache.
@@ -202,8 +251,18 @@ class GUME(GeneralRecommender):
     def forward(self, adj, train=False):
         #  Encoding Multiple Modalities
 
-        image_item_embeds = torch.multiply(self.item_id_embedding.weight, self.image_space_trans(self.image_embedding.weight))
-        text_item_embeds = torch.multiply(self.item_id_embedding.weight, self.text_space_trans(self.text_embedding.weight))
+        if self.adapter_rank:
+            image_adapter = self.feature_adapters['image']
+            text_adapter = self.feature_adapters['text']
+            image_gate = self.image_trans_dim(self.image_reduce_dim(self.image_embedding.weight)
+                                             + image_adapter[1](image_adapter[0].weight))
+            text_gate = self.text_trans_dim(self.text_reduce_dim(self.text_embedding.weight)
+                                           + text_adapter[1](text_adapter[0].weight))
+        else:
+            image_gate = self.image_space_trans(self.image_embedding.weight)
+            text_gate = self.text_space_trans(self.text_embedding.weight)
+        image_item_embeds = self.item_id_embedding.weight * image_gate
+        text_item_embeds = self.item_id_embedding.weight * text_gate
 
         item_embeds = self.item_id_embedding.weight
         user_embeds = self.user_embedding.weight
@@ -214,15 +273,30 @@ class GUME(GeneralRecommender):
         explicit_image_user = torch.sparse.mm(self.R, explicit_image_item)
         explicit_image_embeds = torch.cat([explicit_image_user, explicit_image_item], dim=0)
         
-        extended_image_embeds = self.conv_ui(adj, self.extended_image_user.weight, explicit_image_item) if self.use_extended else None
-
         explicit_text_item = self.conv_ii(self.text_original_adj, text_item_embeds)
         explicit_text_user = torch.sparse.mm(self.R, explicit_text_item)
         explicit_text_embeds = torch.cat([explicit_text_user, explicit_text_item], dim=0)
-        
-        extended_text_embeds = self.conv_ui(adj, self.extended_text_user.weight, explicit_text_item) if self.use_extended else None
 
-        extended_it_embeds = (extended_image_embeds + extended_text_embeds) / 2 if self.use_extended else None
+        if self.ego_router is not None:
+            explicit_image_user, explicit_text_user = self.ego_router(
+                explicit_image_item, explicit_text_item, explicit_image_user, explicit_text_user,
+                collect=not train)
+            explicit_image_embeds = torch.cat([explicit_image_user, explicit_image_item], dim=0)
+            explicit_text_embeds = torch.cat([explicit_text_user, explicit_text_item], dim=0)
+            if not train:
+                self.diagnostics.update(self.ego_router.diagnostics)
+
+        extended_image_embeds = None
+        if self.use_extended and train:
+            source = explicit_image_user if self.extended_user_source == 'history' else self.extended_image_user.weight
+            extended_image_embeds = self.conv_ui(adj, source, explicit_image_item)
+        
+        extended_text_embeds = None
+        if self.use_extended and train:
+            source = explicit_text_user if self.extended_user_source == 'history' else self.extended_text_user.weight
+            extended_text_embeds = self.conv_ui(adj, source, explicit_text_item)
+
+        extended_it_embeds = (extended_image_embeds + extended_text_embeds) / 2 if self.use_extended and train else None
         
         # Keep the same 1/3 semantic scale in all fusion ablations.
         if self.config['fusion'] == 'mean':
@@ -243,6 +317,11 @@ class GUME(GeneralRecommender):
 
         if train:
             return all_embeds, (integration_embeds, extended_id_embeds, extended_it_embeds), (explicit_image_embeds, explicit_text_embeds)
+
+        self.diagnostics['semantic_to_id_norm'] = float((integration_embeds.detach().norm(dim=1)
+                                                        / extended_id_embeds.detach().norm(dim=1).clamp_min(1e-8)).mean())
+        self.diagnostics['semantic_id_cosine'] = float(F.cosine_similarity(
+            integration_embeds.detach(), extended_id_embeds.detach(), dim=1).mean())
 
         return all_embeds
 
@@ -303,6 +382,14 @@ class GUME(GeneralRecommender):
                 um_loss = self.um_loss * (c_loss + noise_loss_1 + noise_loss_2)
             reg_loss_2 = self.reg_weight_2 * self.sq_sum(extended_it_items[pos_items]) / self.batch_size
         reg_loss = reg_loss_1 + reg_loss_2
+
+        if self.adapter_rank:
+            # Penalize the item-specific latent correction, without an additional loss objective.
+            adapter_reg = bpr_loss.new_zeros(())
+            for adapter in self.feature_adapters.values():
+                adapter_reg = adapter_reg + adapter[1](adapter[0](pos_items)).square().sum()
+                adapter_reg = adapter_reg + adapter[1](adapter[0](neg_items)).square().sum()
+            reg_loss = reg_loss + self.reg_weight_1 * adapter_reg / (2 * len(users))
 
         return bpr_loss + al_loss + um_loss + reg_loss
     

@@ -1,0 +1,53 @@
+{
+  "provenance": "User-pasted server analyze_results.py tables; not imported raw result.json.",
+  "dataset": "baby",
+  "split": "validation",
+  "n_seeds": 1,
+  "seed": null,
+  "best_epochs": null,
+  "actual_configs": null,
+  "rows": [
+    {
+      "variant": "amore_base",
+      "recall@20": 0.089952,
+      "ndcg@20": 0.039522,
+      "mean_epoch_seconds": 0.678
+    },
+    {
+      "variant": "amore_global",
+      "recall@20": 0.090201,
+      "ndcg@20": 0.039207,
+      "mean_epoch_seconds": 0.687
+    },
+    {
+      "variant": "amore_item",
+      "recall@20": 0.089807,
+      "ndcg@20": 0.039228,
+      "mean_epoch_seconds": 0.695
+    },
+    {
+      "variant": "amore_local",
+      "recall@20": 0.089194,
+      "ndcg@20": 0.039167,
+      "mean_epoch_seconds": 0.696
+    },
+    {
+      "variant": "amore_shuffle",
+      "recall@20": 0.089524,
+      "ndcg@20": 0.039143,
+      "mean_epoch_seconds": 0.703
+    },
+    {
+      "variant": "gume",
+      "recall@20": 0.101545,
+      "ndcg@20": 0.044377,
+      "mean_epoch_seconds": 1.717
+    },
+    {
+      "variant": "gume_lean",
+      "recall@20": 0.087995,
+      "ndcg@20": 0.038392,
+      "mean_epoch_seconds": 0.812
+    }
+  ]
+}

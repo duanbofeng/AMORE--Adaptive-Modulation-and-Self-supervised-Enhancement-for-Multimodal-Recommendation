@@ -78,6 +78,8 @@ class Trainer:
                 self.model.post_epoch_processing()
                 row = {'epoch': epoch + 1, 'seconds': elapsed, 'loss_components': (totals / count).tolist()}
                 self.writer.add_scalar('train/loss', float(totals.sum() / count), epoch + 1)
+                self.writer.add_scalar('train/epoch_seconds', elapsed, epoch + 1)
+                self.writer.add_scalar('train/learning_rate', self.optimizer.param_groups[0]['lr'], epoch + 1)
                 for i, value in enumerate(totals / count):
                     self.writer.add_scalar('train/component_{}'.format(i), value, epoch + 1)
                 if (epoch + 1) % self.config['eval_step'] == 0 or epoch + 1 == self.config['epochs']:
@@ -86,15 +88,20 @@ class Trainer:
                     if not np.isfinite(score):
                         raise FloatingPointError('Nonfinite validation score')
                     row['validation'] = result
+                    row['diagnostics'] = dict(getattr(self.model, 'diagnostics', {}))
                     for metric, value in result.items():
                         self.writer.add_scalar('validation/' + metric, value, epoch + 1)
+                    for name, value in getattr(self.model, 'diagnostics', {}).items():
+                        if isinstance(value, (int, float)) and np.isfinite(value):
+                            self.writer.add_scalar('diagnostics/' + name, value, epoch + 1)
+                    self.writer.flush()
                     improved = score > self.best_valid_score if self.bigger else score < self.best_valid_score
                     if improved:
                         self.best_valid_score, self.best_valid_result, self.best_epoch = score, result, epoch + 1
                         stale = 0
                         # Fixed graphs are rebuilt from the recorded data/config, not serialized.
                         torch.save({'state_dict': self.model.state_dict(), 'epoch': self.best_epoch,
-                                    'validation': result}, self.checkpoint)
+                                    'validation': result, 'diagnostics': row['diagnostics']}, self.checkpoint)
                     else:
                         stale += 1
                 self.history.append(row)
@@ -106,6 +113,7 @@ class Trainer:
                 raise RuntimeError('No validation checkpoint was produced')
             checkpoint = load_checkpoint(self.checkpoint, map_location=self.device)
             self.model.load_state_dict(checkpoint['state_dict'])
+            self.model.diagnostics = checkpoint.get('diagnostics', {})
             if test_data is not None:
                 self.best_test_upon_valid = self.evaluate(test_data, is_test=True)
             (self.output / 'history.json').write_text(json.dumps(self.history, indent=2))
