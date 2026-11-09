@@ -1,0 +1,15 @@
+{
+  "revision_prior": "detach",
+  "seed": 2026,
+  "hyper_parameters": [
+    "seed"
+  ],
+  "epochs": 1000,
+  "stopping_step": 20,
+  "gpu_id": 0,
+  "use_gpu": true,
+  "data_path": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/data",
+  "evaluate_test": false,
+  "variant": "rev_prior_detach",
+  "execution_fingerprint": "2e8303f646847ee71f10b79316f68537af1d339ebf6e8c5e17bd022ee33cc894"
+}

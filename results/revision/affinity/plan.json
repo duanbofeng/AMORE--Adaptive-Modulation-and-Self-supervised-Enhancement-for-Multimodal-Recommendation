@@ -1,0 +1,632 @@
+[
+  {
+    "dataset": "baby",
+    "variant": "rev_00",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_999_ba741aa09f34",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_999_ba741aa09f34/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_999_ba741aa09f34"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_00",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2024_ee46a31c9551",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2024_ee46a31c9551/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2024_ee46a31c9551"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_00",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2025_2d5c78c5c9b6",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2025_2d5c78c5c9b6/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2025_2d5c78c5c9b6"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_00",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2026_93b766dd4af4",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2026_93b766dd4af4/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2026_93b766dd4af4"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_00",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2027_70ed63dc2d01",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2027_70ed63dc2d01/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_00/seed_2027_70ed63dc2d01"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_10",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_999_78c969b33ced",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_999_78c969b33ced/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_999_78c969b33ced"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_10",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2024_3ff929567938",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2024_3ff929567938/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2024_3ff929567938"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_10",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2025_680f0fe24b62",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2025_680f0fe24b62/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2025_680f0fe24b62"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_10",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2026_6a77aa5f5a55",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2026_6a77aa5f5a55/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2026_6a77aa5f5a55"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_10",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2027_56832da1508c",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2027_56832da1508c/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_10/seed_2027_56832da1508c"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_01",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_999_162087c21b26",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_999_162087c21b26/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_999_162087c21b26"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_01",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2024_80ea6a6968a5",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2024_80ea6a6968a5/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2024_80ea6a6968a5"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_01",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2025_03cb6c407a82",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2025_03cb6c407a82/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2025_03cb6c407a82"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_01",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2026_13923c0319f6",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2026_13923c0319f6/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2026_13923c0319f6"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_01",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2027_a66b1fb3a8d2",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2027_a66b1fb3a8d2/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_01/seed_2027_a66b1fb3a8d2"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_11",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_999_a63fe499da55",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_999_a63fe499da55/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_999_a63fe499da55"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_11",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2024_2c3c4ee252c3",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2024_2c3c4ee252c3/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2024_2c3c4ee252c3"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_11",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2025_7f2365146cee",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2025_7f2365146cee/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2025_7f2365146cee"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_11",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2026_372cdef3745e",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2026_372cdef3745e/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2026_372cdef3745e"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_11",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2027_2798a93d8e57",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2027_2798a93d8e57/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_11/seed_2027_2798a93d8e57"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_shuffle",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_999_769d98d95c62",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_999_769d98d95c62/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_999_769d98d95c62"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_shuffle",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2024_8f20c64307fd",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2024_8f20c64307fd/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2024_8f20c64307fd"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_shuffle",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2025_e98ba9a53cc6",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2025_e98ba9a53cc6/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2025_e98ba9a53cc6"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_shuffle",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2026_fd5867a4b6e6",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2026_fd5867a4b6e6/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2026_fd5867a4b6e6"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_shuffle",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2027_4844c4092cea",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2027_4844c4092cea/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_shuffle/seed_2027_4844c4092cea"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_constant",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_999_a28477f1654d",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_999_a28477f1654d/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_999_a28477f1654d"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_constant",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2024_22916d1a6e1a",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2024_22916d1a6e1a/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2024_22916d1a6e1a"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_constant",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2025_24f534b9069d",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2025_24f534b9069d/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2025_24f534b9069d"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_constant",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2026_1f07e49d24bc",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2026_1f07e49d24bc/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2026_1f07e49d24bc"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_constant",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2027_aee33e338aac",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2027_aee33e338aac/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_constant/seed_2027_aee33e338aac"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_detach",
+    "seed": 999,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_999_1dd1f0072977",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_999_1dd1f0072977/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_999_1dd1f0072977"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_detach",
+    "seed": 2024,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2024_da195c5e262d",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2024_da195c5e262d/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2024_da195c5e262d"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_detach",
+    "seed": 2025,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2025_7c3714bd3168",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2025_7c3714bd3168/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2025_7c3714bd3168"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_detach",
+    "seed": 2026,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2026_cd2440d85170",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2026_cd2440d85170/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2026_cd2440d85170"
+    ]
+  },
+  {
+    "dataset": "baby",
+    "variant": "rev_prior_detach",
+    "seed": 2027,
+    "directory": "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2027_4ffc3f8cb698",
+    "command": [
+      "/home/linux/anaconda3/envs/torch1.12_cuda11.6/bin/python",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/src/main.py",
+      "--model",
+      "amorerevision",
+      "--dataset",
+      "baby",
+      "--config",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2027_4ffc3f8cb698/requested.json",
+      "--output-dir",
+      "/home/linux/model/AMORE--Adaptive-Modulation-and-Self-supervised-Enhancement-for-Multimodal-Recommendation/results/revision/affinity/baby/rev_prior_detach/seed_2027_4ffc3f8cb698"
+    ]
+  }
+]

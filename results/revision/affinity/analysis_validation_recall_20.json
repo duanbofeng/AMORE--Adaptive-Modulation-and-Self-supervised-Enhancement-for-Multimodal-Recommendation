@@ -1,0 +1,283 @@
+{
+  "split": "validation",
+  "metric": "recall@20",
+  "summary": [
+    {
+      "dataset": "baby",
+      "variant": "rev_00",
+      "setting": "37f9622ccf",
+      "n_seeds": 5,
+      "mean": 0.10262774124820924,
+      "sample_std": 0.0014103455998353952,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.10087656589186854,
+        0.10437891660454994
+      ],
+      "trainable_parameters": [
+        33587392,
+        33587392,
+        33587392,
+        33587392,
+        33587392
+      ],
+      "mean_epoch_seconds": 2.5379249913835737
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_01",
+      "setting": "d80186e28e",
+      "n_seeds": 5,
+      "mean": 0.10262115368132341,
+      "sample_std": 0.0015178654310159347,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.10073647482151288,
+        0.10450583254113394
+      ],
+      "trainable_parameters": [
+        33591681,
+        33591681,
+        33591681,
+        33591681,
+        33591681
+      ],
+      "mean_epoch_seconds": 2.1234730168035956
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_10",
+      "setting": "1390a4acfc",
+      "n_seeds": 5,
+      "mean": 0.10259122800573046,
+      "sample_std": 0.0011058659627136177,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.10121811405299001,
+        0.10396434195847092
+      ],
+      "trainable_parameters": [
+        33587392,
+        33587392,
+        33587392,
+        33587392,
+        33587392
+      ],
+      "mean_epoch_seconds": 2.0394793500997634
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_11",
+      "setting": "5f08c95c6d",
+      "n_seeds": 5,
+      "mean": 0.10258804442322056,
+      "sample_std": 0.0011132234653110236,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.10120579492438822,
+        0.1039702939220529
+      ],
+      "trainable_parameters": [
+        33591681,
+        33591681,
+        33591681,
+        33591681,
+        33591681
+      ],
+      "mean_epoch_seconds": 2.2439164782709433
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_prior_constant",
+      "setting": "86fcfb6506",
+      "n_seeds": 5,
+      "mean": 0.10257261629259573,
+      "sample_std": 0.001182402760995543,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.10110446935289083,
+        0.10404076323230063
+      ],
+      "trainable_parameters": [
+        33591681,
+        33591681,
+        33591681,
+        33591681,
+        33591681
+      ],
+      "mean_epoch_seconds": 2.235165749249102
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_prior_detach",
+      "setting": "10209bf2fb",
+      "n_seeds": 5,
+      "mean": 0.1025537596884987,
+      "sample_std": 0.0011356322986381007,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.10114368594808237,
+        0.10396383342891502
+      ],
+      "trainable_parameters": [
+        33591681,
+        33591681,
+        33591681,
+        33591681,
+        33591681
+      ],
+      "mean_epoch_seconds": 2.0717520145871022
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_prior_shuffle",
+      "setting": "c8327a120d",
+      "n_seeds": 5,
+      "mean": 0.1025552290342725,
+      "sample_std": 0.0011803289249012257,
+      "synthetic_fixture": false,
+      "mean_ci95": [
+        0.1010896571021841,
+        0.1040208009663609
+      ],
+      "trainable_parameters": [
+        33591681,
+        33591681,
+        33591681,
+        33591681,
+        33591681
+      ],
+      "mean_epoch_seconds": 2.2475580354378626
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "dataset": "baby",
+      "variant": "rev_01",
+      "setting": "d80186e28e",
+      "baseline": "rev_00",
+      "paired_seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "mean_delta": -6.587566885837837e-06,
+      "paired_ci95": [
+        -0.00033269906395239123,
+        0.0003195239301807156
+      ],
+      "p_raw": 0.9579636672525151,
+      "p_holm": 1.0
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_10",
+      "setting": "1390a4acfc",
+      "baseline": "rev_00",
+      "paired_seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "mean_delta": -3.6513242478783404e-05,
+      "paired_ci95": [
+        -0.0004310602724369752,
+        0.00035803378747940835
+      ],
+      "p_raw": 0.8098964589862788,
+      "p_holm": 1.0
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_11",
+      "setting": "5f08c95c6d",
+      "baseline": "rev_00",
+      "paired_seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "mean_delta": -3.9696824988669224e-05,
+      "paired_ci95": [
+        -0.0004282714027844816,
+        0.00034887775280714316
+      ],
+      "p_raw": 0.790760406782306,
+      "p_holm": 1.0
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_prior_constant",
+      "setting": "86fcfb6506",
+      "baseline": "rev_00",
+      "paired_seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "mean_delta": -5.512495561350861e-05,
+      "paired_ci95": [
+        -0.0004601813401159512,
+        0.00034993142888893396
+      ],
+      "p_raw": 0.7247358265168898,
+      "p_holm": 1.0
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_prior_detach",
+      "setting": "10209bf2fb",
+      "baseline": "rev_00",
+      "paired_seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "mean_delta": -7.398155971053144e-05,
+      "paired_ci95": [
+        -0.0004542336164629321,
+        0.00030627049704186923
+      ],
+      "p_raw": 0.6177417379602579,
+      "p_holm": 1.0
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_prior_shuffle",
+      "setting": "c8327a120d",
+      "baseline": "rev_00",
+      "paired_seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "mean_delta": -7.25122139367429e-05,
+      "paired_ci95": [
+        -0.00042997736102645966,
+        0.0002849529331529739
+      ],
+      "p_raw": 0.6033678349885989,
+      "p_holm": 1.0
+    }
+  ],
+  "test_cohorts": {},
+  "notes": [
+    "Confidence intervals quantify variation across these seeds, not across datasets.",
+    "Multiple settings are not pooled; select settings using validation before final testing.",
+    "Legacy cohorts are opt-in and use a different tail definition; use revision_cohorts.py for the revision paper.",
+    "All test runs used train-only masking, matching the repository protocol.",
+    "A favorable validation comparison is exploratory evidence, not a confirmed test improvement."
+  ]
+}

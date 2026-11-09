@@ -1,0 +1,71 @@
+{
+  "split": "validation",
+  "metric": "recall@20",
+  "summary": [
+    {
+      "dataset": "baby",
+      "variant": "amore_fixed",
+      "setting": "3f31e2738f",
+      "n_seeds": 1,
+      "mean": 0.10189478259804823,
+      "sample_std": null,
+      "synthetic_fixture": false,
+      "mean_ci95": null,
+      "trainable_parameters": [
+        33591681
+      ],
+      "mean_epoch_seconds": 2.805780333654883
+    },
+    {
+      "dataset": "baby",
+      "variant": "amore_original",
+      "setting": "6063e93200",
+      "n_seeds": 1,
+      "mean": 0.10210049100637941,
+      "sample_std": null,
+      "synthetic_fixture": false,
+      "mean_ci95": null,
+      "trainable_parameters": [
+        36080641
+      ],
+      "mean_epoch_seconds": 3.0946985126594715
+    },
+    {
+      "dataset": "baby",
+      "variant": "gume",
+      "setting": "90d68b7eae",
+      "n_seeds": 1,
+      "mean": 0.10154764965898934,
+      "sample_std": null,
+      "synthetic_fixture": false,
+      "mean_ci95": null,
+      "trainable_parameters": [
+        36076352
+      ],
+      "mean_epoch_seconds": 1.679530997580865
+    },
+    {
+      "dataset": "baby",
+      "variant": "rev_11",
+      "setting": "5f08c95c6d",
+      "n_seeds": 1,
+      "mean": 0.10180478516940332,
+      "sample_std": null,
+      "synthetic_fixture": false,
+      "mean_ci95": null,
+      "trainable_parameters": [
+        33591681
+      ],
+      "mean_epoch_seconds": 3.3863817681142137
+    }
+  ],
+  "paired_comparisons": [],
+  "test_cohorts": {},
+  "notes": [
+    "Confidence intervals quantify variation across these seeds, not across datasets.",
+    "Multiple settings are not pooled; select settings using validation before final testing.",
+    "Legacy cohorts are opt-in and use a different tail definition; use revision_cohorts.py for the revision paper.",
+    "All test runs used train-only masking, matching the repository protocol.",
+    "A favorable validation comparison is exploratory evidence, not a confirmed test improvement."
+  ]
+}
