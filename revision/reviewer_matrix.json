@@ -85,8 +85,13 @@
       "steps": [
         "reference"
       ],
-      "note": "已有训练记录；步骤 1 补推理计时及固定 GUME 对照",
-      "guide": "revision/README.md"
+      "note": "Baby reference 五种子参数/训练时间/显存/推理 CSV 与图已同步；训练记录复用，推理新测。参数少 6.89%，推理均值更慢；原始 JSON 待同步，未形成全面加速结论。",
+      "guide": "revision/README.md",
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified.",
+      "completed_evidence": [
+        "revision_outputs/reviewer_fixed/export_audit.json"
+      ]
     }
   },
   {
@@ -154,13 +159,18 @@
     "status": "protocol and cohort analysis implemented; experiment pending",
     "current_fixed_protocol": {
       "main_model": "rev_11",
-      "status": "pending",
+      "status": "partial",
       "steps": [
         "reference",
         "cold"
       ],
-      "note": "步骤 1 的用户/长尾分组 + 步骤 5 的零交互物品实验",
-      "guide": "revision/README.md"
+      "note": "Baby reference 五种子及 cold 三种子分组 CSV/图已同步并通过汇总一致性审计；干预后的 warm 长尾均值改善，但真正零交互组更差。JSON/排名待同步，其他类别未完成。",
+      "guide": "revision/README.md",
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified.",
+      "completed_evidence": [
+        "revision_outputs/reviewer_fixed/export_audit.json"
+      ]
     }
   },
   {
@@ -206,12 +216,14 @@
     "status": "interpretation corrected; factorial experiment pending",
     "current_fixed_protocol": {
       "main_model": "rev_11",
-      "status": "pending",
+      "status": "partial",
       "steps": [
         "losses"
       ],
-      "note": "步骤 2：固定 rev_11 的矩约束 × InfoNCE 2×2",
-      "guide": "revision/README.md"
+      "note": "作者报告服务器 losses 11/30 有训练结果，尚未评估/出图；继续固定 rev_11 的矩约束 × InfoNCE 计划，未取得机制结论。",
+      "guide": "revision/README.md",
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified."
     }
   },
   {
@@ -229,13 +241,16 @@
         "reference",
         "losses"
       ],
-      "note": "亲和力五种子已完成；步骤 1 五种子，其余先三种子、定稿五种子",
+      "note": "亲和力五种子验证证据已完成；reference 五种子、cold 三种子测试导出通过均值/SD/CI及配对统计复算，整体差异不显著；原始结果待同步，步骤 2–4 未完成。",
       "guide": "revision/README.md",
       "completed_evidence": [
         "revision_outputs/run6/paired_statistics.csv",
         "revision_outputs/run6/paired_effects.png",
-        "revision_outputs/run6/factorial.png"
-      ]
+        "revision_outputs/run6/factorial.png",
+        "revision_outputs/reviewer_fixed/export_audit.json"
+      ],
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified."
     }
   },
   {
@@ -252,13 +267,15 @@
         "existing_affinity",
         "losses"
       ],
-      "note": "亲和力分支已完成；步骤 2 补七个非 BPR 项的逐项移除",
+      "note": "分支贡献使用已有 Baby 五种子亲和力消融；损失阶段作者报告仅 11/30 训练结果，尚无损失评估/图，不能称各项有效。",
       "guide": "revision/README.md",
       "completed_evidence": [
         "revision_outputs/run6/paired_statistics.csv",
         "revision_outputs/run6/paired_effects.png",
         "revision_outputs/run6/factorial.png"
-      ]
+      ],
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified."
     }
   },
   {
@@ -270,12 +287,14 @@
     "status": "sweeps implemented; experiment pending",
     "current_fixed_protocol": {
       "main_model": "rev_11",
-      "status": "pending",
+      "status": "partial",
       "steps": [
         "sensitivity"
       ],
-      "note": "步骤 3：三个点名权重各四点；固定主配置不按图选参",
-      "guide": "revision/README.md"
+      "note": "作者报告 sensitivity：vt_loss 12/12、reg_weight_1 3/12、reg_weight_2 0/12 有训练结果，无完整敏感性图；本地原始结果未同步。",
+      "guide": "revision/README.md",
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified."
     }
   },
   {
@@ -287,12 +306,14 @@
     "status": "interventions and plotting implemented; experiment pending",
     "current_fixed_protocol": {
       "main_model": "rev_11",
-      "status": "pending",
+      "status": "partial",
       "steps": [
         "robustness"
       ],
-      "note": "步骤 4：rev_11/GUME 在三类噪声 0/10%/20% 的绝对指标与退化",
-      "guide": "revision/README.md"
+      "note": "作者报告 interaction noise 15/18、image 0/18、text 0/18 有训练结果，尚无评估/鲁棒性图；不能声称抗噪优势。",
+      "guide": "revision/README.md",
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified."
     }
   },
   {
@@ -308,8 +329,13 @@
       "steps": [
         "reference"
       ],
-      "note": "已有训练指标；步骤 1 补固定设备推理效率与测量来源",
-      "guide": "revision/README.md"
+      "note": "Baby reference 五种子效率导出与来源表已同步；参数略少，旧训练记录均值较低但波动/负载未受控，本次推理记录更慢；原始 JSON 待同步。",
+      "guide": "revision/README.md",
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified.",
+      "completed_evidence": [
+        "revision_outputs/reviewer_fixed/export_audit.json"
+      ]
     }
   },
   {
@@ -327,13 +353,16 @@
         "losses",
         "robustness"
       ],
-      "note": "已有负结果如实报告；其余实证回传前不写成已验证",
+      "note": "保持完整 rev_11 为作者决定；亲和力未支持稳定贡献，reference/cold 整体差异不显著，零交互组劣于 GUME；损失/鲁棒性证据仍未完成，不将整模型差异归因亲和力。",
       "guide": "revision/README.md",
       "completed_evidence": [
         "revision_outputs/run6/paired_statistics.csv",
         "revision_outputs/run6/paired_effects.png",
-        "revision_outputs/run6/factorial.png"
-      ]
+        "revision_outputs/run6/factorial.png",
+        "revision_outputs/reviewer_fixed/export_audit.json"
+      ],
+      "audit_date": "2026-11-09",
+      "audit_basis": "Local exports from 5682edd; incomplete server training counts reported by author, not locally reverified."
     }
   }
 ]

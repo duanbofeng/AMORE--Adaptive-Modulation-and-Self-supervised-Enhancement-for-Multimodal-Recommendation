@@ -1,0 +1,900 @@
+{
+  "scope": "Baby reference/cold aggregate exports only; raw evidence not verified",
+  "paired_method": "rev_11 minus GUME; paired t CI; Holm across four overall metrics separately per stage",
+  "stages": {
+    "reference": {
+      "aggregate_checks": "passed",
+      "runs": 10,
+      "cohort_rows": 440,
+      "seeds": [
+        999,
+        2024,
+        2025,
+        2026,
+        2027
+      ],
+      "max_user_reconstruction_error": 5.342948306008566e-16,
+      "summary": [
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "12380fdcc3",
+          "metric": "recall@10",
+          "n": 5,
+          "mean": 0.0673891610517992,
+          "sd": 0.0012839153228267,
+          "ci95_low": 0.0657949696187031,
+          "ci95_high": 0.0689833524848954
+        },
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "12380fdcc3",
+          "metric": "recall@20",
+          "n": 5,
+          "mean": 0.1037477971872417,
+          "sd": 0.001014141509235,
+          "ci95_low": 0.1024885741861406,
+          "ci95_high": 0.1050070201883429
+        },
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "12380fdcc3",
+          "metric": "ndcg@10",
+          "n": 5,
+          "mean": 0.0361490678651331,
+          "sd": 0.0006449615958914,
+          "ci95_low": 0.0353482422712907,
+          "ci95_high": 0.0369498934589755
+        },
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "12380fdcc3",
+          "metric": "ndcg@20",
+          "n": 5,
+          "mean": 0.0454949462542925,
+          "sd": 0.0004720465938653,
+          "ci95_low": 0.0449088229932152,
+          "ci95_high": 0.0460810695153699
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "d347cda4a0",
+          "metric": "recall@10",
+          "n": 5,
+          "mean": 0.0674589093372842,
+          "sd": 0.0004733314447226,
+          "ci95_low": 0.0668711907231543,
+          "ci95_high": 0.0680466279514142
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "d347cda4a0",
+          "metric": "recall@20",
+          "n": 5,
+          "mean": 0.1034389159596153,
+          "sd": 0.0008264670035771,
+          "ci95_low": 0.1024127216355702,
+          "ci95_high": 0.1044651102836604
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "d347cda4a0",
+          "metric": "ndcg@10",
+          "n": 5,
+          "mean": 0.0362496089591076,
+          "sd": 0.0002496769601852,
+          "ci95_low": 0.0359395940664645,
+          "ci95_high": 0.0365596238517506
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "d347cda4a0",
+          "metric": "ndcg@20",
+          "n": 5,
+          "mean": 0.0454929472938543,
+          "sd": 0.0003821838115707,
+          "ci95_low": 0.0450184034143307,
+          "ci95_high": 0.045967491173378
+        }
+      ],
+      "paired_overall": [
+        {
+          "metric": "recall@10",
+          "n": 5,
+          "mean_difference": 6.974828548495516e-05,
+          "sd_difference": 0.0012584949380394143,
+          "ci95_low": -0.0014928795710002624,
+          "ci95_high": 0.0016323761419701729,
+          "p_raw": 0.9073507008477261,
+          "seed_differences": {
+            "999": 0.0007530174462548056,
+            "2024": -0.0006886946087255041,
+            "2025": 0.0016967047694740889,
+            "2026": -0.0015553025015612038,
+            "2027": 0.00014301632198258918
+          },
+          "p_holm_four_metrics": 1.0
+        },
+        {
+          "metric": "recall@20",
+          "n": 5,
+          "mean_difference": -0.00030888122762639804,
+          "sd_difference": 0.001240767862000393,
+          "ci95_low": -0.001849498012000542,
+          "ci95_high": 0.001231735556747746,
+          "p_raw": 0.607435899514868,
+          "seed_differences": {
+            "999": 0.0009377863929162095,
+            "2024": -0.0013649220411884044,
+            "2025": 0.0007089593358556995,
+            "2026": 1.489938877449748e-05,
+            "2027": -0.0018411292144899921
+          },
+          "p_holm_four_metrics": 1.0
+        },
+        {
+          "metric": "ndcg@10",
+          "n": 5,
+          "mean_difference": 0.00010054109397450023,
+          "sd_difference": 0.0006438139084724634,
+          "ci95_low": -0.0006988594577186109,
+          "ci95_high": 0.0008999416456676114,
+          "p_raw": 0.7445504976681159,
+          "seed_differences": {
+            "999": -0.00015126564896039696,
+            "2024": 0.00040676951708890074,
+            "2025": 0.0010660566028831975,
+            "2026": -0.0005650661514150015,
+            "2027": -0.0002537888497241986
+          },
+          "p_holm_four_metrics": 1.0
+        },
+        {
+          "metric": "ndcg@20",
+          "n": 5,
+          "mean_difference": -1.9989604382195104e-06,
+          "sd_difference": 0.0005735554347485199,
+          "ci95_low": -0.0007141620947395649,
+          "ci95_high": 0.0007101641738631258,
+          "p_raw": 0.9941552011383271,
+          "seed_differences": {
+            "999": -0.00016078581523930324,
+            "2024": 0.00027063357699610296,
+            "2025": 0.000800957408112396,
+            "2026": -0.00018533667434599693,
+            "2027": -0.0007354632977142964
+          },
+          "p_holm_four_metrics": 1.0
+        }
+      ],
+      "cohort_at20": [
+        {
+          "variant": "gume",
+          "cohort": "cold_items",
+          "n": 5,
+          "eligible_users": 7,
+          "positives": 7,
+          "recall_mean": 0.0,
+          "recall_sd": 0.0,
+          "ndcg_mean": 0.0,
+          "ndcg_sd": 0.0
+        },
+        {
+          "variant": "gume",
+          "cohort": "head_items",
+          "n": 5,
+          "eligible_users": 11997,
+          "positives": 12962,
+          "recall_mean": 0.16147925870356478,
+          "recall_sd": 0.0012837200652006937,
+          "ndcg_mean": 0.07098397505532039,
+          "ndcg_sd": 0.0007597603993958046
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_1",
+          "n": 5,
+          "eligible_users": 11997,
+          "positives": 12962,
+          "recall_mean": 0.16147925870356478,
+          "recall_sd": 0.0012837200652006937,
+          "ndcg_mean": 0.07098397505532039,
+          "ndcg_sd": 0.0007597603993958046
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_2",
+          "n": 5,
+          "eligible_users": 3560,
+          "positives": 3643,
+          "recall_mean": 0.0230898876404494,
+          "recall_sd": 0.0036008234024468805,
+          "ndcg_mean": 0.00808940361974902,
+          "ndcg_sd": 0.0009988563764331126
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_3",
+          "n": 5,
+          "eligible_users": 1989,
+          "positives": 2010,
+          "recall_mean": 0.015384615384615339,
+          "recall_sd": 0.0022652348569268416,
+          "ndcg_mean": 0.00649081145957534,
+          "ndcg_sd": 0.0006137746588469944
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_4",
+          "n": 5,
+          "eligible_users": 1403,
+          "positives": 1414,
+          "recall_mean": 0.009836065573770422,
+          "recall_sd": 0.0014607199951474732,
+          "ndcg_mean": 0.0036922515179092195,
+          "ndcg_sd": 0.00030848286018740135
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_5",
+          "n": 5,
+          "eligible_users": 1627,
+          "positives": 1646,
+          "recall_mean": 0.01069452980946522,
+          "recall_sd": 0.0003366457022158537,
+          "ndcg_mean": 0.004395837351711359,
+          "ndcg_sd": 0.0001061399242598635
+        },
+        {
+          "variant": "gume",
+          "cohort": "tail_items",
+          "n": 5,
+          "eligible_users": 8285,
+          "positives": 8713,
+          "recall_mean": 0.017320458660229278,
+          "recall_sd": 0.0022341740929888456,
+          "ndcg_mean": 0.006507779598452801,
+          "ndcg_sd": 0.0006148515448681655
+        },
+        {
+          "variant": "gume",
+          "cohort": "user_dense",
+          "n": 5,
+          "eligible_users": 5581,
+          "positives": 7818,
+          "recall_mean": 0.09904603409889196,
+          "recall_sd": 0.0024203691281990043,
+          "ndcg_mean": 0.04488875577271738,
+          "ndcg_sd": 0.0011755959205454168
+        },
+        {
+          "variant": "gume",
+          "cohort": "user_medium",
+          "n": 5,
+          "eligible_users": 4081,
+          "positives": 4081,
+          "recall_mean": 0.10262190639549126,
+          "recall_sd": 0.0019247573522818493,
+          "ndcg_mean": 0.044768494177420334,
+          "ndcg_sd": 0.0005923248561949205
+        },
+        {
+          "variant": "gume",
+          "cohort": "user_sparse",
+          "n": 5,
+          "eligible_users": 9783,
+          "positives": 9783,
+          "recall_mean": 0.10689972401103949,
+          "recall_sd": 0.0010308332605931598,
+          "ndcg_mean": 0.046143806522449614,
+          "ndcg_sd": 0.00047481707181833767
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "cold_items",
+          "n": 5,
+          "eligible_users": 7,
+          "positives": 7,
+          "recall_mean": 0.0,
+          "recall_sd": 0.0,
+          "ndcg_mean": 0.0,
+          "ndcg_sd": 0.0
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "head_items",
+          "n": 5,
+          "eligible_users": 11997,
+          "positives": 12962,
+          "recall_mean": 0.16144901966232297,
+          "recall_sd": 0.0017771491622261832,
+          "ndcg_mean": 0.07111651563668311,
+          "ndcg_sd": 0.000676941478832296
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_1",
+          "n": 5,
+          "eligible_users": 11997,
+          "positives": 12962,
+          "recall_mean": 0.16144901966232297,
+          "recall_sd": 0.0017771491622261832,
+          "ndcg_mean": 0.07111651563668311,
+          "ndcg_sd": 0.000676941478832296
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_2",
+          "n": 5,
+          "eligible_users": 3560,
+          "positives": 3643,
+          "recall_mean": 0.022893258426966236,
+          "recall_sd": 0.0013689317900012813,
+          "ndcg_mean": 0.00827659378381794,
+          "ndcg_sd": 0.0006067385259498227
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_3",
+          "n": 5,
+          "eligible_users": 1989,
+          "positives": 2010,
+          "recall_mean": 0.014278531925590698,
+          "recall_sd": 0.0016900690109574433,
+          "ndcg_mean": 0.0059024624950399,
+          "ndcg_sd": 0.00045463349782587083
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_4",
+          "n": 5,
+          "eligible_users": 1403,
+          "positives": 1414,
+          "recall_mean": 0.0099786172487526,
+          "recall_sd": 0.0007127583749109,
+          "ndcg_mean": 0.00329511561836308,
+          "ndcg_sd": 0.0002849999190356453
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_5",
+          "n": 5,
+          "eligible_users": 1627,
+          "positives": 1646,
+          "recall_mean": 0.0086047940995697,
+          "recall_sd": 0.00043460773275143423,
+          "ndcg_mean": 0.0036652955683225004,
+          "ndcg_sd": 0.00015348522147852074
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "tail_items",
+          "n": 5,
+          "eligible_users": 8285,
+          "positives": 8713,
+          "recall_mean": 0.01658418829209408,
+          "recall_sd": 0.0010560393102146879,
+          "ndcg_mean": 0.0062272736218119806,
+          "ndcg_sd": 0.00036923398118815547
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "user_dense",
+          "n": 5,
+          "eligible_users": 5581,
+          "positives": 7818,
+          "recall_mean": 0.0991165957417525,
+          "recall_sd": 0.001031897840967716,
+          "ndcg_mean": 0.04474217286059494,
+          "ndcg_sd": 0.0007316138427503367
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "user_medium",
+          "n": 5,
+          "eligible_users": 4081,
+          "positives": 4081,
+          "recall_mean": 0.10242587601078161,
+          "recall_sd": 0.0019679463862054404,
+          "ndcg_mean": 0.04468778817878925,
+          "ndcg_sd": 0.0009521543007792598
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "user_sparse",
+          "n": 5,
+          "eligible_users": 9783,
+          "positives": 9783,
+          "recall_mean": 0.10632730246345698,
+          "recall_sd": 0.000844150989351436,
+          "ndcg_mean": 0.0462571225428164,
+          "ndcg_sd": 0.00032111589527911963
+        }
+      ]
+    },
+    "cold": {
+      "aggregate_checks": "passed",
+      "runs": 6,
+      "cohort_rows": 264,
+      "seeds": [
+        999,
+        2024,
+        2025
+      ],
+      "max_user_reconstruction_error": 2.2898349882893854e-16,
+      "summary": [
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "39a6f69482",
+          "metric": "recall@10",
+          "n": 3,
+          "mean": 0.0602411767827041,
+          "sd": 0.0012855863896349,
+          "ci95_low": 0.0570476031503789,
+          "ci95_high": 0.0634347504150293
+        },
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "39a6f69482",
+          "metric": "recall@20",
+          "n": 3,
+          "mean": 0.0924631866519241,
+          "sd": 0.0003621025197338,
+          "ci95_low": 0.0915636741270995,
+          "ci95_high": 0.0933626991767486
+        },
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "39a6f69482",
+          "metric": "ndcg@10",
+          "n": 3,
+          "mean": 0.0326011246277417,
+          "sd": 0.0006293383167648,
+          "ci95_low": 0.0310377615815578,
+          "ci95_high": 0.0341644876739255
+        },
+        {
+          "dataset": "baby",
+          "variant": "gume",
+          "setting": "39a6f69482",
+          "metric": "ndcg@20",
+          "n": 3,
+          "mean": 0.0409177898193285,
+          "sd": 0.000317263470449,
+          "ci95_low": 0.0401296636677956,
+          "ci95_high": 0.0417059159708614
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "ee7774c6b1",
+          "metric": "recall@10",
+          "n": 3,
+          "mean": 0.0608446901517099,
+          "sd": 0.0003724050044373,
+          "ci95_low": 0.0599195848361077,
+          "ci95_high": 0.0617697954673121
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "ee7774c6b1",
+          "metric": "recall@20",
+          "n": 3,
+          "mean": 0.0924526720386838,
+          "sd": 0.001066447753775,
+          "ci95_low": 0.0898034689558202,
+          "ci95_high": 0.0951018751215474
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "ee7774c6b1",
+          "metric": "ndcg@10",
+          "n": 3,
+          "mean": 0.0326615369989234,
+          "sd": 0.0002577366348044,
+          "ci95_low": 0.032021283704682,
+          "ci95_high": 0.0333017902931647
+        },
+        {
+          "dataset": "baby",
+          "variant": "rev_11",
+          "setting": "ee7774c6b1",
+          "metric": "ndcg@20",
+          "n": 3,
+          "mean": 0.0407915886047771,
+          "sd": 0.0003610311498441,
+          "ci95_low": 0.039894737510299,
+          "ci95_high": 0.0416884396992553
+        }
+      ],
+      "paired_overall": [
+        {
+          "metric": "recall@10",
+          "n": 3,
+          "mean_difference": 0.0006035133690058004,
+          "sd_difference": 0.0011624403595541363,
+          "ci95_low": -0.0022841485658232426,
+          "ci95_high": 0.003491175303834843,
+          "p_raw": 0.46342674113302673,
+          "seed_differences": {
+            "999": 0.00012471072255079707,
+            "2024": -0.00024305428008179752,
+            "2025": 0.0019288836645484017
+          },
+          "p_holm_four_metrics": 1.0
+        },
+        {
+          "metric": "recall@20",
+          "n": 3,
+          "mean_difference": -1.0514613240234874e-05,
+          "sd_difference": 0.001427243453273691,
+          "ci95_low": -0.003555983899366181,
+          "ci95_high": 0.0035349546728857114,
+          "p_raw": 0.9909775767751763,
+          "seed_differences": {
+            "999": 0.001563613381561496,
+            "2024": -0.001220206895187606,
+            "2025": -0.00037495032609459467
+          },
+          "p_holm_four_metrics": 1.0
+        },
+        {
+          "metric": "ndcg@10",
+          "n": 3,
+          "mean_difference": 6.041237118166685e-05,
+          "sd_difference": 0.0003747754478653343,
+          "ci95_low": -0.0008705814522987299,
+          "ci95_high": 0.0009914061946620636,
+          "p_raw": 0.806314300471127,
+          "seed_differences": {
+            "999": -1.4669127876197618e-05,
+            "2024": -0.0002711386195073037,
+            "2025": 0.0004670448609285019
+          },
+          "p_holm_four_metrics": 1.0
+        },
+        {
+          "metric": "ndcg@20",
+          "n": 3,
+          "mean_difference": -0.00012620121455136682,
+          "sd_difference": 0.00042708586323481057,
+          "ci95_low": -0.0011871413135684035,
+          "ci95_high": 0.0009347388844656699,
+          "p_raw": 0.6596956562707744,
+          "seed_differences": {
+            "999": 0.00031310177728829935,
+            "2024": -0.0005399196978636001,
+            "2025": -0.00015178572307879973
+          },
+          "p_holm_four_metrics": 1.0
+        }
+      ],
+      "cohort_at20": [
+        {
+          "variant": "gume",
+          "cohort": "cold_items",
+          "n": 3,
+          "eligible_users": 4106,
+          "positives": 4225,
+          "recall_mean": 0.0017048222113979,
+          "recall_sd": 0.00024354603019970003,
+          "ndcg_mean": 0.0006060132173971001,
+          "ndcg_sd": 0.00010200320048968066
+        },
+        {
+          "variant": "gume",
+          "cohort": "head_items",
+          "n": 3,
+          "eligible_users": 9811,
+          "positives": 10480,
+          "recall_mean": 0.1783121633799444,
+          "recall_sd": 0.0013444075906036352,
+          "ndcg_mean": 0.07886423817297662,
+          "ndcg_sd": 0.0002584084055262934
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_1",
+          "n": 3,
+          "eligible_users": 9811,
+          "positives": 10480,
+          "recall_mean": 0.1783121633799444,
+          "recall_sd": 0.0013444075906036352,
+          "ndcg_mean": 0.07886423817297662,
+          "ndcg_sd": 0.0002584084055262934
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_2",
+          "n": 3,
+          "eligible_users": 2868,
+          "positives": 2913,
+          "recall_mean": 0.027080427708042736,
+          "recall_sd": 0.0031637976729001075,
+          "ndcg_mean": 0.009346635803622232,
+          "ndcg_sd": 0.0010926987199631176
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_3",
+          "n": 3,
+          "eligible_users": 1609,
+          "positives": 1624,
+          "recall_mean": 0.014087424901595166,
+          "recall_sd": 0.0009493631023318582,
+          "ndcg_mean": 0.006215248251504033,
+          "ndcg_sd": 0.000543944889017334
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_4",
+          "n": 3,
+          "eligible_users": 1129,
+          "positives": 1136,
+          "recall_mean": 0.012105107764983733,
+          "recall_sd": 0.0028472544319436345,
+          "ndcg_mean": 0.004019927375130533,
+          "ndcg_sd": 0.0006460989484395371
+        },
+        {
+          "variant": "gume",
+          "cohort": "item_quintile_5",
+          "n": 3,
+          "eligible_users": 1288,
+          "positives": 1304,
+          "recall_mean": 0.009575569358178033,
+          "recall_sd": 0.00044825331458818956,
+          "ndcg_mean": 0.0042280238844458334,
+          "ndcg_sd": 8.759852319163315e-05
+        },
+        {
+          "variant": "gume",
+          "cohort": "tail_items",
+          "n": 3,
+          "eligible_users": 6710,
+          "positives": 6977,
+          "recall_mean": 0.01880278191753597,
+          "recall_sd": 0.0019635026501710388,
+          "ndcg_mean": 0.0069679148639770665,
+          "ndcg_sd": 0.0006355966108968431
+        },
+        {
+          "variant": "gume",
+          "cohort": "user_dense",
+          "n": 3,
+          "eligible_users": 5581,
+          "positives": 7818,
+          "recall_mean": 0.09137191622409317,
+          "recall_sd": 0.001350962394180572,
+          "ndcg_mean": 0.04146674900140577,
+          "ndcg_sd": 0.0005278133739305341
+        },
+        {
+          "variant": "gume",
+          "cohort": "user_medium",
+          "n": 3,
+          "eligible_users": 4081,
+          "positives": 4081,
+          "recall_mean": 0.09409458466062233,
+          "recall_sd": 0.001766994009048792,
+          "ndcg_mean": 0.041341807114166865,
+          "ndcg_sd": 0.0006188069131269037
+        },
+        {
+          "variant": "gume",
+          "cohort": "user_sparse",
+          "n": 3,
+          "eligible_users": 9783,
+          "positives": 9783,
+          "recall_mean": 0.0924051926811816,
+          "recall_sd": 0.0021994720220126556,
+          "ndcg_mean": 0.040427740164272606,
+          "ndcg_sd": 0.0008821489654673154
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "cold_items",
+          "n": 3,
+          "eligible_users": 4106,
+          "positives": 4225,
+          "recall_mean": 0.0010553661308653668,
+          "recall_sd": 0.00014061136609586148,
+          "ndcg_mean": 0.0003628944732691,
+          "ndcg_sd": 1.0905102761939515e-05
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "head_items",
+          "n": 3,
+          "eligible_users": 9811,
+          "positives": 10480,
+          "recall_mean": 0.17645758809758402,
+          "recall_sd": 0.003577589866841475,
+          "ndcg_mean": 0.07808856973431406,
+          "ndcg_sd": 0.0012731075474878856
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_1",
+          "n": 3,
+          "eligible_users": 9811,
+          "positives": 10480,
+          "recall_mean": 0.17645758809758402,
+          "recall_sd": 0.003577589866841475,
+          "ndcg_mean": 0.07808856973431406,
+          "ndcg_sd": 0.0012731075474878856
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_2",
+          "n": 3,
+          "eligible_users": 2868,
+          "positives": 2913,
+          "recall_mean": 0.03184565318456527,
+          "recall_sd": 0.002570123708449124,
+          "ndcg_mean": 0.010701123701930965,
+          "ndcg_sd": 0.001211175574799227
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_3",
+          "n": 3,
+          "eligible_users": 1609,
+          "positives": 1624,
+          "recall_mean": 0.017609281126993934,
+          "recall_sd": 0.0018987262046637182,
+          "ndcg_mean": 0.0071357064980806335,
+          "ndcg_sd": 0.0005900646320226035
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_4",
+          "n": 3,
+          "eligible_users": 1129,
+          "positives": 1136,
+          "recall_mean": 0.012400354295837001,
+          "recall_sd": 0.0023434466882769067,
+          "ndcg_mean": 0.0046845712715822335,
+          "ndcg_sd": 0.0005671732312381734
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "item_quintile_5",
+          "n": 3,
+          "eligible_users": 1288,
+          "positives": 1304,
+          "recall_mean": 0.009834368530020668,
+          "recall_sd": 0.00044825331458818956,
+          "ndcg_mean": 0.0043780066745862335,
+          "ndcg_sd": 0.00010553740788559672
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "tail_items",
+          "n": 3,
+          "eligible_users": 6710,
+          "positives": 6977,
+          "recall_mean": 0.021708892200695436,
+          "recall_sd": 0.0019606727145420797,
+          "ndcg_mean": 0.007888507948192432,
+          "ndcg_sd": 0.0007598867519925683
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "user_dense",
+          "n": 3,
+          "eligible_users": 5581,
+          "positives": 7818,
+          "recall_mean": 0.092828443133048,
+          "recall_sd": 0.0013223870683537371,
+          "ndcg_mean": 0.0413991961545414,
+          "ndcg_sd": 0.00019624206562934588
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "user_medium",
+          "n": 3,
+          "eligible_users": 4081,
+          "positives": 4081,
+          "recall_mean": 0.09311443273707416,
+          "recall_sd": 0.002337513358042005,
+          "ndcg_mean": 0.0415775242463155,
+          "ndcg_sd": 0.0003228959051547422
+        },
+        {
+          "variant": "rev_11",
+          "cohort": "user_sparse",
+          "n": 3,
+          "eligible_users": 9783,
+          "positives": 9783,
+          "recall_mean": 0.09196224743602843,
+          "recall_sd": 0.0011305775340241123,
+          "ndcg_mean": 0.04011710622837367,
+          "ndcg_sd": 0.0007664704026583091
+        }
+      ]
+    }
+  },
+  "input_sha256": {
+    "revision_outputs/reviewer_fixed/reference/cohorts/cohort_metrics.csv": "1a12a9483c262727c984566b1fb3c2f0e49db525e97d8d6171a90fe779b0a4fb",
+    "revision_outputs/reviewer_fixed/reference/efficiency_provenance.csv": "d8f344cdba607c402f192c3abdfdd1330032c0866433decaf0fe084d9e65f284",
+    "revision_outputs/reviewer_fixed/reference/efficiency_runs.csv": "7cb006c40ea223dedff224c5626eb924632684bd4451ea56c0fc97c37cc003ba",
+    "revision_outputs/reviewer_fixed/reference/overall/runs.csv": "7cb006c40ea223dedff224c5626eb924632684bd4451ea56c0fc97c37cc003ba",
+    "revision_outputs/reviewer_fixed/reference/overall/summary.csv": "bdb99c815356a935c7ba2d7209e5cbd2edcbea28dfffe3ea6c315fb81700420b",
+    "revision_outputs/reviewer_fixed/cold/cohorts/cohort_metrics.csv": "5dc38d57a0419165b40caa73158753fa4066ab8b86efb97093583ef280109bef",
+    "revision_outputs/reviewer_fixed/cold/overall/runs.csv": "5dcc9d5bf707ee4d75ef675016c884b710b53e874c6d97e81b76a4bbe71614ea",
+    "revision_outputs/reviewer_fixed/cold/overall/summary.csv": "da8f244b4dc28143f2ed5b8b09dbb50a7029b69205fb1cbf449447c4dd762a42"
+  },
+  "efficiency": {
+    "gume": {
+      "parameters": {
+        "mean": 36076352.0,
+        "sd": 0.0
+      },
+      "epoch_seconds": {
+        "mean": 4.955811824582215,
+        "sd": 2.3241847403750624
+      },
+      "gpu_peak_mib": {
+        "mean": 885.3447265625,
+        "sd": 0.0
+      },
+      "inference_encoding_seconds_median": {
+        "mean": 0.0050134124001487606,
+        "sd": 0.0012157067041029383
+      },
+      "inference_ranking_seconds_median": {
+        "mean": 0.00897442880668674,
+        "sd": 0.0011244190012433641
+      },
+      "inference_total_seconds_median": {
+        "mean": 0.0149740536056924,
+        "sd": 0.0018521236995557426
+      }
+    },
+    "rev_11": {
+      "parameters": {
+        "mean": 33591681.0,
+        "sd": 0.0
+      },
+      "epoch_seconds": {
+        "mean": 2.2439164782709433,
+        "sd": 0.009100845950647416
+      },
+      "gpu_peak_mib": {
+        "mean": 878.51806640625,
+        "sd": 0.0
+      },
+      "inference_encoding_seconds_median": {
+        "mean": 0.00750316680059762,
+        "sd": 0.0023358650230542364
+      },
+      "inference_ranking_seconds_median": {
+        "mean": 0.01165318220155308,
+        "sd": 0.0039861005394942976
+      },
+      "inference_total_seconds_median": {
+        "mean": 0.02005017600022252,
+        "sd": 0.003451817813085154
+      }
+    }
+  },
+  "raw_evidence_note": "CSV-reported source/data hashes agree; input bytes, checkpoint selection, training histories and item identities cannot be reverified without raw JSON/rankings/data. test_evaluation_seconds is absent; inference benchmark has separate populated fields. Cohort means are descriptive; no cohort significance claim is made.",
+  "reported_data_hashes": {
+    "inter_file_name": "e0abb033ea5cc538bb2becd8c3dc50b619f28f7974ba61f5ed11ce27cf405940",
+    "text_feature_file": "6667f2ad655c9ecc97cb3383f58988864ef51ec0b39c158b15986c66769f2dc4",
+    "vision_feature_file": "36c3be592b98506189a7d5de71b21577cf626f0293b539d861534673b3e9fd70"
+  }
+}

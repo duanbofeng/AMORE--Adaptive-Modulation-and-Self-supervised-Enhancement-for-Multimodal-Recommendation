@@ -19,6 +19,12 @@ results/revision/affinity/**
 !results/revision/affinity/**/
 !results/revision/affinity/**/*.json
 !results/revision/affinity/**/*.log
+# Keep reviewer evidence syncable; checkpoints, TensorBoard events and rankings stay ignored.
+!results/reviewer_fixed/
+results/reviewer_fixed/**
+!results/reviewer_fixed/**/
+!results/reviewer_fixed/**/*.json
+!results/reviewer_fixed/**/*.log
 saved/
 recommend_topk/
 *.egg-info/
