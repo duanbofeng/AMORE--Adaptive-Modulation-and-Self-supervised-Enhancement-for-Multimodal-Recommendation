@@ -1,5 +1,7 @@
 # Figure and table plan
 
+Current execution plan: [README](README.md). The author has fixed full `rev_11` as the main model and paused architecture exploration. Completed Baby validation affinity figures are in `revision_outputs/run6/`. New reviewer outputs will be in `revision_outputs/reviewer_fixed/{reference,losses,sensitivity,robustness,cold}/`; these are pending until the server runs finish. The broader table below is a manuscript evidence inventory, not an instruction to execute every legacy suite.
+
 All performance figures are generated from completed `result.json` files. Synthetic fixtures are rejected by default. Error bars are sample SD unless the caption explicitly says CI. Runs with different source/data/configuration hashes are not pooled.
 
 The model schematic is supplied as `figures/model.pdf`, `figures/model.svg` and `figures/model.png`; regenerate it with `python experiments/draw_revision_model.py`. It depicts computation and controlled switches, not an empirical improvement.

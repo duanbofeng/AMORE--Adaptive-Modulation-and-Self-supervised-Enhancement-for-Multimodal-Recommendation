@@ -1,5 +1,9 @@
 # 原始模型和已有证据
 
+## 当前作者决定（run_6 之后）
+
+用户明确选择完整 **rev_11** 作为本轮论文主模型，暂停新结构探索；不按 Baby 均值将 rev_00 替换为主模型。rev_11 的 Baby 五种子验证均值不是最高，亲和力增益也未得到支持，这些负结果保留。下面的历史结果和旧决策流程用于追溯；当前按 [README](README.md) 补充审稿证据，主配置不根据补充测试集结果重新选择。
+
 ## 来源锁定
 
 `old_model/src/models/gume.py` 是原始 AMORE 的实际网络；同目录 `amore.py` 是包装。`src/models/archive/amore_original.py` 与前者逐字节一致，SHA256 为 `8209d878dbe065155767367fc14a7baee05b28b87b197ea7e268c7a58e89edb6`。文件、原稿、审稿意见、21 条结果行及 9 个日志的来源记录见 `evidence/provenance.json`。
