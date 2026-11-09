@@ -1,0 +1,38 @@
+{
+  "source": "User-reported experimental results supplied in conversation on 2026-11-10",
+  "datasets": ["Baby", "Sports", "Clothing"],
+  "metrics": ["Recall@10", "Recall@20", "NDCG@10", "NDCG@20"],
+  "decimal_places": 4,
+  "seed_count": null,
+  "aggregation": "not supplied",
+  "evaluation_split": "not supplied",
+  "protocol_verification": "Raw run records and baseline protocol metadata were not provided with these tables.",
+  "factorial_metric": "Recall@10",
+  "factorial_metric_basis": "Recall@10 and the proposed table interpretation were confirmed by the author in conversation on 2026-11-10.",
+  "factorial_switches": {"00": "Both affinity uses off on the same full backbone", "10": "Propagation affinity only", "01": "Fusion affinity only", "11": "Both affinity uses on"},
+  "performance": {
+    "MF-BPR (2009) [2]": [0.0357,0.0575,0.0192,0.0249,0.0432,0.0653,0.0241,0.0298,0.0187,0.0279,0.0103,0.0126],
+    "LightGCN (2020) [6]": [0.0479,0.0754,0.0257,0.0328,0.0569,0.0864,0.0311,0.0387,0.0340,0.0526,0.0188,0.0236],
+    "VBPR (2016) [4]": [0.0423,0.0663,0.0223,0.0284,0.0558,0.0856,0.0307,0.0384,0.0281,0.0415,0.0158,0.0192],
+    "MMGCN (2019) [7]": [0.0378,0.0615,0.0200,0.0261,0.0370,0.0605,0.0193,0.0254,0.0218,0.0345,0.0110,0.0142],
+    "DualGNN (2023) [9]": [0.0448,0.0716,0.0240,0.0309,0.0568,0.0859,0.0310,0.0385,0.0454,0.0683,0.0241,0.0299],
+    "LATTICE (2021) [10]": [0.0547,0.0850,0.0292,0.0370,0.0620,0.0953,0.0335,0.0421,0.0492,0.0733,0.0268,0.0330],
+    "FREEDOM (2023) [13]": [0.0627,0.0992,0.0330,0.0424,0.0717,0.1089,0.0385,0.0481,0.0629,0.0941,0.0341,0.0420],
+    "MGCN (2023) [16]": [0.0620,0.0964,0.0339,0.0427,0.0729,0.1106,0.0397,0.0496,0.0641,0.0945,0.0347,0.0428],
+    "DHMRec (2026) [23]": [0.0646,0.1016,0.0343,0.0436,0.0738,0.1132,0.0401,0.0502,0.0629,0.0931,0.0340,0.0417],
+    "SLMRec (2023) [11]": [0.0529,0.0775,0.0290,0.0353,0.0663,0.0990,0.0365,0.0450,0.0452,0.0675,0.0247,0.0303],
+    "BM3 (2023) [14]": [0.0564,0.0883,0.0301,0.0383,0.0656,0.0980,0.0355,0.0438,0.0422,0.0621,0.0231,0.0281],
+    "MENTOR (2025) [17]": [0.0678,0.1048,0.0362,0.0450,0.0763,0.1139,0.0409,0.0511,0.0668,0.0989,0.0360,0.0441],
+    "AMORE (ours)": [0.0682,0.1040,0.0366,0.0455,0.0770,0.1145,0.0419,0.0523,0.0693,0.1010,0.0372,0.0453]
+  },
+  "supplied_improvement_percent": [0.59,-0.76,1.10,1.11,0.92,0.53,2.44,2.35,3.74,2.12,3.33,2.72],
+  "ablation_metrics": ["Recall@20", "NDCG@20"],
+  "ablation": {
+    "Full": [[0.1040,0.0455],[0.1145,0.0523],[0.1010,0.0453]],
+    "w/o ELAM": [[0.1029,0.0432],[0.1132,0.0516],[0.0992,0.0438]],
+    "w/o CFDM": [[0.1008,0.0441],[0.1112,0.0505],[0.0968,0.0439]],
+    "w/o MACA": [[0.0903,0.0391],[0.1017,0.0482],[0.0883,0.0401]]
+  },
+  "factorial": {"00": [0.0671,0.0758,0.0677], "10": [0.0673,0.0762,0.0685], "01": [0.0679,0.0768,0.0684], "11": [0.0682,0.0770,0.0693]},
+  "transcription_note": "Performance values follow the typed table where screenshot and text differ: Sports MMGCN NDCG@20 is 0.0254 in the typed table but appears as 0.0612 in the screenshot. The ablation values agree with image two. Factorial values are transcribed from image three."
+}

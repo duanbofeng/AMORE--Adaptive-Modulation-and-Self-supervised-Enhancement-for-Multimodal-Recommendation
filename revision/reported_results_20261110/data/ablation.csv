@@ -1,0 +1,13 @@
+variant,dataset,Recall@20,NDCG@20
+Full,Baby,0.104,0.0455
+Full,Sports,0.1145,0.0523
+Full,Clothing,0.101,0.0453
+w/o ELAM,Baby,0.1029,0.0432
+w/o ELAM,Sports,0.1132,0.0516
+w/o ELAM,Clothing,0.0992,0.0438
+w/o CFDM,Baby,0.1008,0.0441
+w/o CFDM,Sports,0.1112,0.0505
+w/o CFDM,Clothing,0.0968,0.0439
+w/o MACA,Baby,0.0903,0.0391
+w/o MACA,Sports,0.1017,0.0482
+w/o MACA,Clothing,0.0883,0.0401

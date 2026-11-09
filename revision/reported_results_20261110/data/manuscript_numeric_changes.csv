@@ -1,0 +1,31 @@
+table,model,dataset,metric,old,new
+Table 2,LightGCN,Sports,NDCG@10,0.0313,0.0311
+Table 2,VBPR,Clothing,Recall@10,0.0432,0.0281
+Table 2,VBPR,Clothing,Recall@20,0.0663,0.0415
+Table 2,VBPR,Clothing,NDCG@10,0.0233,0.0158
+Table 2,VBPR,Clothing,NDCG@20,0.0284,0.0192
+Table 2,MMGCN,Clothing,Recall@10,0.0378,0.0218
+Table 2,MMGCN,Clothing,Recall@20,0.0615,0.0345
+Table 2,MMGCN,Clothing,NDCG@10,0.02,0.011
+Table 2,MMGCN,Clothing,NDCG@20,0.0261,0.0142
+Table 2,SLMRec,Baby,Recall@10,0.054,0.0529
+Table 2,SLMRec,Baby,Recall@20,0.081,0.0775
+Table 2,SLMRec,Baby,NDCG@10,0.0285,0.029
+Table 2,SLMRec,Baby,NDCG@20,0.0357,0.0353
+Table 2,SLMRec,Sports,Recall@10,0.0676,0.0663
+Table 2,SLMRec,Sports,Recall@20,0.1017,0.099
+Table 2,SLMRec,Sports,NDCG@10,0.0374,0.0365
+Table 2,SLMRec,Sports,NDCG@20,0.0462,0.045
+Table 2,SLMRec,Clothing,Recall@10,0.054,0.0452
+Table 2,SLMRec,Clothing,Recall@20,0.081,0.0675
+Table 2,SLMRec,Clothing,NDCG@10,0.0285,0.0247
+Table 2,SLMRec,Clothing,NDCG@20,0.0357,0.0303
+Table 2,BM3,Sports,NDCG@10,0.0335,0.0355
+Table 3,w/o ELAM,Baby,Recall@20,0.1038,0.1029
+Table 3,w/o ELAM,Sports,Recall@20,0.114,0.1132
+Table 3,w/o ELAM,Baby,NDCG@20,0.0452,0.0432
+Table 3,w/o ELAM,Sports,NDCG@20,0.052,0.0516
+Table 3,w/o ELAM,Clothing,NDCG@20,0.0448,0.0438
+Table 3,w/o CFDM,Baby,NDCG@20,0.0445,0.0441
+Table 3,w/o CFDM,Clothing,NDCG@20,0.0441,0.0439
+Table 3,w/o MACA,Clothing,NDCG@20,0.04,0.0401

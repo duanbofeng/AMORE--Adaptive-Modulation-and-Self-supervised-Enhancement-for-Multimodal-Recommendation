@@ -1,0 +1,4 @@
+dataset,metric,y00,y10,y01,y11,propagation_only,fusion_only,joint_gain,interaction,propagation_given_fusion,fusion_given_propagation,full_minus_best_single,joint_relative_percent
+Baby,Recall@10,0.0671,0.0673,0.0679,0.0682,0.0002,0.0008,0.0011,0.0001,0.0003,0.0009,0.0003,1.639344262
+Sports,Recall@10,0.0758,0.0762,0.0768,0.077,0.0004,0.001,0.0012,-0.0002,0.0002,0.0008,0.0002,1.583113456
+Clothing,Recall@10,0.0677,0.0685,0.0684,0.0693,0.0008,0.0007,0.0016,0.0001,0.0009,0.0008,0.0008,2.363367799

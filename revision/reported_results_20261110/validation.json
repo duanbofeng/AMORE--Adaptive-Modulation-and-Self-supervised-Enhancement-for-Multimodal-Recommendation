@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "performance_rows": 39,
+  "ablation_rows": 12,
+  "factorial_rows": 12,
+  "improvement_checks": 12,
+  "highest_amore_scores": 11,
+  "source_quote_checks": 23,
+  "uncertainty": "Not calculated: seed-level records and repetition counts unavailable.",
+  "source_sha256": "2ac4fe42b5816d11900061681a72163c8f3f1e1ef7d39b0a88015f95cf9fef94"
+}
