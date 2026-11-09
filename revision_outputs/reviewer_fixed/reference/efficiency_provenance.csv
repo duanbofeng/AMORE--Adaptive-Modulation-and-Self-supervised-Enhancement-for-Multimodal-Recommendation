@@ -1,0 +1,11 @@
+dataset,variant,seed,training_gpu,inference_device,inference_torch,training_torch,training_measurements
+baby,gume,2024,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,gume,2025,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,gume,2026,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,gume,2027,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,gume,999,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,rev_11,2024,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,rev_11,2025,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,rev_11,2026,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,rev_11,2027,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
+baby,rev_11,999,NVIDIA GeForce RTX 3090,NVIDIA GeForce RTX 3090,1.12.1,1.12.1,Copied from original training; not remeasured
