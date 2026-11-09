@@ -1,0 +1,406 @@
+provenance,dataset,model,seed,family,group,weight,recall,ndcg
+synthetic_learning_example,Baby,GUME,17,User activity,Sparse,0.36,0.08032817478,0.03491578539
+synthetic_learning_example,Baby,GUME,17,User activity,Medium,0.33,0.1024206678,0.04451860217
+synthetic_learning_example,Baby,GUME,17,User activity,Dense,0.31,0.1269040597,0.05516065723
+synthetic_learning_example,Baby,GUME,17,Item degree,Tail Q1,,0.0465500171,0.02023362801
+synthetic_learning_example,Baby,GUME,17,Item degree,Q2,,0.06694907312,0.02910036827
+synthetic_learning_example,Baby,GUME,17,Item degree,Q3,,0.08650640887,0.03760124284
+synthetic_learning_example,Baby,GUME,17,Item degree,Q4,,0.105766944,0.0459731088
+synthetic_learning_example,Baby,GUME,17,Item degree,Head Q5,,0.1391638216,0.06048953733
+synthetic_learning_example,Baby,GUME,17,Zero-interaction scenario,Cold items,,0.02630189546,0.01143249351
+synthetic_learning_example,Baby,GUME,43,User activity,Sparse,0.36,0.07620595719,0.03323329728
+synthetic_learning_example,Baby,GUME,43,User activity,Medium,0.33,0.1038066326,0.04526990814
+synthetic_learning_example,Baby,GUME,43,User activity,Dense,0.31,0.127983244,0.05581329008
+synthetic_learning_example,Baby,GUME,43,Item degree,Tail Q1,,0.04430839545,0.01932282111
+synthetic_learning_example,Baby,GUME,43,Item degree,Q2,,0.06634373946,0.02893239974
+synthetic_learning_example,Baby,GUME,43,Item degree,Q3,,0.0849814149,0.03706026049
+synthetic_learning_example,Baby,GUME,43,Item degree,Q4,,0.1059427487,0.04620146499
+synthetic_learning_example,Baby,GUME,43,Item degree,Head Q5,,0.1372261191,0.05984409329
+synthetic_learning_example,Baby,GUME,43,Zero-interaction scenario,Cold items,,0.0264366335,0.01152897401
+synthetic_learning_example,Baby,GUME,89,User activity,Sparse,0.36,0.0787044565,0.03422309785
+synthetic_learning_example,Baby,GUME,89,User activity,Medium,0.33,0.1030738972,0.04481967383
+synthetic_learning_example,Baby,GUME,89,User activity,Dense,0.31,0.1281359659,0.05571742562
+synthetic_learning_example,Baby,GUME,89,Item degree,Tail Q1,,0.04765492389,0.02072181419
+synthetic_learning_example,Baby,GUME,89,Item degree,Q2,,0.06502141969,0.02827329617
+synthetic_learning_example,Baby,GUME,89,Item degree,Q3,,0.08476825121,0.03685982071
+synthetic_learning_example,Baby,GUME,89,Item degree,Q4,,0.1067567579,0.04642109396
+synthetic_learning_example,Baby,GUME,89,Item degree,Head Q5,,0.1374509147,0.05976784941
+synthetic_learning_example,Baby,GUME,89,Zero-interaction scenario,Cold items,,0.02491391058,0.01083332809
+synthetic_learning_example,Baby,GUME,131,User activity,Sparse,0.36,0.07862320646,0.03452357535
+synthetic_learning_example,Baby,GUME,131,User activity,Medium,0.33,0.1027515905,0.04511838725
+synthetic_learning_example,Baby,GUME,131,User activity,Dense,0.31,0.1307447587,0.05741023206
+synthetic_learning_example,Baby,GUME,131,Item degree,Tail Q1,,0.04766712769,0.02093071179
+synthetic_learning_example,Baby,GUME,131,Item degree,Q2,,0.06676239611,0.02931547461
+synthetic_learning_example,Baby,GUME,131,Item degree,Q3,,0.08626171737,0.03787765767
+synthetic_learning_example,Baby,GUME,131,Item degree,Q4,,0.1065862246,0.0468021812
+synthetic_learning_example,Baby,GUME,131,Item degree,Head Q5,,0.1388781431,0.06098161413
+synthetic_learning_example,Baby,GUME,131,Zero-interaction scenario,Cold items,,0.02678356678,0.01176070689
+synthetic_learning_example,Baby,GUME,211,User activity,Sparse,0.36,0.07809816485,0.03397919173
+synthetic_learning_example,Baby,GUME,211,User activity,Medium,0.33,0.1038205775,0.04517057876
+synthetic_learning_example,Baby,GUME,211,User activity,Dense,0.31,0.1275263643,0.055484566
+synthetic_learning_example,Baby,GUME,211,Item degree,Tail Q1,,0.04682950774,0.02037472744
+synthetic_learning_example,Baby,GUME,211,Item degree,Q2,,0.06751636827,0.02937523086
+synthetic_learning_example,Baby,GUME,211,Item degree,Q3,,0.08497768949,0.03697235664
+synthetic_learning_example,Baby,GUME,211,Item degree,Q4,,0.1082728938,0.04710770635
+synthetic_learning_example,Baby,GUME,211,Item degree,Head Q5,,0.1358762485,0.0591174595
+synthetic_learning_example,Baby,GUME,211,Zero-interaction scenario,Cold items,,0.02803631306,0.01219812602
+synthetic_learning_example,Baby,MENTOR,17,User activity,Sparse,0.36,0.07909753729,0.03428152508
+synthetic_learning_example,Baby,MENTOR,17,User activity,Medium,0.33,0.1025295041,0.04443713279
+synthetic_learning_example,Baby,MENTOR,17,User activity,Dense,0.31,0.1289759848,0.05589925564
+synthetic_learning_example,Baby,MENTOR,17,Item degree,Tail Q1,,0.04480199707,0.01941755507
+synthetic_learning_example,Baby,MENTOR,17,Item degree,Q2,,0.06690628998,0.02899773794
+synthetic_learning_example,Baby,MENTOR,17,Item degree,Q3,,0.08781895999,0.03806146162
+synthetic_learning_example,Baby,MENTOR,17,Item degree,Q4,,0.1070550496,0.04639854151
+synthetic_learning_example,Baby,MENTOR,17,Item degree,Head Q5,,0.1372794968,0.05949806626
+synthetic_learning_example,Baby,MENTOR,17,Zero-interaction scenario,Cold items,,0.02781446111,0.01205501687
+synthetic_learning_example,Baby,MENTOR,43,User activity,Sparse,0.36,0.0802617653,0.03475529216
+synthetic_learning_example,Baby,MENTOR,43,User activity,Medium,0.33,0.1035395333,0.04483513063
+synthetic_learning_example,Baby,MENTOR,43,User activity,Dense,0.31,0.128279584,0.05554817295
+synthetic_learning_example,Baby,MENTOR,43,Item degree,Tail Q1,,0.04764921394,0.02063326599
+synthetic_learning_example,Baby,MENTOR,43,Item degree,Q2,,0.06555441399,0.02838665213
+synthetic_learning_example,Baby,MENTOR,43,Item degree,Q3,,0.08612073366,0.03729236765
+synthetic_learning_example,Baby,MENTOR,43,Item degree,Q4,,0.107388456,0.04650180756
+synthetic_learning_example,Baby,MENTOR,43,Item degree,Head Q5,,0.1396763686,0.06048325725
+synthetic_learning_example,Baby,MENTOR,43,Zero-interaction scenario,Cold items,,0.02831826966,0.01226249799
+synthetic_learning_example,Baby,MENTOR,89,User activity,Sparse,0.36,0.08011350547,0.03466392196
+synthetic_learning_example,Baby,MENTOR,89,User activity,Medium,0.33,0.1035712585,0.04481374273
+synthetic_learning_example,Baby,MENTOR,89,User activity,Dense,0.31,0.1294631784,0.05601679124
+synthetic_learning_example,Baby,MENTOR,89,Item degree,Tail Q1,,0.04771229833,0.02064440167
+synthetic_learning_example,Baby,MENTOR,89,Item degree,Q2,,0.06707697269,0.02902320817
+synthetic_learning_example,Baby,MENTOR,89,Item degree,Q3,,0.086830763,0.03757037936
+synthetic_learning_example,Baby,MENTOR,89,Item degree,Q4,,0.108489756,0.0469419034
+synthetic_learning_example,Baby,MENTOR,89,Item degree,Head Q5,,0.1390970353,0.0601852178
+synthetic_learning_example,Baby,MENTOR,89,Zero-interaction scenario,Cold items,,0.02793545869,0.01208725738
+synthetic_learning_example,Baby,MENTOR,131,User activity,Sparse,0.36,0.07837618456,0.03424315675
+synthetic_learning_example,Baby,MENTOR,131,User activity,Medium,0.33,0.1081678405,0.04725935997
+synthetic_learning_example,Baby,MENTOR,131,User activity,Dense,0.31,0.1304100487,0.05697715146
+synthetic_learning_example,Baby,MENTOR,131,Item degree,Tail Q1,,0.04773846114,0.02085730017
+synthetic_learning_example,Baby,MENTOR,131,Item degree,Q2,,0.06789612829,0.02966433971
+synthetic_learning_example,Baby,MENTOR,131,Item degree,Q3,,0.08808277001,0.03848403846
+synthetic_learning_example,Baby,MENTOR,131,Item degree,Q4,,0.1112963243,0.04862621856
+synthetic_learning_example,Baby,MENTOR,131,Item degree,Head Q5,,0.141534815,0.06183764728
+synthetic_learning_example,Baby,MENTOR,131,Zero-interaction scenario,Cold items,,0.02834344234,0.01238346756
+synthetic_learning_example,Baby,MENTOR,211,User activity,Sparse,0.36,0.0762621613,0.03302343651
+synthetic_learning_example,Baby,MENTOR,211,User activity,Medium,0.33,0.1056724624,0.04575883758
+synthetic_learning_example,Baby,MENTOR,211,User activity,Dense,0.31,0.1278508117,0.0553626214
+synthetic_learning_example,Baby,MENTOR,211,Item degree,Tail Q1,,0.04771758309,0.02066291525
+synthetic_learning_example,Baby,MENTOR,211,Item degree,Q2,,0.06677494801,0.02891523422
+synthetic_learning_example,Baby,MENTOR,211,Item degree,Q3,,0.0864561288,0.03743768118
+synthetic_learning_example,Baby,MENTOR,211,Item degree,Q4,,0.1048454407,0.04540071638
+synthetic_learning_example,Baby,MENTOR,211,Item degree,Head Q5,,0.1369826171,0.05931692312
+synthetic_learning_example,Baby,MENTOR,211,Zero-interaction scenario,Cold items,,0.0287556353,0.0124519143
+synthetic_learning_example,Baby,AMORE,17,User activity,Sparse,0.36,0.08088858789,0.03518017034
+synthetic_learning_example,Baby,AMORE,17,User activity,Medium,0.33,0.1034081048,0.04497438806
+synthetic_learning_example,Baby,AMORE,17,User activity,Dense,0.31,0.1287087348,0.0559781711
+synthetic_learning_example,Baby,AMORE,17,Item degree,Tail Q1,,0.04689795152,0.02039691836
+synthetic_learning_example,Baby,AMORE,17,Item degree,Q2,,0.06580322477,0.0286192245
+synthetic_learning_example,Baby,AMORE,17,Item degree,Q3,,0.08725742995,0.03795011545
+synthetic_learning_example,Baby,AMORE,17,Item degree,Q4,,0.1059246288,0.04606887795
+synthetic_learning_example,Baby,AMORE,17,Item degree,Head Q5,,0.1371773829,0.05966136663
+synthetic_learning_example,Baby,AMORE,17,Zero-interaction scenario,Cold items,,0.03054005201,0.01328251933
+synthetic_learning_example,Baby,AMORE,43,User activity,Sparse,0.36,0.08063343609,0.03508186347
+synthetic_learning_example,Baby,AMORE,43,User activity,Medium,0.33,0.1047140636,0.0455588235
+synthetic_learning_example,Baby,AMORE,43,User activity,Dense,0.31,0.1267832401,0.05516064472
+synthetic_learning_example,Baby,AMORE,43,Item degree,Tail Q1,,0.04630861274,0.02014787547
+synthetic_learning_example,Baby,AMORE,43,Item degree,Q2,,0.06634579452,0.02886561975
+synthetic_learning_example,Baby,AMORE,43,Item degree,Q3,,0.08727867057,0.03797306121
+synthetic_learning_example,Baby,AMORE,43,Item degree,Q4,,0.1059002183,0.04607489374
+synthetic_learning_example,Baby,AMORE,43,Item degree,Head Q5,,0.140739794,0.06123283932
+synthetic_learning_example,Baby,AMORE,43,Zero-interaction scenario,Cold items,,0.02676098424,0.01164312525
+synthetic_learning_example,Baby,AMORE,89,User activity,Sparse,0.36,0.08264792134,0.03584745886
+synthetic_learning_example,Baby,AMORE,89,User activity,Medium,0.33,0.104258384,0.04522071542
+synthetic_learning_example,Baby,AMORE,89,User activity,Dense,0.31,0.1285891007,0.05577384671
+synthetic_learning_example,Baby,AMORE,89,Item degree,Tail Q1,,0.05093617877,0.02209290377
+synthetic_learning_example,Baby,AMORE,89,Item degree,Q2,,0.06777053472,0.02939458628
+synthetic_learning_example,Baby,AMORE,89,Item degree,Q3,,0.08505175651,0.03689009103
+synthetic_learning_example,Baby,AMORE,89,Item degree,Q4,,0.1089392123,0.04725096369
+synthetic_learning_example,Baby,AMORE,89,Item degree,Head Q5,,0.1392393762,0.06039326494
+synthetic_learning_example,Baby,AMORE,89,Zero-interaction scenario,Cold items,,0.02742320008,0.01189445567
+synthetic_learning_example,Baby,AMORE,131,User activity,Sparse,0.36,0.08335463154,0.03628901482
+synthetic_learning_example,Baby,AMORE,131,User activity,Medium,0.33,0.1044450168,0.0454708598
+synthetic_learning_example,Baby,AMORE,131,User activity,Dense,0.31,0.1296749389,0.0564548807
+synthetic_learning_example,Baby,AMORE,131,Item degree,Tail Q1,,0.04897419513,0.02132125426
+synthetic_learning_example,Baby,AMORE,131,Item degree,Q2,,0.06736457071,0.02932763135
+synthetic_learning_example,Baby,AMORE,131,Item degree,Q3,,0.08704019492,0.03789355031
+synthetic_learning_example,Baby,AMORE,131,Item degree,Q4,,0.1100944368,0.04793037382
+synthetic_learning_example,Baby,AMORE,131,Item degree,Head Q5,,0.1394665994,0.06071774778
+synthetic_learning_example,Baby,AMORE,131,Zero-interaction scenario,Cold items,,0.02796407551,0.0121743535
+synthetic_learning_example,Baby,AMORE,211,User activity,Sparse,0.36,0.08104796759,0.03500652717
+synthetic_learning_example,Baby,AMORE,211,User activity,Medium,0.33,0.1030688263,0.04451785499
+synthetic_learning_example,Baby,AMORE,211,User activity,Dense,0.31,0.128807009,0.05563478264
+synthetic_learning_example,Baby,AMORE,211,Item degree,Tail Q1,,0.04822820702,0.02083089915
+synthetic_learning_example,Baby,AMORE,211,Item degree,Q2,,0.06857382255,0.02961864996
+synthetic_learning_example,Baby,AMORE,211,Item degree,Q3,,0.0871341224,0.03763528085
+synthetic_learning_example,Baby,AMORE,211,Item degree,Q4,,0.1060781658,0.04581765961
+synthetic_learning_example,Baby,AMORE,211,Item degree,Head Q5,,0.1399670472,0.06045506613
+synthetic_learning_example,Baby,AMORE,211,Zero-interaction scenario,Cold items,,0.0270643027,0.01168971013
+synthetic_learning_example,Sports,GUME,17,User activity,Sparse,0.36,0.09170482964,0.04044298208
+synthetic_learning_example,Sports,GUME,17,User activity,Medium,0.33,0.1205460919,0.05316234109
+synthetic_learning_example,Sports,GUME,17,User activity,Dense,0.31,0.1487867936,0.06561684539
+synthetic_learning_example,Sports,GUME,17,Item degree,Tail Q1,,0.05409085247,0.02385474555
+synthetic_learning_example,Sports,GUME,17,Item degree,Q2,,0.0784650482,0.03460407211
+synthetic_learning_example,Sports,GUME,17,Item degree,Q3,,0.09831061028,0.04335621434
+synthetic_learning_example,Sports,GUME,17,Item degree,Q4,,0.1245819325,0.05494219751
+synthetic_learning_example,Sports,GUME,17,Item degree,Head Q5,,0.1591004985,0.07016531883
+synthetic_learning_example,Sports,GUME,17,Zero-interaction scenario,Cold items,,0.0307303548,0.01355247257
+synthetic_learning_example,Sports,GUME,43,User activity,Sparse,0.36,0.0912271789,0.04005558576
+synthetic_learning_example,Sports,GUME,43,User activity,Medium,0.33,0.1194632845,0.0524533576
+synthetic_learning_example,Sports,GUME,43,User activity,Dense,0.31,0.1469948116,0.06454176654
+synthetic_learning_example,Sports,GUME,43,Item degree,Tail Q1,,0.05420124807,0.02379842023
+synthetic_learning_example,Sports,GUME,43,Item degree,Q2,,0.07592502913,0.0333367923
+synthetic_learning_example,Sports,GUME,43,Item degree,Q3,,0.0979510847,0.04300788559
+synthetic_learning_example,Sports,GUME,43,Item degree,Q4,,0.1225070387,0.05378979439
+synthetic_learning_example,Sports,GUME,43,Item degree,Head Q5,,0.1626474476,0.07141444979
+synthetic_learning_example,Sports,GUME,43,Zero-interaction scenario,Cold items,,0.02755456428,0.01209852399
+synthetic_learning_example,Sports,GUME,89,User activity,Sparse,0.36,0.09303341457,0.0409991612
+synthetic_learning_example,Sports,GUME,89,User activity,Medium,0.33,0.1186549203,0.05229037576
+synthetic_learning_example,Sports,GUME,89,User activity,Dense,0.31,0.1497260063,0.06598318138
+synthetic_learning_example,Sports,GUME,89,Item degree,Tail Q1,,0.05202298071,0.02292615596
+synthetic_learning_example,Sports,GUME,89,Item degree,Q2,,0.07863368479,0.03465330316
+synthetic_learning_example,Sports,GUME,89,Item degree,Q3,,0.0998230507,0.04399130534
+synthetic_learning_example,Sports,GUME,89,Item degree,Q4,,0.1248043894,0.05500040284
+synthetic_learning_example,Sports,GUME,89,Item degree,Head Q5,,0.1600342372,0.07052594509
+synthetic_learning_example,Sports,GUME,89,Zero-interaction scenario,Cold items,,0.03040126194,0.01339761896
+synthetic_learning_example,Sports,GUME,131,User activity,Sparse,0.36,0.09173376356,0.04064943834
+synthetic_learning_example,Sports,GUME,131,User activity,Medium,0.33,0.1187211067,0.05260817956
+synthetic_learning_example,Sports,GUME,131,User activity,Dense,0.31,0.1487670819,0.06592227431
+synthetic_learning_example,Sports,GUME,131,Item degree,Tail Q1,,0.05444882257,0.02412758367
+synthetic_learning_example,Sports,GUME,131,Item degree,Q2,,0.07938754665,0.0351785325
+synthetic_learning_example,Sports,GUME,131,Item degree,Q3,,0.1014945473,0.04497467652
+synthetic_learning_example,Sports,GUME,131,Item degree,Q4,,0.1223604579,0.05422086366
+synthetic_learning_example,Sports,GUME,131,Item degree,Head Q5,,0.1589572486,0.07043778239
+synthetic_learning_example,Sports,GUME,131,Zero-interaction scenario,Cold items,,0.02948431148,0.013065208
+synthetic_learning_example,Sports,GUME,211,User activity,Sparse,0.36,0.09130166617,0.04012682891
+synthetic_learning_example,Sports,GUME,211,User activity,Medium,0.33,0.1213068563,0.05331402672
+synthetic_learning_example,Sports,GUME,211,User activity,Dense,0.31,0.150792547,0.06627290593
+synthetic_learning_example,Sports,GUME,211,Item degree,Tail Q1,,0.05350220488,0.02351407057
+synthetic_learning_example,Sports,GUME,211,Item degree,Q2,,0.07827204336,0.03440034585
+synthetic_learning_example,Sports,GUME,211,Item degree,Q3,,0.1020921599,0.04486922098
+synthetic_learning_example,Sports,GUME,211,Item degree,Q4,,0.1267616189,0.05571137975
+synthetic_learning_example,Sports,GUME,211,Item degree,Head Q5,,0.1623431551,0.07134936615
+synthetic_learning_example,Sports,GUME,211,Zero-interaction scenario,Cold items,,0.03082256809,0.01354643314
+synthetic_learning_example,Sports,MENTOR,17,User activity,Sparse,0.36,0.09224406651,0.04074846914
+synthetic_learning_example,Sports,MENTOR,17,User activity,Medium,0.33,0.1215884429,0.05371123695
+synthetic_learning_example,Sports,MENTOR,17,User activity,Dense,0.31,0.1496778661,0.06611963389
+synthetic_learning_example,Sports,MENTOR,17,Item degree,Tail Q1,,0.05480188342,0.02420852571
+synthetic_learning_example,Sports,MENTOR,17,Item degree,Q2,,0.07893681319,0.03487004008
+synthetic_learning_example,Sports,MENTOR,17,Item degree,Q3,,0.1019033243,0.04501540989
+synthetic_learning_example,Sports,MENTOR,17,Item degree,Q4,,0.1237143139,0.05465033247
+synthetic_learning_example,Sports,MENTOR,17,Item degree,Head Q5,,0.1602696194,0.07079850105
+synthetic_learning_example,Sports,MENTOR,17,Zero-interaction scenario,Cold items,,0.03387223757,0.01496293344
+synthetic_learning_example,Sports,MENTOR,43,User activity,Sparse,0.36,0.09256607834,0.0408329982
+synthetic_learning_example,Sports,MENTOR,43,User activity,Medium,0.33,0.1204177643,0.05311900905
+synthetic_learning_example,Sports,MENTOR,43,User activity,Dense,0.31,0.1476228759,0.06511980126
+synthetic_learning_example,Sports,MENTOR,43,Item degree,Tail Q1,,0.05432878502,0.02396566021
+synthetic_learning_example,Sports,MENTOR,43,Item degree,Q2,,0.07750024302,0.03418711628
+synthetic_learning_example,Sports,MENTOR,43,Item degree,Q3,,0.09968748,0.04397441011
+synthetic_learning_example,Sports,MENTOR,43,Item degree,Q4,,0.1246151779,0.05497058347
+synthetic_learning_example,Sports,MENTOR,43,Item degree,Head Q5,,0.1623625766,0.07162181782
+synthetic_learning_example,Sports,MENTOR,43,Zero-interaction scenario,Cold items,,0.03197802881,0.01410623434
+synthetic_learning_example,Sports,MENTOR,89,User activity,Sparse,0.36,0.09089405097,0.03993006592
+synthetic_learning_example,Sports,MENTOR,89,User activity,Medium,0.33,0.1217978812,0.05350622372
+synthetic_learning_example,Sports,MENTOR,89,User activity,Dense,0.31,0.1526200163,0.06704649257
+synthetic_learning_example,Sports,MENTOR,89,Item degree,Tail Q1,,0.05862021485,0.02575205988
+synthetic_learning_example,Sports,MENTOR,89,Item degree,Q2,,0.07719034184,0.03390997987
+synthetic_learning_example,Sports,MENTOR,89,Item degree,Q3,,0.1011260339,0.04442501084
+synthetic_learning_example,Sports,MENTOR,89,Item degree,Q4,,0.1270895881,0.05583088855
+synthetic_learning_example,Sports,MENTOR,89,Item degree,Head Q5,,0.1632293997,0.07170723081
+synthetic_learning_example,Sports,MENTOR,89,Zero-interaction scenario,Cold items,,0.03148546338,0.01383167122
+synthetic_learning_example,Sports,MENTOR,131,User activity,Sparse,0.36,0.09261610202,0.04081798468
+synthetic_learning_example,Sports,MENTOR,131,User activity,Medium,0.33,0.1204937465,0.05310428521
+synthetic_learning_example,Sports,MENTOR,131,User activity,Dense,0.31,0.1485632839,0.06547515728
+synthetic_learning_example,Sports,MENTOR,131,Item degree,Tail Q1,,0.05319384021,0.02344371343
+synthetic_learning_example,Sports,MENTOR,131,Item degree,Q2,,0.0755159385,0.03328156069
+synthetic_learning_example,Sports,MENTOR,131,Item degree,Q3,,0.1016909015,0.04481745148
+synthetic_learning_example,Sports,MENTOR,131,Item degree,Q4,,0.1230188057,0.05421713523
+synthetic_learning_example,Sports,MENTOR,131,Item degree,Head Q5,,0.161780414,0.07130024169
+synthetic_learning_example,Sports,MENTOR,131,Zero-interaction scenario,Cold items,,0.03424727656,0.01509353967
+synthetic_learning_example,Sports,MENTOR,211,User activity,Sparse,0.36,0.09283013182,0.04082025619
+synthetic_learning_example,Sports,MENTOR,211,User activity,Medium,0.33,0.1203095816,0.05290381309
+synthetic_learning_example,Sports,MENTOR,211,User activity,Dense,0.31,0.1499980216,0.06595873073
+synthetic_learning_example,Sports,MENTOR,211,Item degree,Tail Q1,,0.05735269483,0.02521973901
+synthetic_learning_example,Sports,MENTOR,211,Item degree,Q2,,0.07862907159,0.03457561444
+synthetic_learning_example,Sports,MENTOR,211,Item degree,Q3,,0.1015222207,0.04464243426
+synthetic_learning_example,Sports,MENTOR,211,Item degree,Q4,,0.1255911846,0.05522629593
+synthetic_learning_example,Sports,MENTOR,211,Item degree,Head Q5,,0.1622097752,0.07132861338
+synthetic_learning_example,Sports,MENTOR,211,Zero-interaction scenario,Cold items,,0.0295779885,0.01300634874
+synthetic_learning_example,Sports,AMORE,17,User activity,Sparse,0.36,0.09187768253,0.04043015976
+synthetic_learning_example,Sports,AMORE,17,User activity,Medium,0.33,0.1223515028,0.05383996059
+synthetic_learning_example,Sports,AMORE,17,User activity,Dense,0.31,0.1505389802,0.06624367151
+synthetic_learning_example,Sports,AMORE,17,Item degree,Tail Q1,,0.05811236258,0.02557195653
+synthetic_learning_example,Sports,AMORE,17,Item degree,Q2,,0.07853504125,0.0345588197
+synthetic_learning_example,Sports,AMORE,17,Item degree,Q3,,0.09871118714,0.04343719777
+synthetic_learning_example,Sports,AMORE,17,Item degree,Q4,,0.1258177507,0.05536525977
+synthetic_learning_example,Sports,AMORE,17,Item degree,Head Q5,,0.1624788104,0.07149771395
+synthetic_learning_example,Sports,AMORE,17,Zero-interaction scenario,Cold items,,0.03258258086,0.01433774681
+synthetic_learning_example,Sports,AMORE,43,User activity,Sparse,0.36,0.09462268201,0.04143399512
+synthetic_learning_example,Sports,AMORE,43,User activity,Medium,0.33,0.1186491763,0.05195487263
+synthetic_learning_example,Sports,AMORE,43,User activity,Dense,0.31,0.1490580591,0.06527051191
+synthetic_learning_example,Sports,AMORE,43,Item degree,Tail Q1,,0.05556164456,0.02432969411
+synthetic_learning_example,Sports,AMORE,43,Item degree,Q2,,0.07756868822,0.03396628145
+synthetic_learning_example,Sports,AMORE,43,Item degree,Q3,,0.1028973778,0.04505737272
+synthetic_learning_example,Sports,AMORE,43,Item degree,Q4,,0.1248283247,0.05466063831
+synthetic_learning_example,Sports,AMORE,43,Item degree,Head Q5,,0.1622077029,0.07102856344
+synthetic_learning_example,Sports,AMORE,43,Zero-interaction scenario,Cold items,,0.02923456236,0.01280142021
+synthetic_learning_example,Sports,AMORE,89,User activity,Sparse,0.36,0.09442152515,0.04167615213
+synthetic_learning_example,Sports,AMORE,89,User activity,Medium,0.33,0.1209714064,0.05339484537
+synthetic_learning_example,Sports,AMORE,89,User activity,Dense,0.31,0.1505300389,0.06644155336
+synthetic_learning_example,Sports,AMORE,89,Item degree,Tail Q1,,0.05612749054,0.02477377728
+synthetic_learning_example,Sports,AMORE,89,Item degree,Q2,,0.0776571808,0.03427663847
+synthetic_learning_example,Sports,AMORE,89,Item degree,Q3,,0.1036926004,0.04576825655
+synthetic_learning_example,Sports,AMORE,89,Item degree,Q4,,0.1263766279,0.05578062376
+synthetic_learning_example,Sports,AMORE,89,Item degree,Head Q5,,0.1623282322,0.0716490873
+synthetic_learning_example,Sports,AMORE,89,Zero-interaction scenario,Cold items,,0.03283466515,0.01449269642
+synthetic_learning_example,Sports,AMORE,131,User activity,Sparse,0.36,0.09335299918,0.04122088188
+synthetic_learning_example,Sports,AMORE,131,User activity,Medium,0.33,0.1235580262,0.05455819149
+synthetic_learning_example,Sports,AMORE,131,User activity,Dense,0.31,0.1465874447,0.06472704461
+synthetic_learning_example,Sports,AMORE,131,Item degree,Tail Q1,,0.05715563667,0.02523760103
+synthetic_learning_example,Sports,AMORE,131,Item degree,Q2,,0.07712145851,0.03405369468
+synthetic_learning_example,Sports,AMORE,131,Item degree,Q3,,0.1010951777,0.04463951257
+synthetic_learning_example,Sports,AMORE,131,Item degree,Q4,,0.1261796051,0.05571577392
+synthetic_learning_example,Sports,AMORE,131,Item degree,Head Q5,,0.1603317222,0.07079595771
+synthetic_learning_example,Sports,AMORE,131,Zero-interaction scenario,Cold items,,0.03228885757,0.01425744428
+synthetic_learning_example,Sports,AMORE,211,User activity,Sparse,0.36,0.09101520159,0.04026186807
+synthetic_learning_example,Sports,AMORE,211,User activity,Medium,0.33,0.1214988377,0.05374673777
+synthetic_learning_example,Sports,AMORE,211,User activity,Dense,0.31,0.1482612654,0.06558547806
+synthetic_learning_example,Sports,AMORE,211,Item degree,Tail Q1,,0.05572661657,0.02465146092
+synthetic_learning_example,Sports,AMORE,211,Item degree,Q2,,0.07735158878,0.03421757474
+synthetic_learning_example,Sports,AMORE,211,Item degree,Q3,,0.09890094486,0.04375023869
+synthetic_learning_example,Sports,AMORE,211,Item degree,Q4,,0.1242345204,0.05495690592
+synthetic_learning_example,Sports,AMORE,211,Item degree,Head Q5,,0.1596257667,0.07061272677
+synthetic_learning_example,Sports,AMORE,211,Zero-interaction scenario,Cold items,,0.03490404726,0.01544030142
+synthetic_learning_example,Clothing,GUME,17,User activity,Sparse,0.36,0.05452374747,0.02323848068
+synthetic_learning_example,Clothing,GUME,17,User activity,Medium,0.33,0.07227328551,0.03080348338
+synthetic_learning_example,Clothing,GUME,17,User activity,Dense,0.31,0.0895029862,0.03814692702
+synthetic_learning_example,Clothing,GUME,17,Item degree,Tail Q1,,0.0322011844,0.01372441617
+synthetic_learning_example,Clothing,GUME,17,Item degree,Q2,,0.04477137271,0.01908193637
+synthetic_learning_example,Clothing,GUME,17,Item degree,Q3,,0.05985493459,0.02551067756
+synthetic_learning_example,Clothing,GUME,17,Item degree,Q4,,0.0740559468,0.03156326865
+synthetic_learning_example,Clothing,GUME,17,Item degree,Head Q5,,0.0956663393,0.04077380005
+synthetic_learning_example,Clothing,GUME,17,Zero-interaction scenario,Cold items,,0.0193287849,0.008238091021
+synthetic_learning_example,Clothing,GUME,43,User activity,Sparse,0.36,0.05567899855,0.02375406268
+synthetic_learning_example,Clothing,GUME,43,User activity,Medium,0.33,0.0712305141,0.03038873077
+synthetic_learning_example,Clothing,GUME,43,User activity,Dense,0.31,0.08696936695,0.03710332168
+synthetic_learning_example,Clothing,GUME,43,Item degree,Tail Q1,,0.03260787078,0.01391133868
+synthetic_learning_example,Clothing,GUME,43,Item degree,Q2,,0.04582567656,0.01955038743
+synthetic_learning_example,Clothing,GUME,43,Item degree,Q3,,0.05994459689,0.02557387433
+synthetic_learning_example,Clothing,GUME,43,Item degree,Q4,,0.07445142159,0.031762851
+synthetic_learning_example,Clothing,GUME,43,Item degree,Head Q5,,0.09513733246,0.04058798142
+synthetic_learning_example,Clothing,GUME,43,Zero-interaction scenario,Cold items,,0.01826421408,0.007791973588
+synthetic_learning_example,Clothing,GUME,89,User activity,Sparse,0.36,0.05280458757,0.02260330649
+synthetic_learning_example,Clothing,GUME,89,User activity,Medium,0.33,0.0696192348,0.02980091265
+synthetic_learning_example,Clothing,GUME,89,User activity,Dense,0.31,0.08554618987,0.0366185371
+synthetic_learning_example,Clothing,GUME,89,Item degree,Tail Q1,,0.03038192461,0.01300515704
+synthetic_learning_example,Clothing,GUME,89,Item degree,Q2,,0.04445350994,0.01902857983
+synthetic_learning_example,Clothing,GUME,89,Item degree,Q3,,0.05664419098,0.02424687075
+synthetic_learning_example,Clothing,GUME,89,Item degree,Q4,,0.07201023165,0.03082439257
+synthetic_learning_example,Clothing,GUME,89,Item degree,Head Q5,,0.09162364508,0.03922002665
+synthetic_learning_example,Clothing,GUME,89,Zero-interaction scenario,Cold items,,0.01719839001,0.00736186946
+synthetic_learning_example,Clothing,GUME,131,User activity,Sparse,0.36,0.05186771914,0.02208624408
+synthetic_learning_example,Clothing,GUME,131,User activity,Medium,0.33,0.07002763363,0.02981907503
+synthetic_learning_example,Clothing,GUME,131,User activity,Dense,0.31,0.08767900105,0.03733535714
+synthetic_learning_example,Clothing,GUME,131,Item degree,Tail Q1,,0.03200470482,0.0136282014
+synthetic_learning_example,Clothing,GUME,131,Item degree,Q2,,0.0450779907,0.01919505083
+synthetic_learning_example,Clothing,GUME,131,Item degree,Q3,,0.05787096175,0.02464253697
+synthetic_learning_example,Clothing,GUME,131,Item degree,Q4,,0.07367955412,0.03137413103
+synthetic_learning_example,Clothing,GUME,131,Item degree,Head Q5,,0.09465023933,0.04030384068
+synthetic_learning_example,Clothing,GUME,131,Zero-interaction scenario,Cold items,,0.01709704766,0.007280242395
+synthetic_learning_example,Clothing,GUME,211,User activity,Sparse,0.36,0.05440891306,0.02306605929
+synthetic_learning_example,Clothing,GUME,211,User activity,Medium,0.33,0.07220183673,0.03060917327
+synthetic_learning_example,Clothing,GUME,211,User activity,Dense,0.31,0.0881699794,0.03737869144
+synthetic_learning_example,Clothing,GUME,211,Item degree,Tail Q1,,0.03197167571,0.0135540397
+synthetic_learning_example,Clothing,GUME,211,Item degree,Q2,,0.04538932809,0.01924230561
+synthetic_learning_example,Clothing,GUME,211,Item degree,Q3,,0.05908664216,0.02504913101
+synthetic_learning_example,Clothing,GUME,211,Item degree,Q4,,0.07516594281,0.03186577339
+synthetic_learning_example,Clothing,GUME,211,Item degree,Head Q5,,0.09479801127,0.04018857253
+synthetic_learning_example,Clothing,GUME,211,Zero-interaction scenario,Cold items,,0.01727916213,0.00732531043
+synthetic_learning_example,Clothing,MENTOR,17,User activity,Sparse,0.36,0.05532104986,0.02357618478
+synthetic_learning_example,Clothing,MENTOR,17,User activity,Medium,0.33,0.07200061188,0.03068451764
+synthetic_learning_example,Clothing,MENTOR,17,User activity,Dense,0.31,0.08856896213,0.03774545535
+synthetic_learning_example,Clothing,MENTOR,17,Item degree,Tail Q1,,0.03260971316,0.0138972891
+synthetic_learning_example,Clothing,MENTOR,17,Item degree,Q2,,0.0462611631,0.01971513072
+synthetic_learning_example,Clothing,MENTOR,17,Item degree,Q3,,0.05839762608,0.02488732999
+synthetic_learning_example,Clothing,MENTOR,17,Item degree,Q4,,0.07430478505,0.03166648766
+synthetic_learning_example,Clothing,MENTOR,17,Item degree,Head Q5,,0.09653836502,0.04114177764
+synthetic_learning_example,Clothing,MENTOR,17,Zero-interaction scenario,Cold items,,0.01954691195,0.008330312047
+synthetic_learning_example,Clothing,MENTOR,43,User activity,Sparse,0.36,0.0553512862,0.02359105544
+synthetic_learning_example,Clothing,MENTOR,43,User activity,Medium,0.33,0.07145934745,0.03045640929
+synthetic_learning_example,Clothing,MENTOR,43,User activity,Dense,0.31,0.08801584119,0.0375128878
+synthetic_learning_example,Clothing,MENTOR,43,Item degree,Tail Q1,,0.03200452118,0.01364052193
+synthetic_learning_example,Clothing,MENTOR,43,Item degree,Q2,,0.04631963343,0.01974171
+synthetic_learning_example,Clothing,MENTOR,43,Item degree,Q3,,0.0592445892,0.0252504049
+synthetic_learning_example,Clothing,MENTOR,43,Item degree,Q4,,0.07478402703,0.03187340798
+synthetic_learning_example,Clothing,MENTOR,43,Item degree,Head Q5,,0.0963071835,0.04104670841
+synthetic_learning_example,Clothing,MENTOR,43,Zero-interaction scenario,Cold items,,0.01934104351,0.008243270591
+synthetic_learning_example,Clothing,MENTOR,89,User activity,Sparse,0.36,0.05382694872,0.02282439529
+synthetic_learning_example,Clothing,MENTOR,89,User activity,Medium,0.33,0.06952238854,0.0294797776
+synthetic_learning_example,Clothing,MENTOR,89,User activity,Dense,0.31,0.08654030924,0.03669593527
+synthetic_learning_example,Clothing,MENTOR,89,Item degree,Tail Q1,,0.03273772986,0.01388187339
+synthetic_learning_example,Clothing,MENTOR,89,Item degree,Q2,,0.045108141,0.01912733427
+synthetic_learning_example,Clothing,MENTOR,89,Item degree,Q3,,0.05718373067,0.02424778115
+synthetic_learning_example,Clothing,MENTOR,89,Item degree,Q4,,0.07305703155,0.0309785824
+synthetic_learning_example,Clothing,MENTOR,89,Item degree,Head Q5,,0.09426374642,0.03997092647
+synthetic_learning_example,Clothing,MENTOR,89,Zero-interaction scenario,Cold items,,0.01838634849,0.007796416028
+synthetic_learning_example,Clothing,MENTOR,131,User activity,Sparse,0.36,0.05358407771,0.02272928752
+synthetic_learning_example,Clothing,MENTOR,131,User activity,Medium,0.33,0.07018186844,0.02976973636
+synthetic_learning_example,Clothing,MENTOR,131,User activity,Dense,0.31,0.08670633344,0.0367790819
+synthetic_learning_example,Clothing,MENTOR,131,Item degree,Tail Q1,,0.03245909525,0.01376849505
+synthetic_learning_example,Clothing,MENTOR,131,Item degree,Q2,,0.04374507299,0.01855577971
+synthetic_learning_example,Clothing,MENTOR,131,Item degree,Q3,,0.05802340989,0.0246123629
+synthetic_learning_example,Clothing,MENTOR,131,Item degree,Q4,,0.07244174168,0.03072832912
+synthetic_learning_example,Clothing,MENTOR,131,Item degree,Head Q5,,0.09478442881,0.04020564741
+synthetic_learning_example,Clothing,MENTOR,131,Zero-interaction scenario,Cold items,,0.01915953213,0.008127087995
+synthetic_learning_example,Clothing,MENTOR,211,User activity,Sparse,0.36,0.0561188951,0.02388571593
+synthetic_learning_example,Clothing,MENTOR,211,User activity,Medium,0.33,0.0720911405,0.03068393453
+synthetic_learning_example,Clothing,MENTOR,211,User activity,Dense,0.31,0.08918932326,0.03796138244
+synthetic_learning_example,Clothing,MENTOR,211,Item degree,Tail Q1,,0.0320289777,0.0136323971
+synthetic_learning_example,Clothing,MENTOR,211,Item degree,Q2,,0.04674292848,0.01989505156
+synthetic_learning_example,Clothing,MENTOR,211,Item degree,Q3,,0.06167782612,0.02625174696
+synthetic_learning_example,Clothing,MENTOR,211,Item degree,Q4,,0.07505490102,0.03194539097
+synthetic_learning_example,Clothing,MENTOR,211,Item degree,Head Q5,,0.09698931408,0.04128126899
+synthetic_learning_example,Clothing,MENTOR,211,Zero-interaction scenario,Cold items,,0.01892631246,0.008055549244
+synthetic_learning_example,Clothing,AMORE,17,User activity,Sparse,0.36,0.05706735035,0.02423796573
+synthetic_learning_example,Clothing,AMORE,17,User activity,Medium,0.33,0.07257694987,0.03082529
+synthetic_learning_example,Clothing,AMORE,17,User activity,Dense,0.31,0.08706433789,0.03697845485
+synthetic_learning_example,Clothing,AMORE,17,Item degree,Tail Q1,,0.03226318815,0.01370300258
+synthetic_learning_example,Clothing,AMORE,17,Item degree,Q2,,0.04739015033,0.02012781096
+synthetic_learning_example,Clothing,AMORE,17,Item degree,Q3,,0.06139195139,0.02607473459
+synthetic_learning_example,Clothing,AMORE,17,Item degree,Q4,,0.07498095858,0.03184633409
+synthetic_learning_example,Clothing,AMORE,17,Item degree,Head Q5,,0.09522921174,0.04044628596
+synthetic_learning_example,Clothing,AMORE,17,Zero-interaction scenario,Cold items,,0.01829981565,0.007772400538
+synthetic_learning_example,Clothing,AMORE,43,User activity,Sparse,0.36,0.05509193972,0.02328656782
+synthetic_learning_example,Clothing,AMORE,43,User activity,Medium,0.33,0.07219973516,0.03051778604
+synthetic_learning_example,Clothing,AMORE,43,User activity,Dense,0.31,0.08814330765,0.03725690403
+synthetic_learning_example,Clothing,AMORE,43,Item degree,Tail Q1,,0.03126312928,0.01321447355
+synthetic_learning_example,Clothing,AMORE,43,Item degree,Q2,,0.04765173327,0.02014169993
+synthetic_learning_example,Clothing,AMORE,43,Item degree,Q3,,0.05911845546,0.02498851791
+synthetic_learning_example,Clothing,AMORE,43,Item degree,Q4,,0.07318314542,0.03093345937
+synthetic_learning_example,Clothing,AMORE,43,Item degree,Head Q5,,0.09509609295,0.04019574604
+synthetic_learning_example,Clothing,AMORE,43,Zero-interaction scenario,Cold items,,0.01862126411,0.007870939591
+synthetic_learning_example,Clothing,AMORE,89,User activity,Sparse,0.36,0.05381920465,0.02279908026
+synthetic_learning_example,Clothing,AMORE,89,User activity,Medium,0.33,0.0696744055,0.02951571606
+synthetic_learning_example,Clothing,AMORE,89,User activity,Dense,0.31,0.08502951033,0.03602049943
+synthetic_learning_example,Clothing,AMORE,89,Item degree,Tail Q1,,0.03170186065,0.01342965341
+synthetic_learning_example,Clothing,AMORE,89,Item degree,Q2,,0.04567422859,0.01934867693
+synthetic_learning_example,Clothing,AMORE,89,Item degree,Q3,,0.05888519762,0.02494515397
+synthetic_learning_example,Clothing,AMORE,89,Item degree,Q4,,0.07209455764,0.0305409494
+synthetic_learning_example,Clothing,AMORE,89,Item degree,Head Q5,,0.09111826254,0.038599838
+synthetic_learning_example,Clothing,AMORE,89,Zero-interaction scenario,Cold items,,0.01706336608,0.007228442994
+synthetic_learning_example,Clothing,AMORE,131,User activity,Sparse,0.36,0.05476119422,0.02331948915
+synthetic_learning_example,Clothing,AMORE,131,User activity,Medium,0.33,0.07096835798,0.0302211425
+synthetic_learning_example,Clothing,AMORE,131,User activity,Dense,0.31,0.08632577072,0.03676093815
+synthetic_learning_example,Clothing,AMORE,131,Item degree,Tail Q1,,0.03369661362,0.01434935499
+synthetic_learning_example,Clothing,AMORE,131,Item degree,Q2,,0.04545894638,0.01935822295
+synthetic_learning_example,Clothing,AMORE,131,Item degree,Q3,,0.05953283342,0.02535144244
+synthetic_learning_example,Clothing,AMORE,131,Item degree,Q4,,0.07466764616,0.03179644617
+synthetic_learning_example,Clothing,AMORE,131,Item degree,Head Q5,,0.09447541138,0.04023137848
+synthetic_learning_example,Clothing,AMORE,131,Zero-interaction scenario,Cold items,,0.01910257313,0.008134633533
+synthetic_learning_example,Clothing,AMORE,211,User activity,Sparse,0.36,0.05436026664,0.02305777433
+synthetic_learning_example,Clothing,AMORE,211,User activity,Medium,0.33,0.07311186165,0.0310115625
+synthetic_learning_example,Clothing,AMORE,211,User activity,Dense,0.31,0.0879065601,0.03728696988
+synthetic_learning_example,Clothing,AMORE,211,Item degree,Tail Q1,,0.03305533003,0.01402094558
+synthetic_learning_example,Clothing,AMORE,211,Item degree,Q2,,0.04730000789,0.02006305295
+synthetic_learning_example,Clothing,AMORE,211,Item degree,Q3,,0.06001908572,0.02545805272
+synthetic_learning_example,Clothing,AMORE,211,Item degree,Q4,,0.07534193693,0.03195748451
+synthetic_learning_example,Clothing,AMORE,211,Item degree,Head Q5,,0.09728934831,0.04126682919
+synthetic_learning_example,Clothing,AMORE,211,Zero-interaction scenario,Cold items,,0.01930248449,0.008187456738

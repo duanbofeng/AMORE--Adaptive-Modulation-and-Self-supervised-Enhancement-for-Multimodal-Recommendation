@@ -1,0 +1,21 @@
+provenance,scenario,seed,paired_delta
+synthetic_learning_example,Consistent gain,17,0.00106587134
+synthetic_learning_example,Consistent gain,43,0.001565544741
+synthetic_learning_example,Consistent gain,89,0.001057252608
+synthetic_learning_example,Consistent gain,131,0.0009771772632
+synthetic_learning_example,Consistent gain,211,0.001425511301
+synthetic_learning_example,Small uncertain gain,17,6.994611135e-05
+synthetic_learning_example,Small uncertain gain,43,0.000317582437
+synthetic_learning_example,Small uncertain gain,89,-0.0004959571131
+synthetic_learning_example,Small uncertain gain,131,0.0008214256628
+synthetic_learning_example,Small uncertain gain,211,0.0001823728968
+synthetic_learning_example,Heterogeneous response,17,-0.0003030150953
+synthetic_learning_example,Heterogeneous response,43,0.0007212634981
+synthetic_learning_example,Heterogeneous response,89,-0.001743764001
+synthetic_learning_example,Heterogeneous response,131,0.0004913197934
+synthetic_learning_example,Heterogeneous response,211,0.002325300765
+synthetic_learning_example,Consistent degradation,17,-0.0006299532129
+synthetic_learning_example,Consistent degradation,43,-0.0008150110555
+synthetic_learning_example,Consistent degradation,89,-0.0008244505933
+synthetic_learning_example,Consistent degradation,131,-0.001035446631
+synthetic_learning_example,Consistent degradation,211,-0.0009193913885

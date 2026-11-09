@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "Source fields and missing values",
+    "Full ablation equals main model for each seed and metric",
+    "Sensitivity zero/reference points equal matching ablation/main configuration",
+    "Zero-noise anchors and paired degradation calculations",
+    "Weighted user groups reconcile to overall performance",
+    "Paired differences and t intervals recalculated from runs",
+    "Parameter counts invariant across seeds",
+    "Every listed figure has both PNG and SVG exports"
+  ],
+  "csv_files": 13,
+  "figures": 13
+}

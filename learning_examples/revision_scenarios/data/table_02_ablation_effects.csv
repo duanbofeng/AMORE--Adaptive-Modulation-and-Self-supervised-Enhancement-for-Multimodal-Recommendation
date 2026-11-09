@@ -1,0 +1,181 @@
+provenance,dataset,variant,metric,n,delta,ci95_low,ci95_high,relative_percent
+synthetic_learning_example,Baby,Neither branch,recall@10,5,-0.0004924699632,-0.0007793149622,-0.0002056249642,-0.7584700501
+synthetic_learning_example,Baby,Graph only,recall@10,5,-0.0003003634581,-0.0006877776342,8.705071796e-05,-0.4626001668
+synthetic_learning_example,Baby,Fusion only,recall@10,5,-0.0004439006566,-0.0007441529789,-0.0001436483343,-0.6836667785
+synthetic_learning_example,Baby,Shuffled prior,recall@10,5,-0.0002348210394,-0.000548035416,7.839333716e-05,-0.3616560173
+synthetic_learning_example,Baby,Constant prior,recall@10,5,-1.856709528e-05,-0.0004686461391,0.0004315119485,-0.02859582663
+synthetic_learning_example,Baby,Detached prior,recall@10,5,-4.87219741e-05,-0.000362232835,0.0002647888868,-0.07503840011
+synthetic_learning_example,Baby,No moments,recall@10,5,-0.0003124403716,-0.0005726006145,-5.228012872e-05,-0.4812002397
+synthetic_learning_example,Baby,No InfoNCE,recall@10,5,-0.003297947458,-0.003680227405,-0.002915667511,-5.079283125
+synthetic_learning_example,Baby,No moments or InfoNCE,recall@10,5,-0.003546953851,-0.003960225706,-0.003133681995,-5.462786496
+synthetic_learning_example,Baby,No BM,recall@10,5,-0.0008843359996,-0.001145529511,-0.000623142488,-1.361996508
+synthetic_learning_example,Baby,No extended BM,recall@10,5,-0.0004532272264,-0.0006727866141,-0.0002336678388,-0.6980309518
+synthetic_learning_example,Baby,No UM cross,recall@10,5,-0.0009454653891,-0.001223328518,-0.0006676022604,-1.456143998
+synthetic_learning_example,Baby,No UM noise,recall@10,5,-0.0002533549839,-0.0007877974177,0.00028108745,-0.3902007872
+synthetic_learning_example,Baby,No representation L2,recall@10,5,-0.0001191458937,-0.0007754630028,0.0005371712153,-0.1835007183
+synthetic_learning_example,Baby,No extended L2,recall@10,5,-0.0003221879356,-0.0007100867621,6.571089084e-05,-0.4962128006
+synthetic_learning_example,Baby,Neither branch,recall@20,5,-0.0007247581252,-0.001185457769,-0.0002640584814,-0.6997817882
+synthetic_learning_example,Baby,Graph only,recall@20,5,-0.0004521238215,-0.001123206304,0.0002189586613,-0.4365429034
+synthetic_learning_example,Baby,Fusion only,recall@20,5,-0.000628575441,-0.001167360877,-8.979000523e-05,-0.6069137148
+synthetic_learning_example,Baby,Shuffled prior,recall@20,5,-0.0004252750997,-0.0008576371692,7.086969903e-06,-0.410619432
+synthetic_learning_example,Baby,Constant prior,recall@20,5,-0.0001235036774,-0.0008465555057,0.0005995481509,-0.1192475409
+synthetic_learning_example,Baby,Detached prior,recall@20,5,-7.635702561e-05,-0.0005277752772,0.000375061226,-0.07372563902
+synthetic_learning_example,Baby,No moments,recall@20,5,-0.0005123858502,-0.0008546227881,-0.0001701489122,-0.4947282052
+synthetic_learning_example,Baby,No InfoNCE,recall@20,5,-0.004949414508,-0.005393054275,-0.004505774741,-4.778849681
+synthetic_learning_example,Baby,No moments or InfoNCE,recall@20,5,-0.005352089979,-0.005989379065,-0.004714800893,-5.167648303
+synthetic_learning_example,Baby,No BM,recall@20,5,-0.001318818419,-0.001785857377,-0.0008517794605,-1.273369803
+synthetic_learning_example,Baby,No extended BM,recall@20,5,-0.0006189157856,-0.0008924250301,-0.0003454065411,-0.5975869467
+synthetic_learning_example,Baby,No UM cross,recall@20,5,-0.001420772283,-0.001817042382,-0.001024502184,-1.371810173
+synthetic_learning_example,Baby,No UM noise,recall@20,5,-0.0004672424807,-0.00128913708,0.0003546521184,-0.4511405492
+synthetic_learning_example,Baby,No representation L2,recall@20,5,-0.0001989514205,-0.001173524859,0.0007756220183,-0.1920952328
+synthetic_learning_example,Baby,No extended L2,recall@20,5,-0.0004380391138,-0.0009640203415,8.794211389e-05,-0.4229435776
+synthetic_learning_example,Baby,Neither branch,ndcg@10,5,-0.0002603518333,-0.0004157743936,-0.0001049292731,-0.762532567
+synthetic_learning_example,Baby,Graph only,ndcg@10,5,-0.0001391589171,-0.0002782084281,-1.094061527e-07,-0.4075761823
+synthetic_learning_example,Baby,Fusion only,ndcg@10,5,-0.0001942160637,-0.000375902714,-1.252941346e-05,-0.5688305387
+synthetic_learning_example,Baby,Shuffled prior,ndcg@10,5,-0.0001406193118,-0.0002792794088,-1.959214829e-06,-0.4118534654
+synthetic_learning_example,Baby,Constant prior,ndcg@10,5,-2.058202568e-05,-0.000225141807,0.0001839777557,-0.06028175287
+synthetic_learning_example,Baby,Detached prior,ndcg@10,5,-5.324114909e-05,-0.0001822640388,7.578174062e-05,-0.1559355644
+synthetic_learning_example,Baby,No moments,ndcg@10,5,-0.0002053609088,-0.0003265107527,-8.421106496e-05,-0.6014721654
+synthetic_learning_example,Baby,No InfoNCE,ndcg@10,5,-0.001626468894,-0.001795011883,-0.001457925904,-4.76369029
+synthetic_learning_example,Baby,No moments or InfoNCE,ndcg@10,5,-0.00170613983,-0.00191923086,-0.0014930488,-4.997034849
+synthetic_learning_example,Baby,No BM,ndcg@10,5,-0.0003808636987,-0.0005739441506,-0.0001877832469,-1.115494253
+synthetic_learning_example,Baby,No extended BM,ndcg@10,5,-0.0002276507346,-0.0002993089563,-0.000155992513,-0.6667558159
+synthetic_learning_example,Baby,No UM cross,ndcg@10,5,-0.0004358480324,-0.00057830728,-0.0002933887848,-1.276535351
+synthetic_learning_example,Baby,No UM noise,ndcg@10,5,-0.0001275307807,-0.0003840812203,0.000129019659,-0.3735190657
+synthetic_learning_example,Baby,No representation L2,ndcg@10,5,-2.964141253e-05,-0.0003229313618,0.0002636485367,-0.08681537631
+synthetic_learning_example,Baby,No extended L2,ndcg@10,5,-0.0001119163917,-0.0002532332721,2.940048864e-05,-0.3277867967
+synthetic_learning_example,Baby,Neither branch,ndcg@20,5,-0.0003047258885,-0.0004841028762,-0.0001253489008,-0.6776155503
+synthetic_learning_example,Baby,Graph only,ndcg@20,5,-0.0002644589714,-0.0005335226175,4.604674674e-06,-0.5880744571
+synthetic_learning_example,Baby,Fusion only,ndcg@20,5,-0.0003066260574,-0.0005321482584,-8.110385633e-05,-0.6818409346
+synthetic_learning_example,Baby,Shuffled prior,ndcg@20,5,-0.0001525861687,-0.0003634941071,5.832176966e-05,-0.339304157
+synthetic_learning_example,Baby,Constant prior,ndcg@20,5,-7.534160763e-06,-0.0002835657248,0.0002684974033,-0.01675362903
+synthetic_learning_example,Baby,Detached prior,ndcg@20,5,-7.449485327e-06,-0.0001570341738,0.0001421352032,-0.01656533721
+synthetic_learning_example,Baby,No moments,ndcg@20,5,-0.0002464716097,-0.0003507461413,-0.0001421970781,-0.548076162
+synthetic_learning_example,Baby,No InfoNCE,ndcg@20,5,-0.002145572646,-0.002338931896,-0.001952213396,-4.771085898
+synthetic_learning_example,Baby,No moments or InfoNCE,ndcg@20,5,-0.002273250042,-0.002546412571,-0.002000087513,-5.055000695
+synthetic_learning_example,Baby,No BM,ndcg@20,5,-0.0005410459297,-0.0008032116992,-0.0002788801601,-1.203117783
+synthetic_learning_example,Baby,No extended BM,ndcg@20,5,-0.0003016055257,-0.0004632623188,-0.0001399487327,-0.6706768345
+synthetic_learning_example,Baby,No UM cross,ndcg@20,5,-0.0006425079089,-0.0008235924163,-0.0004614234015,-1.428737651
+synthetic_learning_example,Baby,No UM noise,ndcg@20,5,-0.000196748685,-0.0005580862674,0.0001645888974,-0.4375078504
+synthetic_learning_example,Baby,No representation L2,ndcg@20,5,-0.0001032503836,-0.0005628534306,0.0003563526635,-0.2295967232
+synthetic_learning_example,Baby,No extended L2,ndcg@20,5,-0.000180853647,-0.0004666904535,0.0001049831594,-0.4021622323
+synthetic_learning_example,Sports,Neither branch,recall@10,5,-1.390155456e-05,-0.0003799904406,0.0003521873315,-0.01849509954
+synthetic_learning_example,Sports,Graph only,recall@10,5,-0.0001590765271,-0.0005886846181,0.0002705315639,-0.2116408054
+synthetic_learning_example,Sports,Fusion only,recall@10,5,-2.175037981e-05,-0.0003386182379,0.0002951174782,-0.02893744278
+synthetic_learning_example,Sports,Shuffled prior,recall@10,5,-0.0002426174486,-0.0006792882483,0.0001940533511,-0.3227864799
+synthetic_learning_example,Sports,Constant prior,recall@10,5,0.0001460588428,-0.0002970035777,0.0005891212632,0.1943216368
+synthetic_learning_example,Sports,Detached prior,recall@10,5,9.858935993e-05,-2.574881721e-05,0.0002229275371,0.1311666273
+synthetic_learning_example,Sports,No moments,recall@10,5,-0.0002017615408,-0.0004771760787,7.365299703e-05,-0.2684303949
+synthetic_learning_example,Sports,No InfoNCE,recall@10,5,-0.002583943829,-0.002745037837,-0.002422849821,-3.437766483
+synthetic_learning_example,Sports,No moments or InfoNCE,recall@10,5,-0.002903531392,-0.003121190028,-0.002685872757,-3.862956613
+synthetic_learning_example,Sports,No BM,recall@10,5,-0.0004234509761,-0.0006737697354,-0.0001731322169,-0.5633735364
+synthetic_learning_example,Sports,No extended BM,recall@10,5,-0.000236510916,-0.0003472758084,-0.0001257460235,-0.3146621419
+synthetic_learning_example,Sports,No UM cross,recall@10,5,-0.000720071174,-0.0009848124017,-0.0004553299463,-0.958007105
+synthetic_learning_example,Sports,No UM noise,recall@10,5,3.864812506e-06,-0.0002300608456,0.0002377904707,0.005141877601
+synthetic_learning_example,Sports,No representation L2,recall@10,5,-7.559085372e-05,-0.0003544605981,0.0002032788907,-0.1005686348
+synthetic_learning_example,Sports,No extended L2,recall@10,5,-1.411642285e-05,-0.0003123980748,0.0002841652291,-0.0187809676
+synthetic_learning_example,Sports,Neither branch,recall@20,5,-5.543119908e-06,-0.0004967281139,0.0004856418741,-0.004628782749
+synthetic_learning_example,Sports,Graph only,recall@20,5,-0.0002113764273,-0.0009015798099,0.0004788269554,-0.1765099035
+synthetic_learning_example,Sports,Fusion only,recall@20,5,2.693615068e-05,-0.0003673866422,0.0004212589436,0.02249303491
+synthetic_learning_example,Sports,Shuffled prior,recall@20,5,-0.0003192703935,-0.0008646632195,0.0002261224326,-0.2666067691
+synthetic_learning_example,Sports,Constant prior,recall@20,5,0.0002519527508,-0.0003915894799,0.0008954949815,0.2103931659
+synthetic_learning_example,Sports,Detached prior,recall@20,5,9.891729564e-05,-0.000116424446,0.0003142590373,0.0826008961
+synthetic_learning_example,Sports,No moments,recall@20,5,-0.0003456761391,-0.0007103090378,1.895675962e-05,-0.2886568892
+synthetic_learning_example,Sports,No InfoNCE,recall@20,5,-0.003950663404,-0.004238495891,-0.003662830917,-3.29900181
+synthetic_learning_example,Sports,No moments or InfoNCE,recall@20,5,-0.004400416195,-0.00480623499,-0.0039945974,-3.674567916
+synthetic_learning_example,Sports,No BM,recall@20,5,-0.000640248537,-0.0009931659721,-0.000287331102,-0.5346395951
+synthetic_learning_example,Sports,No extended BM,recall@20,5,-0.0003455059841,-0.0004660243047,-0.0002249876636,-0.2885148013
+synthetic_learning_example,Sports,No UM cross,recall@20,5,-0.001021091339,-0.00143696378,-0.0006052188982,-0.8526624093
+synthetic_learning_example,Sports,No UM noise,recall@20,5,4.058429377e-05,-0.0002315273835,0.0003126959711,0.03388991795
+synthetic_learning_example,Sports,No representation L2,recall@20,5,-0.0001827317351,-0.0005000749454,0.0001346114753,-0.1525901508
+synthetic_learning_example,Sports,No extended L2,recall@20,5,-5.231301647e-05,-0.0005647570196,0.0004601309867,-0.04368398883
+synthetic_learning_example,Sports,Neither branch,ndcg@10,5,-2.771459773e-05,-0.0002275276048,0.0001720984093,-0.06920255487
+synthetic_learning_example,Sports,Graph only,ndcg@10,5,-7.546589178e-05,-0.0002963034787,0.0001453716951,-0.1884361652
+synthetic_learning_example,Sports,Fusion only,ndcg@10,5,3.105090613e-05,-0.0001118216803,0.0001739234925,0.07753322114
+synthetic_learning_example,Sports,Shuffled prior,ndcg@10,5,-0.0001423751964,-0.0003530727072,6.832231446e-05,-0.3555067779
+synthetic_learning_example,Sports,Constant prior,ndcg@10,5,7.41085983e-05,-5.017558975e-05,0.0001983927863,0.1850470423
+synthetic_learning_example,Sports,Detached prior,ndcg@10,5,6.652517482e-05,4.294392518e-06,0.0001287559571,0.1661114516
+synthetic_learning_example,Sports,No moments,ndcg@10,5,-0.0001249743937,-0.000281357926,3.140913861e-05,-0.312057473
+synthetic_learning_example,Sports,No InfoNCE,ndcg@10,5,-0.001271315377,-0.001362688121,-0.001179942632,-3.174437996
+synthetic_learning_example,Sports,No moments or InfoNCE,ndcg@10,5,-0.001382366759,-0.001480979059,-0.001283754459,-3.45173011
+synthetic_learning_example,Sports,No BM,ndcg@10,5,-0.000195687125,-0.0003555941507,-3.578009929e-05,-0.488625133
+synthetic_learning_example,Sports,No extended BM,ndcg@10,5,-0.0001678416136,-0.0002371173257,-9.85659014e-05,-0.4190956904
+synthetic_learning_example,Sports,No UM cross,ndcg@10,5,-0.0003599661331,-0.0004967488637,-0.0002231834025,-0.8988250999
+synthetic_learning_example,Sports,No UM noise,ndcg@10,5,-3.192571997e-05,-0.0001489810578,8.512961784e-05,-0.07971760619
+synthetic_learning_example,Sports,No representation L2,ndcg@10,5,-8.37753458e-05,-0.0002374178464,6.986715475e-05,-0.2091846333
+synthetic_learning_example,Sports,No extended L2,ndcg@10,5,8.261583372e-06,-0.0001389880425,0.0001555112093,0.02062893649
+synthetic_learning_example,Sports,Neither branch,ndcg@20,5,-2.702531177e-05,-0.0002677061197,0.0002136554962,-0.05121443345
+synthetic_learning_example,Sports,Graph only,ndcg@20,5,-0.0001426418966,-0.0004039523259,0.0001186685327,-0.2703141405
+synthetic_learning_example,Sports,Fusion only,ndcg@20,5,5.908215804e-05,-5.452515191e-05,0.000172689468,0.111963898
+synthetic_learning_example,Sports,Shuffled prior,ndcg@20,5,-0.000155318969,-0.0004120999815,0.0001014620436,-0.294337881
+synthetic_learning_example,Sports,Constant prior,ndcg@20,5,7.544486498e-05,-0.0002069461538,0.0003578358837,0.1429721163
+synthetic_learning_example,Sports,Detached prior,ndcg@20,5,8.327951173e-05,-1.978989867e-05,0.0001863489221,0.1578191974
+synthetic_learning_example,Sports,No moments,ndcg@20,5,-0.0001358377634,-0.0002739923357,2.316808878e-06,-0.2574199386
+synthetic_learning_example,Sports,No InfoNCE,ndcg@20,5,-0.001676741418,-0.001836869786,-0.00151661305,-3.177516046
+synthetic_learning_example,Sports,No moments or InfoNCE,ndcg@20,5,-0.001920795462,-0.002111029738,-0.001730561186,-3.640011712
+synthetic_learning_example,Sports,No BM,ndcg@20,5,-0.0003218400446,-0.0004529718871,-0.0001907082022,-0.6099043626
+synthetic_learning_example,Sports,No extended BM,ndcg@20,5,-0.0001576507922,-0.0002647872749,-5.05143096e-05,-0.2987568128
+synthetic_learning_example,Sports,No UM cross,ndcg@20,5,-0.0004860605613,-0.0006525762067,-0.0003195449159,-0.92111116
+synthetic_learning_example,Sports,No UM noise,ndcg@20,5,-1.311025342e-05,-0.0001690135197,0.0001427930129,-0.0248446422
+synthetic_learning_example,Sports,No representation L2,ndcg@20,5,-5.755675077e-05,-0.0001985738646,8.346036302e-05,-0.1090731684
+synthetic_learning_example,Sports,No extended L2,ndcg@20,5,-7.768963812e-06,-0.0002096852453,0.0001941473177,-0.01472260833
+synthetic_learning_example,Clothing,Neither branch,recall@10,5,0.000215420307,-0.0002423791849,0.0006732197989,0.4886991953
+synthetic_learning_example,Clothing,Graph only,recall@10,5,8.688599375e-05,-8.047363493e-05,0.0002542456224,0.1971082291
+synthetic_learning_example,Clothing,Fusion only,recall@10,5,-6.169223456e-05,-0.0004355826943,0.0003121982251,-0.1399540545
+synthetic_learning_example,Clothing,Shuffled prior,recall@10,5,-3.885373087e-05,-0.00027543499,0.0001977275282,-0.0881429763
+synthetic_learning_example,Clothing,Constant prior,recall@10,5,8.377528339e-05,-0.0002315920028,0.0003991425696,0.1900513195
+synthetic_learning_example,Clothing,Detached prior,recall@10,5,0.0001541151576,-0.000234525347,0.0005427556622,0.3496232762
+synthetic_learning_example,Clothing,No moments,recall@10,5,0.0001310935606,-0.0003351514776,0.0005973385989,0.2973968355
+synthetic_learning_example,Clothing,No InfoNCE,recall@10,5,-0.002146527019,-0.002474028029,-0.001819026009,-4.869578183
+synthetic_learning_example,Clothing,No moments or InfoNCE,recall@10,5,-0.002107495484,-0.002330035949,-0.00188495502,-4.781031843
+synthetic_learning_example,Clothing,No BM,recall@10,5,-0.000434261807,-0.0007281701752,-0.0001403534389,-0.9851596566
+synthetic_learning_example,Clothing,No extended BM,recall@10,5,-9.506239183e-05,-0.0004021656163,0.0002120408326,-0.2156570801
+synthetic_learning_example,Clothing,No UM cross,recall@10,5,-0.0005136950715,-0.0008252801016,-0.0002021100414,-1.165360739
+synthetic_learning_example,Clothing,No UM noise,recall@10,5,0.0001473794445,-7.73714825e-06,0.0003024960373,0.3343427412
+synthetic_learning_example,Clothing,No representation L2,recall@10,5,-0.0001636697731,-0.0005356591421,0.0002083195959,-0.3712987301
+synthetic_learning_example,Clothing,No extended L2,recall@10,5,-0.0001080385706,-0.0002408837808,2.48066397e-05,-0.2450946396
+synthetic_learning_example,Clothing,Neither branch,recall@20,5,0.0003148440538,-0.0002840174839,0.0009137055915,0.4471748445
+synthetic_learning_example,Clothing,Graph only,recall@20,5,0.0001301484346,-0.0001110215422,0.0003713184115,0.1848505802
+synthetic_learning_example,Clothing,Fusion only,recall@20,5,-5.09010523e-05,-0.0006500682124,0.0005482661078,-0.07229506124
+synthetic_learning_example,Clothing,Shuffled prior,recall@20,5,6.331051299e-06,-0.0004163181054,0.000428980208,0.008992029058
+synthetic_learning_example,Clothing,Constant prior,recall@20,5,5.279749359e-05,-0.0005579779595,0.0006635729467,0.07498858784
+synthetic_learning_example,Clothing,Detached prior,recall@20,5,0.0002727310822,-0.0003012949076,0.0008467570721,0.3873615455
+synthetic_learning_example,Clothing,No moments,recall@20,5,0.0001463737982,-0.000593661855,0.0008864094513,0.2078955586
+synthetic_learning_example,Clothing,No InfoNCE,recall@20,5,-0.003213732806,-0.003663389144,-0.002764076468,-4.564483434
+synthetic_learning_example,Clothing,No moments or InfoNCE,recall@20,5,-0.003291233459,-0.003626345621,-0.002956121298,-4.674558064
+synthetic_learning_example,Clothing,No BM,recall@20,5,-0.0007048035134,-0.001148201502,-0.0002614055248,-1.001036538
+synthetic_learning_example,Clothing,No extended BM,recall@20,5,-1.687031784e-05,-0.0003594657659,0.0003257251302,-0.02396101075
+synthetic_learning_example,Clothing,No UM cross,recall@20,5,-0.0008475251426,-0.001275200121,-0.0004198501642,-1.203744899
+synthetic_learning_example,Clothing,No UM noise,recall@20,5,0.0001454855677,-5.858207743e-05,0.0003495532129,0.2066339997
+synthetic_learning_example,Clothing,No representation L2,recall@20,5,-0.0002203072576,-0.0007708932292,0.0003302787139,-0.312903682
+synthetic_learning_example,Clothing,No extended L2,recall@20,5,-0.0001024979543,-0.0002562358304,5.123992184e-05,-0.1455784418
+synthetic_learning_example,Clothing,Neither branch,ndcg@10,5,9.458712115e-05,-0.0001238015957,0.000312975838,0.4151710774
+synthetic_learning_example,Clothing,Graph only,ndcg@10,5,6.960649514e-05,-1.636760318e-05,0.0001555805935,0.3055236615
+synthetic_learning_example,Clothing,Fusion only,ndcg@10,5,-3.292321656e-05,-0.0002585550119,0.0001927085787,-0.1445098141
+synthetic_learning_example,Clothing,Shuffled prior,ndcg@10,5,-5.55628332e-05,-0.0001491945549,3.806888852e-05,-0.2438818419
+synthetic_learning_example,Clothing,Constant prior,ndcg@10,5,4.368268279e-05,-0.0001723865842,0.0002597519498,0.1917363195
+synthetic_learning_example,Clothing,Detached prior,ndcg@10,5,4.570762609e-05,-0.0001199686217,0.0002113838739,0.2006243994
+synthetic_learning_example,Clothing,No moments,ndcg@10,5,4.885200707e-05,-0.0001725840661,0.0002702880803,0.214426025
+synthetic_learning_example,Clothing,No InfoNCE,ndcg@10,5,-0.001030302096,-0.001183267688,-0.0008773365052,-4.522303103
+synthetic_learning_example,Clothing,No moments or InfoNCE,ndcg@10,5,-0.001066371437,-0.001185122872,-0.0009476200007,-4.680622191
+synthetic_learning_example,Clothing,No BM,ndcg@10,5,-0.0001895849993,-0.0003528914852,-2.627851326e-05,-0.8321450896
+synthetic_learning_example,Clothing,No extended BM,ndcg@10,5,-2.498998706e-05,-0.0001833369526,0.0001333569785,-0.1096885044
+synthetic_learning_example,Clothing,No UM cross,ndcg@10,5,-0.0002733366994,-0.0003655561834,-0.0001811172155,-1.199756274
+synthetic_learning_example,Clothing,No UM noise,ndcg@10,5,3.593980784e-05,-8.781183892e-06,8.066079957e-05,0.1577505327
+synthetic_learning_example,Clothing,No representation L2,ndcg@10,5,-6.49088824e-05,-0.0002889366296,0.0001591188648,-0.2849044385
+synthetic_learning_example,Clothing,No extended L2,ndcg@10,5,-2.347273064e-05,-9.382428877e-05,4.687882748e-05,-0.1030288136
+synthetic_learning_example,Clothing,Neither branch,ndcg@20,5,0.0001589848705,-0.0001159841241,0.0004339538652,0.5323034946
+synthetic_learning_example,Clothing,Graph only,ndcg@20,5,4.821960142e-05,-9.446716101e-05,0.0001909063639,0.161445943
+synthetic_learning_example,Clothing,Fusion only,ndcg@20,5,1.908961974e-05,-0.0002459634435,0.000284142683,0.06391470624
+synthetic_learning_example,Clothing,Shuffled prior,ndcg@20,5,5.877869549e-06,-0.0002424051156,0.0002541608547,0.01967992609
+synthetic_learning_example,Clothing,Constant prior,ndcg@20,5,7.003691521e-05,-0.0001726289965,0.0003127028269,0.2344933489
+synthetic_learning_example,Clothing,Detached prior,ndcg@20,5,0.0001268314773,-9.511378055e-05,0.0003487767351,0.4246494547
+synthetic_learning_example,Clothing,No moments,ndcg@20,5,8.911538392e-05,-0.000219828125,0.0003980588928,0.2983707199
+synthetic_learning_example,Clothing,No InfoNCE,ndcg@20,5,-0.001406264028,-0.001560490603,-0.001252037452,-4.70836787
+synthetic_learning_example,Clothing,No moments or InfoNCE,ndcg@20,5,-0.001408388724,-0.001523214949,-0.001293562499,-4.71548165
+synthetic_learning_example,Clothing,No BM,ndcg@20,5,-0.0002731098311,-0.0004805937887,-6.562587349e-05,-0.9144097611
+synthetic_learning_example,Clothing,No extended BM,ndcg@20,5,6.205859791e-06,-0.000148260599,0.0001606723186,0.02077808311
+synthetic_learning_example,Clothing,No UM cross,ndcg@20,5,-0.0003665996358,-0.0005465799116,-0.00018661936,-1.227426651
+synthetic_learning_example,Clothing,No UM noise,ndcg@20,5,3.811808493e-06,-0.000179011517,0.000186635134,0.01276246585
+synthetic_learning_example,Clothing,No representation L2,ndcg@20,5,-0.0001359204242,-0.000316108397,4.42675486e-05,-0.4550805152
+synthetic_learning_example,Clothing,No extended L2,ndcg@20,5,-7.019949888e-05,-0.0001519358841,1.153688638e-05,-0.2350377017

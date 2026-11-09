@@ -1,0 +1,86 @@
+{
+  "provenance": "synthetic_learning_example",
+  "generator_seed": 261109,
+  "synthetic_run_ids": [
+    17,
+    43,
+    89,
+    131,
+    211
+  ],
+  "generator_sha256": "25d2e8a912031ffa58fc722d94b1bf860482706eea07c0450a39aeb9715b1db5",
+  "source": "Scenario assumptions and NumPy draws only; no repository experiment files read.",
+  "interpretation": "Illustrations of evidence patterns, not expected results or claims about named methods.",
+  "dependency_versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8"
+  },
+  "figures": [
+    {
+      "stem": "01_performance",
+      "title": "Overall performance with run-to-run variation",
+      "caption": "Points show means and error bars show sample SD across five synthetic runs; small dots retain individual runs. Model and dataset names identify illustrative roles, not measured benchmark results."
+    },
+    {
+      "stem": "02_branch_factorial",
+      "title": "Where affinity helps: a mixed factorial scenario",
+      "caption": "The same backbone is represented with graph and fusion switches. Error bars are sample SD. Stronger total performance does not by itself establish a positive interaction between branches."
+    },
+    {
+      "stem": "03_loss_analysis",
+      "title": "Auxiliary objectives: useful, weak and occasionally redundant",
+      "caption": "The heatmap reports relative changes after removing one loss. Blue means removal hurts performance; red means removal improves it. The factorial panel keeps both representation penalties fixed. Heatmap colors are effect sizes, not significance labels."
+    },
+    {
+      "stem": "04_sensitivity",
+      "title": "Broad plateaus and deteriorating extremes",
+      "caption": "One coefficient changes at a time. Bands show sample SD. Zero and positive values are displayed at categorical spacing; the plotted high point is not a new configuration-selection recommendation."
+    },
+    {
+      "stem": "05_robustness_baby",
+      "title": "Baby: absolute performance and corruption sensitivity",
+      "caption": "Lines summarize synthetic retraining scenarios under each corruption level; bands are sample SD. Lower degradation is preferable, but must be interpreted alongside the absolute clean score. Clothing deliberately includes a text-noise failure case."
+    },
+    {
+      "stem": "05_robustness_sports",
+      "title": "Sports: absolute performance and corruption sensitivity",
+      "caption": "Lines summarize synthetic retraining scenarios under each corruption level; bands are sample SD. Lower degradation is preferable, but must be interpreted alongside the absolute clean score. Clothing deliberately includes a text-noise failure case."
+    },
+    {
+      "stem": "05_robustness_clothing",
+      "title": "Clothing: absolute performance and corruption sensitivity",
+      "caption": "Lines summarize synthetic retraining scenarios under each corruption level; bands are sample SD. Lower degradation is preferable, but must be interpreted alongside the absolute clean score. Clothing deliberately includes a text-noise failure case."
+    },
+    {
+      "stem": "06_cohorts_baby",
+      "title": "Baby: separate activity, popularity and cold-item views",
+      "caption": "User activity groups form a weighted partition. Item groups use conditional group metrics and need not sum to the overall score. The cold-item panel is a separate zero-training-interaction scenario, not a synonym for warm long-tail items."
+    },
+    {
+      "stem": "06_cohorts_sports",
+      "title": "Sports: separate activity, popularity and cold-item views",
+      "caption": "User activity groups form a weighted partition. Item groups use conditional group metrics and need not sum to the overall score. The cold-item panel is a separate zero-training-interaction scenario, not a synonym for warm long-tail items."
+    },
+    {
+      "stem": "06_cohorts_clothing",
+      "title": "Clothing: separate activity, popularity and cold-item views",
+      "caption": "User activity groups form a weighted partition. Item groups use conditional group metrics and need not sum to the overall score. The cold-item panel is a separate zero-training-interaction scenario, not a synonym for warm long-tail items."
+    },
+    {
+      "stem": "07_efficiency",
+      "title": "A modest gain can still carry a computational cost",
+      "caption": "Timing and memory values are hypothetical assumptions, not hardware measurements. The proposed model is not designed to win both accuracy and efficiency in this example. Parameter counts are fixed across runs; timing variation is not parameter variation."
+    },
+    {
+      "stem": "08_convergence",
+      "title": "Training trajectories need not improve monotonically",
+      "caption": "These are generated validation trajectories and objective traces, separate from the simulated holdout table. Bands show run SD; a lower training loss does not establish better generalization or faster convergence."
+    },
+    {
+      "stem": "09_interpretation",
+      "title": "Four kinds of evidence deserve four different conclusions",
+      "caption": "Intervals are paired t intervals from five generated run differences. A positive mean with an interval crossing zero is inconclusive; lack of significance is not proof of equivalence. The scenario names describe intended generating settings, not guaranteed statistical outcomes."
+    }
+  ]
+}

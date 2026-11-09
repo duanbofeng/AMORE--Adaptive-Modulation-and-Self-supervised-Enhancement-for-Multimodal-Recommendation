@@ -1,0 +1,7 @@
+provenance,dataset,metric,n,paired_delta,ci95_low,ci95_high,relative_percent
+synthetic_learning_example,Baby,recall@20,5,0.00065470248,0.0001000447236,0.001209360236,0.6361618095
+synthetic_learning_example,Baby,ndcg@20,5,0.00032394813,5.073101384e-05,0.0005971652462,0.7255866686
+synthetic_learning_example,Sports,recall@20,5,0.00024048766,-0.0005004209416,0.0009813962616,0.201223336
+synthetic_learning_example,Sports,ndcg@20,5,0.000120782502,-0.0001971091245,0.0004386741285,0.2294145061
+synthetic_learning_example,Clothing,recall@20,5,-1.332342e-06,-0.0006638567949,0.0006611921109,-0.001892297299
+synthetic_learning_example,Clothing,ndcg@20,5,-7.4325344e-05,-0.0004318062145,0.0002831555265,-0.2482338719
