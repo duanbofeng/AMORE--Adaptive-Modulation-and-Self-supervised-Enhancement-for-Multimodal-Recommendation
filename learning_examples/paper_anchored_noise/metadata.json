@@ -1,0 +1,133 @@
+{
+  "generator_seed": 261110,
+  "anchors": {
+    "Baby": {
+      "AMORE": [
+        0.0682,
+        0.104,
+        0.0366,
+        0.0455
+      ],
+      "MENTOR": [
+        0.0678,
+        0.1048,
+        0.0362,
+        0.045
+      ],
+      "DHMRec": [
+        0.0646,
+        0.1016,
+        0.0343,
+        0.0436
+      ]
+    },
+    "Sports": {
+      "AMORE": [
+        0.077,
+        0.1145,
+        0.0419,
+        0.0523
+      ],
+      "MENTOR": [
+        0.0763,
+        0.1139,
+        0.0409,
+        0.0511
+      ],
+      "DHMRec": [
+        0.0738,
+        0.1132,
+        0.0401,
+        0.0502
+      ]
+    },
+    "Clothing": {
+      "AMORE": [
+        0.0693,
+        0.101,
+        0.0372,
+        0.0453
+      ],
+      "MENTOR": [
+        0.0668,
+        0.0989,
+        0.036,
+        0.0441
+      ],
+      "DHMRec": [
+        0.0629,
+        0.0931,
+        0.034,
+        0.0417
+      ]
+    }
+  },
+  "anchor_metric_order": [
+    "recall@10",
+    "recall@20",
+    "ndcg@10",
+    "ndcg@20"
+  ],
+  "clean_sources": {
+    "AMORE": "papers/AMORE.docx, Table 2, AMORE (ours)",
+    "MENTOR": "papers/AMORE.docx, Table 2, MENTOR (2025)",
+    "DHMRec": "https://ojs.aaai.org/index.php/AAAI/article/download/38661/42623 ; Table 1, p.16249"
+  },
+  "assumed_recall20_drop_at_30_percent": {
+    "interaction": {
+      "Baby": [
+        15.7,
+        19.3,
+        17.6
+      ],
+      "Sports": [
+        13.9,
+        16.8,
+        15.1
+      ],
+      "Clothing": [
+        20.4,
+        24.7,
+        22.2
+      ]
+    },
+    "image": {
+      "Baby": [
+        9.6,
+        11.8,
+        8.3
+      ],
+      "Sports": [
+        8.1,
+        10.2,
+        7.5
+      ],
+      "Clothing": [
+        16.7,
+        18.4,
+        13.2
+      ]
+    },
+    "text": {
+      "Baby": [
+        16.1,
+        18.7,
+        17.4
+      ],
+      "Sports": [
+        13.8,
+        16.2,
+        15.7
+      ],
+      "Clothing": [
+        14.6,
+        13.8,
+        15.9
+      ]
+    }
+  },
+  "source_note": "Clean values are paper reports, not independently verified runs. All nonzero-noise points are synthetic.",
+  "generator_sha256": "ef094c09e76c7ef8d598ae1abcb564cd8e10769c5f62fa82bb190445a4d718eb",
+  "row_count": 135,
+  "verification": "clean anchors, bounds, metric ordering and drop calculations passed"
+}
