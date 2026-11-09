@@ -23,6 +23,28 @@ def stage_jobs(stage, datasets, seeds, lock=None):
         return [job(suite='revision_affinity')]
     if stage == 'losses':
         return [job(suite='revision_losses')]
+    if stage in ('loss-factorial', 'prune-followup'):
+        # Cross objectives with affinity; a loss-only study on rev_11 cannot
+        # identify whether affinity depends on auxiliary supervision.
+        conditions = {'full': {}}
+        if stage == 'loss-factorial':
+            no_cl = dict(bm_loss=0., bm_extended_loss=0., um_loss=0., noise_loss=0.)
+            conditions.update(no_moments={'vt_loss': 0.}, no_infonce=no_cl,
+                              no_alignment=dict(no_cl, vt_loss=0.))
+        else:
+            conditions.update(no_noise={'noise_loss': 0.},
+                              no_extended=dict(bm_extended_loss=0., um_loss=0., noise_loss=0., reg_weight_2=0.))
+        return [job(['rev_00', 'rev_11'], overrides=changes, label='followup_' + name)
+                for name, changes in conditions.items()]
+    if stage == 'stress-followup':
+        # One shared clean reference, followed by six fixed perturbations.
+        return [job(['rev_00', 'rev_11'], label='followup_full'),
+                job(['rev_00', 'rev_11'], sweep=['interaction_noise_rate=[0.1,0.2]'],
+                    label='followup_noise_interactions')] + [
+            job(['rev_00', 'rev_11'], overrides={'feature_corruption': 'shuffle', 'corruption_modality': modality,
+                                             'feature_corruption_seed': 314159},
+                sweep=['feature_corruption_rate=[0.1,0.2]'], label='followup_noise_' + modality)
+            for modality in ('image', 'text')]
     if stage == 'sensitivity':
         return [job(['rev_11'], sweep=[key + '=' + json.dumps(values)], label='sensitivity_' + key)
                 for key, values in {
@@ -70,7 +92,7 @@ def stage_jobs(stage, datasets, seeds, lock=None):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--stage', required=True, choices=['anchor', 'baselines', 'affinity', 'losses', 'sensitivity', 'robustness', 'cold', 'confirm', 'final', 'stress-final'])
+    p.add_argument('--stage', required=True, choices=['anchor', 'baselines', 'affinity', 'losses', 'sensitivity', 'robustness', 'cold', 'confirm', 'final', 'stress-final', 'loss-factorial', 'prune-followup', 'stress-followup'])
     p.add_argument('--datasets', nargs='+', default=['baby'])
     p.add_argument('--seeds', type=int, nargs='+', default=SEEDS)
     p.add_argument('--data-path', default='data')

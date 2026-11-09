@@ -1,5 +1,7 @@
 # AMORE 审稿修订：从这里开始
 
+**已完成第 1–3 节并同步 run_6：请先看 [run_6 结果与下一轮实验](AFTER_RUN6.md)。** 当前 Baby 五种子未支持亲和力稳定增益；新增检查点诊断、24 次交叉损失消融和后续噪声/剪枝实验。本阶段暂缓统一基线调参。
+
 本轮针对 **最初 AMORE**。代码来源是 `old_model/src/models/gume.py`；`old_model/src/models/amore.py` 只是入口包装。不要把新目录下的 `gume`、早期 `amore_base/global/local`、GUME-Ego/SG 或 AMOREX 当成原始 AMORE。
 
 当前材料是可执行的修稿方案和待实验回填的英文稿。**没有把未运行的实验写成结果，也不保证新开关提升效果。** 仅使用 Baby、Sports、Clothing。跨域证据仍缺失；EgoGCN、EVEN、MMSSL、DiffMM 的完整统一复现仍待补齐，不能将其写成已经完成。
